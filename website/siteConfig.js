@@ -7,6 +7,7 @@
 
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
+const path = require('path');
 
 // List of projects/orgs using your project for the users page.
 const users = [
@@ -21,6 +22,7 @@ const users = [
 ];
 
 const siteConfig = {
+  customDocsPath: path.basename(__dirname) + '/docs',
   title: 'The Chaos Programming Language', // Title for your website.
   tagline: 'Turn chaos into magic!',
   url: 'https://chaos-lang.org', // Your website URL
