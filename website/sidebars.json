@@ -1,0 +1,26 @@
+{
+  "docs": {
+    "Getting Started": [
+      "01_installation",
+      "02_hello-world"
+    ],
+    "Language Reference": [
+      "03_comments",
+      "04_primitive-data-types",
+      "05_arrays",
+      "06_dictionaries",
+      "07_immutability",
+      "08_operators",
+      "09_loops",
+      "10_functions",
+      "11_decision_making",
+      "12_modules",
+      "13_mathematical_expressions",
+      "14_keywords",
+      "15_extras"
+    ],
+    "Chaos C Extensions": [
+      "16_chaos_c_extensions_development"
+    ]
+  }
+}

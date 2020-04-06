@@ -1,0 +1,68 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+ 
+/* your custom css */
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
+
+.projectLogo {
+    display: contents !important;
+}
+
+
+.chaos-svg {
+    display: block;
+    margin-bottom: 15px;
+    height: 50vh;
+    margin: auto;
+}
+
+#chaos-path {
+    fill: #531a89;
+    stroke: #3d0d65;
+}
+
+#chaos-path {
+    stroke-width: 0;
+    animation: logo 9s linear infinite;
+}
+
+@keyframes logo {
+    0% {
+        stroke-width: 1pt;
+        stroke-dashoffset: 1200;
+        fill-opacity: 0;
+    }
+    33% {
+        fill-opacity: 0;
+    }
+    66% {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+        stroke-width: 0pt;
+        filter:url(#filter1115);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+        stroke-width: 0pt;
+        filter:url(#filter1115);
+    }
+}
