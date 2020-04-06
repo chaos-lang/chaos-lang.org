@@ -81,7 +81,7 @@ clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 
 ### Windows
 
-*For Windows, currently only `gcc` is the supported compiler:
+For Windows, currently only `gcc` is the supported compiler:
 
 ```
 gcc -shared -fPIC example.c -o example.o
