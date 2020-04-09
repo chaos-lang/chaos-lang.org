@@ -31,7 +31,7 @@ class HomeSplash extends React.Component {
 
     const Logo = props => (
       <div className="projectLogo">
-        <svg version="1.1" x="0px" y="0px" viewBox="175 300 400 200" className="chaos-svg">
+        <svg version="1.1" x="0px" y="0px" viewBox="280 300 200 200" className="chaos-svg">
 
         <filter xmlns="http://www.w3.org/2000/svg" y="-0.25" height="1.5" style={{colorInterpolationFilters: 'sRGB'}} id="filter1115">
       <feGaussianBlur stdDeviation="5" result="result6" id="feGaussianBlur1105"/>
@@ -108,7 +108,7 @@ class Index extends React.Component {
         className="productShowcaseSection paddingBottom"
         style={{textAlign: 'center'}}>
         <h2>Influenced by</h2>
-        <ul style={{textAlign: 'left', width: '30%', margin: 'auto'}}>
+        <ul style={{textAlign: 'left', width: '45%', margin: 'auto'}}>
           <li>TypeScript's type safety</li>
           <li>Python's syntax, modules and integrity</li>
           <li>JavaScript's availability</li>
