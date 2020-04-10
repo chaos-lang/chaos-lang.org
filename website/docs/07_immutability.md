@@ -12,119 +12,119 @@ live in a completely different memory region than the old(*right-hand*) variable
 Here are some examples of immutability on Chaos language:
 
 ```
-### bool a1 = true
-### bool b1 = false
-### b1 = a1
-### print b1
+kaos> bool a1 = true
+kaos> bool b1 = false
+kaos> b1 = a1
+kaos> print b1
 true
-### a1 = false
-### print b1
+kaos> a1 = false
+kaos> print b1
 true
 
-### num a2 = 3.5
-### num b2 = 7.1
-### b2 = a2
-### print b2
+kaos> num a2 = 3.5
+kaos> num b2 = 7.1
+kaos> b2 = a2
+kaos> print b2
 3.5
-### a2 = 1.2
-### print b2
+kaos> a2 = 1.2
+kaos> print b2
 3.5
 ```
 
 Immutability is also valid on new variable creation:
 
 ```
-### bool a3 = true
-### bool b3 = a3
-### print b3
+kaos> bool a3 = true
+kaos> bool b3 = a3
+kaos> print b3
 true
-### a3 = false
-### print b3
+kaos> a3 = false
+kaos> print b3
 true
 
-### str a4 = 'asdasda'
-### str b4 = a4
-### print b4
+kaos> str a4 = 'asdasda'
+kaos> str b4 = a4
+kaos> print b4
 asdasda
-### a4 = 'qwqweqwe'
-### print b4
+kaos> a4 = 'qwqweqwe'
+kaos> print b4
 asdasda
 ```
 
 Arrays and the elements of arrays are also immutable:
 
 ```
-### num x = 5
-### array y = [x, 2, 3]
-### print y
+kaos> num x = 5
+kaos> array y = [x, 2, 3]
+kaos> print y
 [5, 2, 3]
-### x = 32
-### print x
+kaos> x = 32
+kaos> print x
 32
-### print y
+kaos> print y
 [5, 2, 3]
 
-### list z = [1, 2, 3]
-### list t = z
-### print z
+kaos> list z = [1, 2, 3]
+kaos> list t = z
+kaos> print z
 [1, 2, 3]
-### print t
+kaos> print t
 [1, 2, 3]
-### z[0] = 5
-### print z
+kaos> z[0] = 5
+kaos> print z
 [5, 2, 3]
-### print t
+kaos> print t
 [1, 2, 3]
 
-### list y2 = [1, 2, 3]
-### num x2 = 5
-### y2[0] = x2
-### print x2
+kaos> list y2 = [1, 2, 3]
+kaos> num x2 = 5
+kaos> y2[0] = x2
+kaos> print x2
 5
-### print y2
+kaos> print y2
 [5, 2, 3]
-### x2 = 7
-### print x2
+kaos> x2 = 7
+kaos> print x2
 7
-### print y2
+kaos> print y2
 [5, 2, 3]
 ```
 
 Dictionaries and the values of dictionaries are also immutable:
 
 ```
-### num k = 5
-### dict q = {'a': k, 'b': 2, 'c': 3}
-### print q
+kaos> num k = 5
+kaos> dict q = {'a': k, 'b': 2, 'c': 3}
+kaos> print q
 {'a': 5, 'b': 2, 'c': 3}
-### k = 32
-### print k
+kaos> k = 32
+kaos> print k
 32
-### print q
+kaos> print q
 {'a': 5, 'b': 2, 'c': 3}
 
-### dict n = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
-### dict m = n
-### print n
+kaos> dict n = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
+kaos> dict m = n
+kaos> print n
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
-### print m
+kaos> print m
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
-### n['a'] = 'alt'
-### print n
+kaos> n['a'] = 'alt'
+kaos> print n
 {'a': 'alt', 'b': 'bar', 'c': 'baz'}
-### print m
+kaos> print m
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 
-### dict q2 = {'a': 1, 'b': 2, 'c': 3}
-### num k2 = 5
-### q2['a'] = k2
-### print k2
+kaos> dict q2 = {'a': 1, 'b': 2, 'c': 3}
+kaos> num k2 = 5
+kaos> q2['a'] = k2
+kaos> print k2
 5
-### print q2
+kaos> print q2
 {'b': 2, 'c': 3, 'a': 5}
-### k2 = 7
-### print k2
+kaos> k2 = 7
+kaos> print k2
 7
-### print q2
+kaos> print q2
 {'b': 2, 'c': 3, 'a': 5}
 ```

@@ -9,13 +9,13 @@ sidebar_label: Primitive Data Types
 There are two keywords for **Blooean** data type: `bool` or `boolean`
 
 ```
-### bool var1 = true
-### boolean var2 = false
-### var1 = false
-### var2 = true
-### print var1
+kaos> bool a = true
+kaos> boolean b = false
+kaos> a = false
+kaos> b = true
+kaos> print a
 false
-### print var2
+kaos> print b
 true
 ```
 
@@ -24,13 +24,13 @@ true
 There are two keywords for **Number** data type: `num` or `number`
 
 ```
-### num var5 = 5
-### var5 = 7
-### print var5
+kaos> num a = 5
+kaos> a = 7
+kaos> print a
 7
-### number var6 = 3.2
-### var6 = 5.4
-### print var6
+kaos> num b = 3.2
+kaos> b = 5.4
+kaos> print b
 5.4
 ```
 
@@ -39,13 +39,13 @@ There are two keywords for **Number** data type: `num` or `number`
 There are two keywords for **String** data type: `str` or `string`
 
 ```
-### str var7 = "string1"
-### var7 = 'string2'
-### print var7
+kaos> str a = "string1"
+kaos> a = 'string2'
+kaos> print a
 string2
-### string var8 = 'string3'
-### var8 = "string4"
-### print var8
+kaos> string b = 'string3'
+kaos> b = "string4"
+kaos> print b
 string4
 ```
 
@@ -54,18 +54,18 @@ string4
 There is a single keyword for **Any** data type: `any`
 
 ```
-### any var9 = true
-### var9 = 7
-### var9 = 'hello world'
-### print var9
+kaos> any a = true
+kaos> a = 7
+kaos> a = 'hello world'
+kaos> print a
 hello world
-### any a = 5
-### num b = 3
-### a = b
-### print a
+kaos> any b = 5
+kaos> num c = 3
+kaos> b = c
+kaos> print b
 3
-### num d = 27
-### any c = d
-### print c
+kaos> num d = 27
+kaos> any e = d
+kaos> print e
 27
 ```

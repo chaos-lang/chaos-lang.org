@@ -5,12 +5,12 @@ sidebar_label: Mathematical Expressions
 ---
 
 ```
-### 3 + 5
+kaos> 3 + 5
 8
-### 145 + 24.8
+kaos> 145 + 24.8
 169.8
-### 0.32 + 0.42
+kaos> 0.32 + 0.42
 0.74
-### (3 + 5) * 2
+kaos> (3 + 5) * 2
 16
 ```

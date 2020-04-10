@@ -12,19 +12,19 @@ $ chaos
     GCC version: 7.4.0 on linux
     Turn chaos into magic!
 
-### print "hello world"
+kaos> print "hello world"
 hello world
-###
+kaos>
 ```
 
 ### Program File as Command-line Argument
 
-**dev.kaos**:
+**hello.kaos**:
 ```
 print "hello world"
 ```
 
-and run `dev.kaos` with:
+and run `hello.kaos` with:
 
 ```
 $ chaos dev.kaos

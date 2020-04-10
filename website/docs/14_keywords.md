@@ -9,14 +9,14 @@ sidebar_label: Keywords
 To print a variable or a value to `stdout` simply use `print` keyword:
 
 ```
-### print 77
+kaos> print 77
 77
-### print "hello world"
+kaos> print "hello world"
 hello world
-### print 'hello world'
+kaos> print 'hello world'
 hello world
-### str hello = "world"
-### print hello
+kaos> str hello = "world"
+kaos> print hello
 world
 ```
 
@@ -33,7 +33,7 @@ del var2
 `exit` keyword terminates the program:
 
 ```
-### exit
+kaos> exit
 You have chosen the order!
 ```
 
@@ -42,7 +42,7 @@ You have chosen the order!
 `quit` alias of `exit`:
 
 ```
-### quit
+kaos> quit
 You have chosen the order!
 ```
 

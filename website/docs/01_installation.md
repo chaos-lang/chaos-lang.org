@@ -4,7 +4,7 @@ title: Installation
 sidebar_label: Installation
 ---
 
-For macOS you will need [Homebrew](https://brew.sh/) and for Windows [Chocolatey](https://chocolatey.org/).
+For macOS you will need [**Homebrew**](https://brew.sh/) and for Windows [**Chocolatey**](https://chocolatey.org/).
 For the majority of Linux distros, it will automatically detect your default package manager.
 
 Clone the repository:

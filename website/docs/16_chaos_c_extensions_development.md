@@ -8,8 +8,9 @@ Chaos C Extensions are the Chaos modules that written in C (to harness the capab
 which sits under the `spells` directory of your project root.
 They have either `.so` or `.dylib` or `.dll` file extensions. Depending on your operating system.
 
-In simple terms, a Chaos C Extension is a dynamic C library that exports some of its functions to be used
-as functions in Chaos Language. This is an example Chaos C Extension:
+In simple terms, a Chaos C Extension is a dynamic C library that includes
+[**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) header and exports some of its
+functions to be used as functions in Chaos Language. This is an example Chaos C Extension:
 
 **example.c:**
 
@@ -17,8 +18,9 @@ as functions in Chaos Language. This is an example Chaos C Extension:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
-#include "chaos.h"
+#include "Chaos.h"
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
 #define EXPORT __declspec(dllexport)
@@ -26,26 +28,47 @@ as functions in Chaos Language. This is an example Chaos C Extension:
 #define EXPORT
 #endif
 
+char *hello_params_name[] = {};
+unsigned hello_params_type[] = {};
+unsigned short hello_params_length = 0;
 int EXPORT Kaos_hello()
 {
     printf("Hello from example extension!\n");
     return 0;
 }
 
-int EXPORT KaosRegister(struct Kaos kaos)
+char *add_params_name[] = {
+    "x",
+    "y"
+};
+unsigned add_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short add_params_length = (unsigned short) sizeof(add_params_type) / sizeof(unsigned);
+int EXPORT Kaos_add()
 {
-    char *name = malloc(6);
-    strcpy(name, "hello");
-    kaos.startFunctionParameters();
-    kaos.startFunction(name, K_VOID);
-    kaos.endFunction();
+    long long x = kaos.getVariableInt(add_params_name[0]);
+    long long y = kaos.getVariableInt(add_params_name[1]);
+    long long z = x + y;
+    kaos.returnVariableInt(z);
+    return 0;
+}
+
+
+int EXPORT KaosRegister(struct Kaos _kaos)
+{
+    kaos = _kaos;
+    kaos.defineFunction("hello", K_VOID, hello_params_name, hello_params_type, hello_params_length);
+    kaos.defineFunction("add", K_NUMBER, add_params_name, add_params_type, add_params_length);
+
     return 0;
 }
 ```
 
 A Chaos C Extension minimally should have a function called `KaosRegister`
 and an exported function prefixed with `Kaos_`. The Chaos Interpreter calls `KaosRegister` function to register
-the exported function into interpreter's function table and also shares some of its function pointers with the
+the exported functions into interpreter's function table and also shares some of its function pointers with the
 extension with the purpose of being called by the extension on the registration or on some point where a function
 returns a variable.
 
@@ -92,9 +115,18 @@ gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
 Finally, you use this `example` Chaos C extension just like any other Chaos module:
 
 ```
-import example
-
-function_table // to see the loaded functions (optional)
-
-example.hello()
+kaos> import example
+kaos>
+kaos> function_table // to see the loaded functions (optional)
+[start] =>
+	{name: hello, type: 6, parameter_count: 0, decision_length: 0, context: __interactive__.kaos, module_context: spells/example.so, module: example} =>
+	{name: add, type: 1, parameter_count: 2, decision_length: 0, context: __interactive__.kaos, module_context: spells/example.so, module: example} =>
+[end]
+kaos>
+kaos> example.hello()
+Hello from example extension!
+kaos> print example.add(3, 5)
+8
 ```
+
+The details of [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) can be found in [**the API Reference**](api.md).
