@@ -21,17 +21,17 @@ function Help(props) {
 
   const supportLinks = [
     {
-      content: `Learn more using the [documentation on this site.](${docUrl(
+      content: `Learn more using the [**documentation on this site**](${docUrl(
         '01_installation',
-      )})`,
+      )}).`,
       title: 'Browse Docs',
     },
     {
-      content: 'Ask questions about the documentation and project',
+      content: 'Ask questions or report bugs using the [**issue tracker**](https://github.com/chaos-lang/chaos/issues).',
       title: 'Join the community',
     },
     {
-      content: "Find out what's new with this project",
+      content: "Find out what's new with this project, read our [**blog**](/blog).",
       title: 'Stay up to date',
     },
   ];
