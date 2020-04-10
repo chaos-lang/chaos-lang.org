@@ -20,7 +20,8 @@
       "15_extras"
     ],
     "Chaos C Extensions": [
-      "16_chaos_c_extensions_development"
+      "16_chaos_c_extensions_development",
+      "api"
     ]
   }
 }

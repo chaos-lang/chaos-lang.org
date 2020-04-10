@@ -8,7 +8,7 @@ Chaos C Extensions are the Chaos modules that written in C (to harness the capab
 which sits under the `spells` directory of your project root.
 They have either `.so` or `.dylib` or `.dll` file extensions. Depending on your operating system.
 
-In simple terms, a Chaos C Extension is a dynamic C library that includes
+In its essence, a Chaos C Extension is a dynamic C library that includes
 [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) header and exports some of its
 functions to be used as functions in Chaos Language. This is an example Chaos C Extension:
 
@@ -129,4 +129,4 @@ kaos> print example.add(3, 5)
 8
 ```
 
-The details of [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) can be found in [**the API Reference**](api.md).
+Details of [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) can be found in the [**API Reference**](api.md).
