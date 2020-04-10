@@ -84,6 +84,8 @@ or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nat
 
 and `K_VOID` means [**Void**](10_functions) data type.
 
+*`K_` prefix can remind you **K**aos.*
+
 ## ValueType
 
 `enum ValueType { V_BOOL, V_INT, V_FLOAT, V_STRING, V_VOID };`
@@ -99,6 +101,8 @@ and `K_VOID` means [**Void**](10_functions) data type.
 `V_STRING` means `char*`
 
 and `V_VOID` has a special meaning. It means an [**Array**](05_arrays) or a [**Dictionary**](06_dictionaries) can store any of the other four data types.
+
+*`V_` prefix can remind you **V**alue.*
 
 ## Role
 
@@ -152,7 +156,7 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 
 **char \*name** : The function's name. If your function is `int EXPORT Kaos_add()` then the name is `add`.
 
-**enum Type type** : The function's return data type. If your function will not return anything it's `K_VOID`, otherwise one of these it's `{ K_BOOL, K_NUMBER, K_STRING, K_ANY, K_ARRAY, K_DICT }`
+**enum Type type** : The function's return data type. If your function will not return anything it's `K_VOID`, otherwise it's one of these `{ K_BOOL, K_NUMBER, K_STRING, K_ANY, K_ARRAY, K_DICT }`
 
 **char \*params_name[]** : The parameter names list. If your param list is `char *add_params_name[] = { "x", "y" };` variables named `x` and `y` will be available to use inside your function.
 
@@ -354,12 +358,104 @@ kaos.createVariableBool("b", true);
 
 `void createVariableInt(char *name, long long i);`
 
-Creates a variable with `K_BOOL` type and `V_BOOL` value type. Example:
+Creates a variable with `K_NUMBER` type and `V_INT` value type. Example:
 
 *It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
 ```
-kaos.createVariableBool("b", true);
+kaos.createVariableInt("i", 1);
 ```
+
+## void createVariableFloat()
+
+`void createVariableFloat(char *name, long double f);`
+
+Creates a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
+
+*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+
+**char \*name** : is the key if it's a dictionary element.
+
+```
+kaos.createVariableFloat("f", 3.14);
+```
+
+## void createVariableString()
+
+`void createVariableString(char *name, char *s);`
+
+Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
+
+*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+
+**char \*name** : is the key if it's a dictionary element.
+
+```
+kaos.createVariableString("s", "bar");
+```
+
+## void startBuildingArray()
+
+`void startBuildingArray();`
+
+Starts building an array for the return. Example:
+
+```
+kaos.startBuildingArray();
+kaos.createVariableInt(NULL, 1);
+kaos.createVariableInt(NULL, 2);
+kaos.createVariableInt(NULL, 3);
+kaos.returnArray(K_NUMBER);
+```
+
+## void returnArray()
+
+`void returnArray(enum Type type);`
+
+Returns the array. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed array. Example:
+
+```
+kaos.startBuildingArray();
+kaos.createVariableInt(NULL, 1);
+kaos.createVariableInt(NULL, 2);
+kaos.createVariableInt(NULL, 3);
+kaos.returnArray(K_NUMBER);
+```
+
+## void startBuildingDict()
+
+`void startBuildingDict();`
+
+Starts building a dictionary for the return. Example:
+
+```
+kaos.startBuildingDict();
+kaos.createVariableBool("b", true);
+kaos.createVariableInt("i", 1);
+kaos.createVariableFloat("f", 3.14);
+kaos.createVariableString("s", "bar");
+kaos.returnDict(K_ANY);
+```
+
+## void returnDict()
+
+`void returnDict(enum Type type);`
+
+Returns the dictionary. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed dictionary. Example:
+
+```
+kaos.startBuildingDict();
+kaos.createVariableBool("b", true);
+kaos.createVariableInt("i", 1);
+kaos.createVariableFloat("f", 3.14);
+kaos.createVariableString("s", "bar");
+kaos.returnDict(K_ANY);
+```
+
+## void returnComplex()
+
+`void returnComplex(enum Type type);`
+
+This function can be used instead of [**returnArray()**](api.md#void-returnarray) or [**returnDict()**](api.md#void-returndict).
