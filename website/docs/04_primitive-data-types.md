@@ -6,7 +6,7 @@ sidebar_label: Primitive Data Types
 
 ### Boolean
 
-There are two keywords for **Blooean** data type: `bool` or `boolean`
+There are two keywords for **Boolean** data type: `bool` or `boolean`
 
 ```
 kaos> bool a = true
