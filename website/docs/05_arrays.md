@@ -6,7 +6,7 @@ sidebar_label: Arrays
 
 There are two keywords for **Array** data type: `list` or `array`
 
-```
+```text
 kaos> array a = [1, 2, 3]
 kaos> print a
 [1, 2, 3]
@@ -29,7 +29,7 @@ kaos> print f
 
 Multi-line array definition:
 
-```
+```text
 kaos> array a = [
     'foo',
     'bar',
@@ -39,7 +39,7 @@ kaos> array a = [
 
 Accessing array elements:
 
-```
+```text
 kaos> list d = ['a', 'b', 'c']
 kaos> print d[2]
 c
@@ -57,7 +57,7 @@ a
 
 Updating array elements:
 
-```
+```text
 kaos> list a = [1, 2, 3]
 kaos> a[0] = 5
 kaos> print a
@@ -66,7 +66,7 @@ kaos> print a
 
 Deleting array elements:
 
-```
+```text
 kaos> list g = [1, 2, 3, 4, 5]
 kaos> print g
 [1, 2, 3, 4, 5]
@@ -80,7 +80,7 @@ kaos> print g
 It's possible to create typed arrays in Chaos language
 by prefixing `list` or `array` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
 
-```
+```text
 kaos> bool list arr1 = [true, false, true]
 kaos> print arr1
 [true, false, true]

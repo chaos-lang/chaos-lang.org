@@ -8,7 +8,7 @@ sidebar_label: Functions
 
 There are three keywords for declaring functions: `func`, `function` and `def`
 
-```
+```text
 kaos> void func f1()
 ....      print "hello world"
 ....  end
@@ -20,7 +20,7 @@ hello world
 
 There is no need for forward declaring functions because Chaos interpreter looks ahead:
 
-```
+```text
 void func a()
     print "inside function a"
     num val1 = 5
@@ -41,7 +41,7 @@ end
 
 Gives you this output:
 
-```
+```text
 first print this
 inside function a
 5
@@ -56,7 +56,7 @@ determine the return type: `bool`, `boolean`, `num`, `number`, `str`, `string`, 
 
 If you try to return an incorrect data type from a function an error will be thrown:
 
-```
+```text
 kaos> str def errorTest()
 ....      num a = 32
 ....      return a
@@ -75,7 +75,7 @@ kaos>
 The parameters supplied to a function in Chaos Language, will be deep cloned hence
 changina a parameter's value inside a function never updates the original variable:
 
-```
+```text
 kaos> str hello = 'hello world'
 kaos>
 kaos> nil def f1(str param1)
@@ -93,7 +93,7 @@ hello world
 
 #### Print a Dictionary with a Title
 
-```
+```text
 kaos> dict d = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos>
 kaos> dict func f2(str param1, json param2)
@@ -108,7 +108,7 @@ Dictionary:
 
 #### Add Two Numbers Together
 
-```
+```text
 kaos> num def add(num x, num y)
 ....      num result = x + y
 ....      return result

@@ -6,7 +6,7 @@ sidebar_label: Dictionaries
 
 There are two keywords for **Dictionary** data type: `json` or `dict`
 
-```
+```text
 kaos> dict a = {'a': 1, 'b': 2}
 kaos> print a
 {'a': 1, 'b': 2}
@@ -23,7 +23,7 @@ kaos> print d
 
 Multi-line dictionary definition:
 
-```
+```text
 kaos> dict a = {
     'a': 1,
     'b': 2,
@@ -33,7 +33,7 @@ kaos> dict a = {
 
 Accessing dictonary elements:
 
-```
+```text
 kaos> dict a = {'a': 1, 'b': 2, 'c': 3}
 kaos> print a['a']
 1
@@ -43,7 +43,7 @@ kaos> print a["b"]
 
 Updating dictonary values:
 
-```
+```text
 kaos> dict a = {'a': 1, 'b': 2, 'c': 3}
 kaos> a['a'] = 5
 kaos> print a
@@ -52,7 +52,7 @@ kaos> print a
 
 Deleting dictionary keys:
 
-```
+```text
 kaos> json d = {"a": 1, "b": 2, "c": 3}
 kaos> print d
 {'a': 1, 'b': 2, 'c': 3}
@@ -66,7 +66,7 @@ kaos> print d
 It's possible to create typed dictionaries in Chaos language
 by prefixing `json` or `dict` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
 
-```
+```text
 kaos> bool dict dict1 = {'a': true, 'b': false}
 kaos> print dict1
 {'a': true, 'b': false}

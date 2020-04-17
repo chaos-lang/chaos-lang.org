@@ -4,7 +4,7 @@ title: Mathematical Expressions
 sidebar_label: Mathematical Expressions
 ---
 
-```
+```text
 kaos> 3 + 5
 8
 kaos> 145 + 24.8

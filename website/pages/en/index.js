@@ -76,6 +76,7 @@ class HomeSplash extends React.Component {
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
             <Button href="#try">Try It Out</Button>
+            <Button href="https://occultist.io/">Occultist</Button>
             <Button href="https://github.com/chaos-lang/chaos">GitHub</Button>
             <Button href={docUrl('01_installation')}>Get Started</Button>
           </PromoSection>

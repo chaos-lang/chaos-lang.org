@@ -11,7 +11,7 @@ live in a completely different memory region than the old(*right-hand*) variable
 
 Here are some examples of immutability on Chaos language:
 
-```
+```text
 kaos> bool a1 = true
 kaos> bool b1 = false
 kaos> b1 = a1
@@ -33,7 +33,7 @@ kaos> print b2
 
 Immutability is also valid on new variable creation:
 
-```
+```text
 kaos> bool a3 = true
 kaos> bool b3 = a3
 kaos> print b3
@@ -53,7 +53,7 @@ asdasda
 
 Arrays and the elements of arrays are also immutable:
 
-```
+```text
 kaos> num x = 5
 kaos> array y = [x, 2, 3]
 kaos> print y
@@ -92,7 +92,7 @@ kaos> print y2
 
 Dictionaries and the values of dictionaries are also immutable:
 
-```
+```text
 kaos> num k = 5
 kaos> dict q = {'a': k, 'b': 2, 'c': 3}
 kaos> print q

@@ -8,7 +8,7 @@ sidebar_label: Keywords
 
 To print a variable or a value to `stdout` simply use `print` keyword:
 
-```
+```text
 kaos> print 77
 77
 kaos> print "hello world"
@@ -24,7 +24,7 @@ world
 
 `del` keyword deallocates the memory region that previously allocated for the given variable:
 
-```
+```text
 del var2
 ```
 
@@ -32,7 +32,7 @@ del var2
 
 `exit` keyword terminates the program:
 
-```
+```text
 kaos> exit
 You have chosen the order!
 ```
@@ -41,7 +41,7 @@ You have chosen the order!
 
 `quit` alias of `exit`:
 
-```
+```text
 kaos> quit
 You have chosen the order!
 ```
@@ -51,7 +51,7 @@ You have chosen the order!
 `symbol_table` command shows all of the variables currently being tracked by Symbol Table.
 This keyword is only useful for the developers of language's itself:
 
-```
+```text
 [start] =>
 	{name: (null), 2nd_name: param1, key: (null), scope: N/A, type: 0, 2nd_type: 0, value_type: 4, role: 1, param_of: f1} =>
 	{name: (null), 2nd_name: param2, key: (null), scope: N/A, type: 1, 2nd_type: 0, value_type: 4, role: 1, param_of: f1} =>
@@ -66,7 +66,7 @@ This keyword is only useful for the developers of language's itself:
 `function_table` command shows all of the functions currently parsed and stored in Function Table.
 This keyword is only useful for the developers of language's itself:
 
-```
+```text
 [start] =>
 	{name: a, type: 6, parameter_count: 0, decision_length: 0, context: tests/function.kaos, module: } =>
 	{name: b, type: 6, parameter_count: 0, decision_length: 0, context: tests/function.kaos, module: } =>

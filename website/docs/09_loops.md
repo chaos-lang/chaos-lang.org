@@ -10,7 +10,7 @@ All loops ends with `end` keyword in Chaos Language.
 
 Syntax for starting an **N times do** loop is: `<NUMBER> times do`
 
-```
+```text
 kaos> str a = 'hello world'
 kaos> 3 times do
 ....      print a
@@ -24,7 +24,7 @@ hello world
 
 Syntax for starting a **foreach as** loop on **arrays** is: `foreach <ARRAY> as <VALUE>`
 
-```
+```text
 kaos> list a = [1, 2, 3]
 kaos> foreach a as el
 ....      print el
@@ -43,7 +43,7 @@ kaos> print a
 
 Syntax for starting a **foreach as** loop on **dictionaries** is: `foreach <DICT> as <KEY> : <VAL>`
 
-```
+```text
 kaos> dict n = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos> foreach n as key : val
 ....      print key
@@ -61,7 +61,7 @@ baz
 
 It's also possible to create nested loops in Chaos Language:
 
-```
+```text
 kaos> list a = [1, 2, 3]
 kaos> num b = 32
 kaos> foreach a as el

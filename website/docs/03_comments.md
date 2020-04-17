@@ -8,7 +8,7 @@ sidebar_label: Comments
 
 Commented out lines starts with either `//` or `#`:
 
-```
+```text
 kaos> // This is a comment
 kaos> # This is a comment too
 kaos> print "But this is not" // End of Line(EOL) comment
