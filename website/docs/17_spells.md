@@ -167,7 +167,7 @@ occultist install example
 
 ### Can my spell depend on other spells?
 
-Yes. You can specifiy dependencies in your `occultist.json` file like this:
+If it's not a Chaos C extension then the answer is yes. You can specifiy dependencies in your `occultist.json` file like this:
 
 ```text
 {

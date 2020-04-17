@@ -126,7 +126,7 @@ and `CALL_PARAM` means it's a function call parameter.
 This is the function to register a function from your Chaos C extension to the interpreter and it's meant to put inside the `KaosRegister` function.
 It takes 5 parameters. Here is a complete example for the usages of `defineFunction`:
 
-```
+```c
 char *add_params_name[] = {
     "x",
     "y"
@@ -170,7 +170,7 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 
 Get a `V_BOOL` value type variable. Example:
 
-```
+```c
 bool x = kaos.getVariableBool(my_params_name[0]);
 ```
 
@@ -180,7 +180,7 @@ bool x = kaos.getVariableBool(my_params_name[0]);
 
 Get a variable with `V_INT` value type. Example:
 
-```
+```c
 long long x = kaos.getVariableInt(my_params_name[0]);
 ```
 
@@ -190,7 +190,7 @@ long long x = kaos.getVariableInt(my_params_name[0]);
 
 Get a variable with `V_FLOAT` value type. Example:
 
-```
+```c
 long double x = kaos.getVariableFloat(my_params_name[0]);
 ```
 
@@ -200,7 +200,7 @@ long double x = kaos.getVariableFloat(my_params_name[0]);
 
 Get a variable with `V_STRING` value type. Example:
 
-```
+```c
 char* x = kaos.getVariableString(my_params_name[0]);
 ```
 
@@ -212,7 +212,7 @@ Get an array element with `V_BOOL` value type. Example:
 
 **long long i** : is the index of the element.
 
-```
+```c
 bool x = kaos.getArrayElementBool(my_params_name[0], 0);
 ```
 
@@ -224,7 +224,7 @@ Get an array element with `V_INT` value type. Example:
 
 **long long i** : is the index of the element.
 
-```
+```c
 long long x = kaos.getArrayElementInt(my_params_name[0], 0);
 ```
 
@@ -236,7 +236,7 @@ Get an array element with `V_FLOAT` value type. Example:
 
 **long long i** : is the index of the element.
 
-```
+```c
 long double x = kaos.getArrayElementFloat(my_params_name[0], 0);
 ```
 
@@ -248,7 +248,7 @@ Get an array element with `V_STRING` value type. Example:
 
 **long long i** : is the index of the element.
 
-```
+```c
 char* x = kaos.getArrayElementString(my_params_name[0], 0);
 ```
 
@@ -260,7 +260,7 @@ Get a dictionary element with `V_BOOL` value type. Example:
 
 **char \*key** : is the key of the element.
 
-```
+```c
 bool x = kaos.getDictElementBool(my_params_name[0], "a");
 ```
 
@@ -272,7 +272,7 @@ Get a dictionary element with `V_INT` value type. Example:
 
 **char \*key** : is the key of the element.
 
-```
+```c
 long long x = kaos.getDictElementInt(my_params_name[0], "a");
 ```
 
@@ -284,7 +284,7 @@ Get a dictionary element with `V_FLOAT` value type. Example:
 
 **char \*key** : is the key of the element.
 
-```
+```c
 long double x = kaos.getDictElementFloat(my_params_name[0], "a");
 ```
 
@@ -296,7 +296,7 @@ Get a dictionary element with `V_STRING` value type. Example:
 
 **char \*key** : is the key of the element.
 
-```
+```c
 char* x = kaos.getDictElementString(my_params_name[0], "a");
 ```
 
@@ -306,7 +306,7 @@ char* x = kaos.getDictElementString(my_params_name[0], "a");
 
 Return a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 
-```
+```c
 kaos.returnVariableBool(true);
 ```
 
@@ -316,7 +316,7 @@ kaos.returnVariableBool(true);
 
 Return a variable with `K_NUMBER` type and `V_INT` value type. Example:
 
-```
+```c
 kaos.returnVariableInt(365);
 ```
 
@@ -326,7 +326,7 @@ kaos.returnVariableInt(365);
 
 Return a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 
-```
+```c
 kaos.returnVariableFloat(3.14);
 ```
 
@@ -336,7 +336,7 @@ kaos.returnVariableFloat(3.14);
 
 Return a variable with `K_STRING` type and `V_STRING` value type. Example:
 
-```
+```c
 kaos.returnVariableString("foo");
 ```
 
@@ -350,7 +350,7 @@ Creates a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 
 **char \*name** : is the key if it's a dictionary element.
 
-```
+```c
 kaos.createVariableBool("b", true);
 ```
 
@@ -364,7 +364,7 @@ Creates a variable with `K_NUMBER` type and `V_INT` value type. Example:
 
 **char \*name** : is the key if it's a dictionary element.
 
-```
+```c
 kaos.createVariableInt("i", 1);
 ```
 
@@ -378,7 +378,7 @@ Creates a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 
 **char \*name** : is the key if it's a dictionary element.
 
-```
+```c
 kaos.createVariableFloat("f", 3.14);
 ```
 
@@ -392,7 +392,7 @@ Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
 
 **char \*name** : is the key if it's a dictionary element.
 
-```
+```c
 kaos.createVariableString("s", "bar");
 ```
 
@@ -402,7 +402,7 @@ kaos.createVariableString("s", "bar");
 
 Starts building an array for the return. Example:
 
-```
+```c
 kaos.startBuildingArray();
 kaos.createVariableInt(NULL, 1);
 kaos.createVariableInt(NULL, 2);
@@ -416,7 +416,7 @@ kaos.returnArray(K_NUMBER);
 
 Returns the array. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed array. Example:
 
-```
+```c
 kaos.startBuildingArray();
 kaos.createVariableInt(NULL, 1);
 kaos.createVariableInt(NULL, 2);
@@ -430,7 +430,7 @@ kaos.returnArray(K_NUMBER);
 
 Starts building a dictionary for the return. Example:
 
-```
+```c
 kaos.startBuildingDict();
 kaos.createVariableBool("b", true);
 kaos.createVariableInt("i", 1);
@@ -445,7 +445,7 @@ kaos.returnDict(K_ANY);
 
 Returns the dictionary. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed dictionary. Example:
 
-```
+```c
 kaos.startBuildingDict();
 kaos.createVariableBool("b", true);
 kaos.createVariableInt("i", 1);
