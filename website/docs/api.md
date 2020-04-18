@@ -6,7 +6,7 @@ sidebar_label: API Reference
 
 Welcome to the API Reference of Chaos language!
 
-In this page we will describe the accesable macros and functions via
+In this page we will describe the accessible macros and functions via
 [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) header that can be useful while developing
 C extensions for the language.
 
