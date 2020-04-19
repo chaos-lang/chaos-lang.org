@@ -107,6 +107,9 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/chaos-lang/chaos',
+
+  // Google Analytics tracking ID
+  gaTrackingId: 'UA-164030868-1',
 };
 
 module.exports = siteConfig;
