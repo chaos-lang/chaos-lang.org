@@ -20,6 +20,32 @@ hello world
 hello world
 ```
 
+You can also use a [**number**](04_primitive-data-types.md#number) type variable to specify the iteration count:
+
+```text
+kaos> num n = 5
+kaos> n times do
+....      print a
+....  end
+hello world
+hello world
+hello world
+hello world
+hello world
+```
+
+If you need an infinite loop you can use `INFINITE` keyword:
+
+```text
+kaos> INFINITE times do
+....      print a
+....  end
+hello world
+hello world
+hello world
+    &#129095; Prints out until you press Ctrl+C
+```
+
 ### foreach as
 
 Syntax for starting a **foreach as** loop on **arrays** is: `foreach <ARRAY> as <VALUE>`
@@ -79,4 +105,33 @@ kaos> foreach a as el
 3
 32
 32
+```
+
+a more complex example with nested data structures:
+
+```text
+kaos> dict a = {'C': [{'h': 'a', 'o': 's'}, {' ': 'L', 'a': 'n'}], 'g': [{'u': 'a', 'g': 'e'}]}
+kaos> foreach a as key1 : val1
+....      print key1
+....      foreach val1 as i
+....          foreach i as key2 : val2
+....              print key2
+....              print val2
+....          end
+....      end
+....  end
+C
+h
+a
+o
+s
+ 
+L
+a
+n
+g
+u
+a
+g
+e
 ```

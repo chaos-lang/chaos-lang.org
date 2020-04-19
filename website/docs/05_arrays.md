@@ -81,13 +81,90 @@ It's possible to create typed arrays in Chaos language
 by prefixing `list` or `array` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
 
 ```text
-kaos> bool list arr1 = [true, false, true]
-kaos> print arr1
+kaos> bool list a = [true, false, true]
+kaos> print a
 [true, false, true]
-kaos> number list arr2 = [1, 2, 63.3, 12321.1515]
-kaos> print arr2
+kaos> number list b = [1, 2, 63.3, 12321.1515]
+kaos> print b
 [1, 2, 63.3, 12321.2]
-kaos> string array arr3 = ['A', "asdasdaqs", 'asdasd123123', "."]
-kaos> print arr3
+kaos> string array c = ['A', "asdasdaqs", 'asdasd123123', "."]
+kaos> print c
 ['A', 'asdasdaqs', 'asdasd123123', '.']
+```
+
+### Multidimensional Arrays
+
+Multidimensional arrays are quite simple and flexible in Chaos language. You can put any data type combination you want
+with almost infinite nested level:
+
+```text
+kaos> list foo = [
+....      [1, 2],
+....      [3, 4],
+....      [5, 6]
+....  ]
+kaos> print foo
+[[1, 2], [3, 4], [5, 6]]
+kaos> list bar = [
+....      {'a': 1, 'b': 2},
+....      {'c': 3, 'd': 4},
+....      {'e': 5, 'f': 6}
+....  ]
+kaos> print bar
+[{'a': 1, 'b': 2}, {'c': 3, 'd': 4}, {'e': 5, 'f': 6}]
+kaos> list baz = [
+....      {
+....          'a': [1, 2],
+....          'b': [3, 4]
+....      },
+....      {
+....          'c': [5, 6],
+....          'd': [7, 8]
+....      },
+....      {
+....          'e': [9, 10],
+....          'f': [11, 12]
+....      }
+....  ]
+kaos> print baz
+[{'a': [1, 2], 'b': [3, 4]}, {'c': [5, 6], 'd': [7, 8]}, {'e': [9, 10], 'f': [11, 12]}]
+```
+
+Accessing the elements of multidimensional arrays:
+
+```text
+kaos> print foo[2][0]
+5
+kaos> print bar[1]['d']
+4
+kaos> print baz[2]['e'][0]
+9
+```
+
+Updating the elements of multidimensional arrays:
+
+```text
+kaos> foo[1][0] = 7
+kaos> print foo
+[[1, 2], [7, 4], [5, 6]]
+kaos> bar[2]['f'] = 0
+kaos> print bar
+[{'a': 1, 'b': 2}, {'c': 3, 'd': 4}, {'e': 5, 'f': 0}]
+kaos> baz[0]['a'][1] = 2019
+kaos> print baz
+[{'a': [1, 2019], 'b': [3, 4]}, {'c': [5, 6], 'd': [7, 8]}, {'e': [9, 10], 'f': [11, 12]}]
+```
+
+Deleting the elements of multidimensional arrays:
+
+```text
+kaos> del foo[2][1]
+kaos> print foo
+[[1, 2], [7, 4], [5]]
+kaos> del bar[1]['c']
+kaos> print bar
+[{'a': 1, 'b': 2}, {'d': 4}, {'e': 5, 'f': 0}]
+kaos> del baz[1]['d'][0]
+kaos> print baz
+[{'a': [1, 2019], 'b': [3, 4]}, {'c': [5, 6], 'd': [8]}, {'e': [9, 10], 'f': [11, 12]}]
 ```

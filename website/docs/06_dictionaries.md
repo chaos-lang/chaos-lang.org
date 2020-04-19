@@ -77,3 +77,80 @@ kaos> string json dict3 = {'a': 'A', 'b': "asdasdaqs", 'c': 'asdasd123123', 'd':
 kaos> print dict3
 {'a': 'A', 'b': 'asdasdaqs', 'c': 'asdasd123123', 'd': '.'}
 ```
+
+### Nested Dictionaries
+
+Nested Dictionaries are quite simple and flexible in Chaos language. You can put any data type combination you want
+with almost infinite nested level:
+
+```text
+kaos> dict foo = {
+....      'a': {'a': 1, 'b': 2},
+....      'b': {'c': 3, 'd': 4},
+....      'c': {'e': 5, 'f': 6}
+....  }
+kaos> print foo
+{'a': {'a': 1, 'b': 2}, 'b': {'c': 3, 'd': 4}, 'c': {'e': 5, 'f': 6}}
+kaos> dict bar = {
+....      'a': [1, 2],
+....      'b': [3, 4],
+....      'c': [5, 6]
+....  }
+kaos> print bar
+{'a': [1, 2], 'b': [3, 4], 'c': [5, 6]}
+kaos> dict baz = {
+....      'a': [
+....          {'a': 1, 'b': 2},
+....          {'c': 3, 'd': 4}
+....      ],
+....      'b': [
+....          {'e': 5, 'f': 6},
+....          {'g': 7, 'h': 8}
+....      ],
+....      'c': [
+....          {'x': 9, 'y': 10},
+....          {'t': 11, 'v': 12}
+....      ]
+....  }
+kaos> print baz
+{'a': [{'a': 1, 'b': 2}, {'c': 3, 'd': 4}], 'b': [{'e': 5, 'f': 6}, {'g': 7, 'h': 8}], 'c': [{'x': 9, 'y': 10}, {'t': 11, 'v': 12}]}
+```
+
+Accessing the elements of nested dictionaries:
+
+```text
+kaos> print foo['c']['e']
+5
+kaos> print bar['b'][1]
+4
+kaos> print baz['c'][0]['x']
+9
+```
+
+Updating the elements of nested dictionaries:
+
+```text
+kaos> foo['b']['c'] = 7
+kaos> print foo
+{'a': {'a': 1, 'b': 2}, 'b': {'c': 7, 'd': 4}, 'c': {'e': 5, 'f': 6}}
+kaos> bar['c'][1] = 0
+kaos> print bar
+{'a': [1, 2], 'b': [3, 4], 'c': [5, 0]}
+kaos> baz['a'][0]['b'] = 2019
+kaos> print bar
+{'a': [1, 2], 'b': [3, 4], 'c': [5, 0]}
+```
+
+Deleting the elements of nested dictionaries:
+
+```text
+kaos> del foo['c']['f']
+kaos> print foo
+{'a': {'a': 1, 'b': 2}, 'b': {'c': 7, 'd': 4}, 'c': {'e': 5}}
+kaos> del bar['b'][0]
+kaos> print bar
+{'a': [1, 2], 'b': [4], 'c': [5, 0]}
+kaos> del baz['b'][1]['g']
+kaos> print baz
+{'a': [{'a': 1, 'b': 2019}, {'c': 3, 'd': 4}], 'b': [{'e': 5, 'f': 6}, {'h': 8}], 'c': [{'x': 9, 'y': 10}, {'t': 11, 'v': 12}]}
+```
