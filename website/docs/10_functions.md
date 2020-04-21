@@ -9,10 +9,10 @@ sidebar_label: Functions
 There are three keywords for declaring functions: `func`, `function` and `def`
 
 ```text
-kaos> void func f1()
+kaos> void func hello_world()
 ....      print "hello world"
 ....  end
-kaos> f1()
+kaos> hello_world()
 hello world
 ```
 

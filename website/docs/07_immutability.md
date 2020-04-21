@@ -140,3 +140,20 @@ kaos> print k
 kaos> print q
 {'b': 2, 'c': 3, 'a': 5}
 ```
+
+Function call parameters are also immutable:
+
+```text
+kaos> num def alter_variable(num x)
+....      x = 5
+....      return x
+....  end
+kaos>
+kaos> num a = 3
+kaos> a
+3
+kaos> alter_variable(a)
+5
+kaos> a
+3
+```

@@ -13,6 +13,19 @@ If you have [**Occultist**](https://occultist.io/) dependency manager installed,
 occultist install chaos
 ```
 
+or install a specific version:
+
+```bash
+occultist install chaos 0.0.1-alpha
+```
+
+and check the version with:
+
+```bash
+$ chaos --version
+0.0.1-alpha
+```
+
 otherwise;
 
 Clone the repository:
@@ -37,4 +50,18 @@ Install the `chaos` binary system-wide:
 
 ```bash
 make install
+```
+
+### Uninstallation
+
+You can easily uninstall the `chaos` binary and its C headers with:
+
+```bash
+make uninstall
+```
+
+or if you have [**Occultist**](https://occultist.io/):
+
+```bash
+occultist remove chaos
 ```

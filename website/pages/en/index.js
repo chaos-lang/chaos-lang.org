@@ -75,7 +75,6 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
             <Button href="https://occultist.io/">Occultist</Button>
             <Button href="https://github.com/chaos-lang/chaos">GitHub</Button>
             <Button href={docUrl('01_installation')}>Get Started</Button>
@@ -111,7 +110,7 @@ class Index extends React.Component {
         <h2>Influenced by</h2>
         <ul style={{textAlign: 'left', width: '45%', margin: 'auto'}}>
           <li>TypeScript's type safety</li>
-          <li>Python's syntax, modules and integrity</li>
+          <li>Python's syntax, modules and extensibility</li>
           <li>JavaScript's availability</li>
           <li>Ruby's loops and blocks</li>
           <li>PHP's dedication to server-side</li>

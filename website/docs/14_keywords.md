@@ -4,22 +4,6 @@ title: Keywords
 sidebar_label: Keywords
 ---
 
-### print
-
-To print a variable or a value to `stdout` simply use `print` keyword:
-
-```text
-kaos> print 77
-77
-kaos> print "hello world"
-hello world
-kaos> print 'hello world'
-hello world
-kaos> str hello = "world"
-kaos> print hello
-world
-```
-
 ### del
 
 `del` keyword deallocates the memory region that previously allocated for the given variable:
@@ -34,7 +18,22 @@ del var2
 
 ```text
 kaos> exit
-You have chosen the order!
+    You have chosen the order!
+```
+
+Terminate the program using an exit code other than `0`:
+
+```text
+kaos> exit 1
+    You have chosen the order!
+```
+
+using a number's value:
+
+```text
+kaos> num a = 5
+kaos> exit a
+    You have chosen the order!
 ```
 
 ### quit
@@ -43,7 +42,7 @@ You have chosen the order!
 
 ```text
 kaos> quit
-You have chosen the order!
+    You have chosen the order!
 ```
 
 ### symbol_table
