@@ -72,8 +72,8 @@ kaos>
 
 #### Immutability
 
-The parameters supplied to a function in Chaos Language, will be deep cloned hence
-changina a parameter's value inside a function never updates the original variable:
+The parameters supplied to a function in Chaos Language will be deep cloned hence
+changing a parameter's value inside a function never updates the original variable:
 
 ```text
 kaos> str hello = 'hello world'
