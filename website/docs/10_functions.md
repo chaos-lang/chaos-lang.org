@@ -4,8 +4,6 @@ title: Functions
 sidebar_label: Functions
 ---
 
-### Comments
-
 There are three keywords for declaring functions: `func`, `function` and `def`:
 
 ```text
