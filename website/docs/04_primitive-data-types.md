@@ -28,7 +28,7 @@ kaos> num a = 5
 kaos> a = 7
 kaos> print a
 7
-kaos> num b = 3.2
+kaos> number b = 3.2
 kaos> b = 5.4
 kaos> print b
 5.4

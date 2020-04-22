@@ -21,7 +21,7 @@ You can also write multiline comments with `/*` and `*/`:
 /*
 This is a
 multiline comment
-for this function
+for the function below
 */
 void def some_function()
 ...

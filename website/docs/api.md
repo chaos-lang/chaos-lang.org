@@ -110,7 +110,7 @@ and `V_VOID` has a special meaning. It means an [**Array**](05_arrays) or a [**D
 
 `Role` enumerator symbolizes the role of a variable that used by the interpreter.
 
-`DEFUALT` means it's an ordinary variable
+`DEFAULT` means it's an ordinary variable
 
 `PARAM` means it's a function parameter
 
