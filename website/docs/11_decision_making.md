@@ -65,4 +65,4 @@ end {
 the output will be `11`.
 
 At first glance, defining the control structures in this way might seem so unnecessary or inconvenient but this is the pinnacle of writing **100% testable**, **clean**
-and **error-free code** in any programming langauge by far.
+and **error-free code** in any programming language by far.
