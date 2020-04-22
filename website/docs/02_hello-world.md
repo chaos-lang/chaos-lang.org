@@ -27,6 +27,6 @@ print "hello world"
 and run `hello.kaos` with:
 
 ```text
-$ chaos dev.kaos
+$ chaos hello.kaos
 hello world
 ```
