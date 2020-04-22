@@ -76,12 +76,13 @@ parameter's value inside a function never updates the original variable:
 ```text
 kaos> str hello = 'hello world'
 kaos>
-kaos> nil def f1(str param1)
+kaos> str def f1(str param1)
 ....      param1 = 'hello my friend'
-....      print param1
+....      return param1
 ....  end
 kaos>
-kaos> f1(hello)
+kaos> str hello_new = f1(hello)
+kaos> print hello_new
 hello my friend
 kaos> print hello
 hello world
@@ -112,6 +113,8 @@ kaos> num def add(num x, num y)
 ....      return result
 ....  end
 kaos>
-kaos> print add(3, 5)
+kaos> num z = 3
+kaos> z = add(z, 5)
+kaos> print z
 8
 ```

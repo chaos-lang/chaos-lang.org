@@ -65,3 +65,14 @@ use ....modules.module4
 ```
 
 ***Note**: If you chose the dot(`.`) module separator then just typing `..` is enough to specify the parent directory.*
+
+A complete example using the `math` spell:
+
+```text
+kaos> import math
+kaos>
+kaos> num x = 2
+kaos> num y = math.pow(x, 3)
+kaos> print y
+8
+```

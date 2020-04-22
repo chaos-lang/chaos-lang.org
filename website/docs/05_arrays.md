@@ -23,8 +23,15 @@ kaos> array e = ["A", "B", "C"]
 kaos> print e
 ['A', 'B', 'C']
 kaos> list f = ['A', "asdasdad12312", 1232, 435.16, true, false]
-kaos> print f
-['A', 'asdasdad12312', 1232, 435.16, true, false]
+kaos> pretty print f
+[
+    'A',
+    'asdasdad12312',
+    1232,
+    435.16,
+    true,
+    false
+]
 ```
 
 Multi-line array definition:

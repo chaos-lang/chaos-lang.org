@@ -7,18 +7,32 @@ sidebar_label: Dictionaries
 There are two keywords for **Dictionary** data type: `json` or `dict`
 
 ```text
-kaos> dict a = {'a': 1, 'b': 2}
-kaos> print a
-{'a': 1, 'b': 2}
-kaos> dict b = {'a': 1, 'b': 2, 'c': 3}
-kaos> print b
-{'a': 1, 'b': 2, 'c': 3}
-kaos> json c = {"a": 1, "b": 2}
+kaos> dict b = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
+kaos> pretty print b
+{
+    'a': 'foo',
+    'b': 'bar',
+    'c': 'baz'
+}
+kaos> json c = {"a": {}, "b": {'d': false}}
 kaos> print c
-{'a': 1, 'b': 2}
-kaos> json d = {"a": 1, "b": 2, "c": 3}
-kaos> print d
-{'a': 1, 'b': 2, 'c': 3}
+{'a': {}, 'b': {'d': false}}
+kaos> json d = {"a": [1], "b": [1, 2], "c": [1, 2, 3]}
+kaos> pretty print d
+{
+    'a': [
+        1
+    ],
+    'b': [
+        1,
+        2
+    ],
+    'c': [
+        1,
+        2,
+        3
+    ]
+}
 ```
 
 Multi-line dictionary definition:
