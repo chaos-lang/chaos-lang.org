@@ -6,7 +6,7 @@ sidebar_label: Functions
 
 ### Comments
 
-There are three keywords for declaring functions: `func`, `function` and `def`
+There are three keywords for declaring functions: `func`, `function` and `def`:
 
 ```text
 kaos> void func hello_world()
@@ -18,7 +18,7 @@ hello world
 
 #### Declaration Order
 
-There is no need for forward declaring functions because Chaos interpreter looks ahead:
+There is no need for forward declaration because the Chaos interpreter looks ahead:
 
 ```text
 void func a()
@@ -51,8 +51,8 @@ inside function b
 
 #### Type Safety
 
-All of the functions in Chaos Language is forced to have one of these keywords to
-determine the return type: `bool`, `boolean`, `num`, `number`, `str`, `string`, `list`, `array`, `json`, `dict`
+All of the functions in Chaos Language are forced to have one of these keywords to
+determine the return type: `bool`, `boolean`, `num`, `number`, `str`, `string`, `list`, `array`, `json`, `dict`.
 
 If you try to return an incorrect data type from a function an error will be thrown:
 
@@ -72,8 +72,8 @@ kaos>
 
 #### Immutability
 
-The parameters supplied to a function in Chaos Language, will be deep cloned hence
-changina a parameter's value inside a function never updates the original variable:
+The parameters supplied to a function in Chaos will be deep cloned.  Changing a
+parameter's value inside a function never updates the original variable:
 
 ```text
 kaos> str hello = 'hello world'
