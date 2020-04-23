@@ -4,8 +4,6 @@ title: Comments
 sidebar_label: Comments
 ---
 
-### Comments
-
 Commented out lines starts with either `//` or `#`:
 
 ```text

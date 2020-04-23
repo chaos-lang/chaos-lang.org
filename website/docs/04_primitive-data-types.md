@@ -4,7 +4,7 @@ title: Primitive Data Types
 sidebar_label: Primitive Data Types
 ---
 
-### Boolean
+## Boolean
 
 There are two keywords for **Boolean** data type: `bool` or `boolean`
 
@@ -19,7 +19,7 @@ kaos> print b
 true
 ```
 
-### Number
+## Number
 
 There are two keywords for **Number** data type: `num` or `number`
 
@@ -34,7 +34,7 @@ kaos> print b
 5.4
 ```
 
-### String
+## String
 
 There are two keywords for **String** data type: `str` or `string`
 
@@ -49,7 +49,7 @@ kaos> print b
 string4
 ```
 
-### Any
+## Any
 
 There is a single keyword for **Any** data type: `any`
 

@@ -14,7 +14,7 @@ kaos> hello_world()
 hello world
 ```
 
-#### Declaration Order
+## Declaration Order
 
 There is no need for forward declaration because the Chaos interpreter looks ahead:
 
@@ -47,7 +47,7 @@ inside function b
 8
 ```
 
-#### Type Safety
+## Type Safety
 
 All of the functions in Chaos Language are forced to have one of these keywords to
 determine the return type: `bool`, `boolean`, `num`, `number`, `str`, `string`, `list`, `array`, `json`, `dict`.
@@ -68,7 +68,7 @@ kaos> errorTest()
 kaos>
 ```
 
-#### Immutability
+## Immutability
 
 The parameters supplied to a function in Chaos will be deep cloned.  Changing a
 parameter's value inside a function never updates the original variable:
@@ -88,9 +88,9 @@ kaos> print hello
 hello world
 ```
 
-### Example Functions
+## Example Functions
 
-#### Print a Dictionary with a Title
+### Print a Dictionary with a Title
 
 ```text
 kaos> dict d = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
@@ -105,7 +105,7 @@ Dictionary:
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 ```
 
-#### Add Two Numbers Together
+### Add Two Numbers Together
 
 ```text
 kaos> num def add(num x, num y)

@@ -6,7 +6,7 @@ sidebar_label: Loops
 
 All loops ends with `end` keyword in Chaos Language.
 
-### N times do
+## N times do
 
 Syntax for starting an **N times do** loop is: `<NUMBER> times do`
 
@@ -46,7 +46,7 @@ hello world
     &#129095; Prints out until you press Ctrl+C
 ```
 
-### foreach as
+## foreach as
 
 Syntax for starting a **foreach as** loop on **arrays** is: `foreach <ARRAY> as <VALUE>`
 
@@ -83,7 +83,7 @@ c
 baz
 ```
 
-### Nested Loops
+## Nested Loops
 
 It's also possible to create nested loops in Chaos Language:
 

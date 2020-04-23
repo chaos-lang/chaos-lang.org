@@ -82,7 +82,7 @@ kaos> print g
 [1, 3, 4, 5]
 ```
 
-### Typed Arrays
+## Typed Arrays
 
 It's possible to create typed arrays in Chaos language
 by prefixing `list` or `array` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
@@ -99,7 +99,7 @@ kaos> print c
 ['A', 'asdasdaqs', 'asdasd123123', '.']
 ```
 
-### Multidimensional Arrays
+## Multidimensional Arrays
 
 Multidimensional arrays are quite simple and flexible in Chaos language. You can put any data type combination you want
 with almost infinite nested level:

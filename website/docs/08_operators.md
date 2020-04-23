@@ -4,7 +4,7 @@ title: Operators
 sidebar_label: Operators
 ---
 
-### Relational Operators
+## Relational Operators
 
 Relational operators in Chaos language are exactly the same as the relational operators in C language:
 
@@ -17,7 +17,7 @@ Relational operators in Chaos language are exactly the same as the relational op
 | `>=`     | Checks if the value of left operand is greater than or equal to the value of right operand. | `a >= b` |
 | `<=`     | Checks if the value of left operand is less than or equal to the value of right operand.    | `a <= b` |
 
-### Logical Operators
+## Logical Operators
 
 Logical operators in Chaos language, is a combination of the logical operators in C and Python language:
 
@@ -27,7 +27,7 @@ Logical operators in Chaos language, is a combination of the logical operators i
 | <code>&#124;&#124;</code>, `or` | Logical OR operator.                                      | <code>a &#124;&#124; b</code>, `a or b` |
 | `!`, `not`                      | Logical NOT operator.                                     | `!a`, `not a`                           |
 
-### Bitwise Operators
+## Bitwise Operators
 
 Bitwise operators in Chaos language are exactly the same as the bitwise operators in C language:
 
@@ -40,7 +40,7 @@ Bitwise operators in Chaos language are exactly the same as the bitwise operator
 | `<<`                | Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.   | `a << 1`                |
 | `>>`                | Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand. | `a >> 1`                |
 
-### Unary Operators
+## Unary Operators
 
 Chaos language also supports unary operators like parentheses: `()`, pre-/post-increment: `++a`, `a++` and pre-/post-decrement: `--a`, `a--` just like in C language.
 

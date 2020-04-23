@@ -8,7 +8,7 @@ A spell in Chaos language is a library that lives in `spells/` directory. A Chao
 
 If you are looking for the guide to develop Chaos C extensions [**see**](16_chaos_c_extensions_development.md).
 
-### How do I install a spell?
+## How do I install a spell?
 
 To install the Chaos spells you need [**Occultist**](https://occultist.io/) dependency manager installed on your system.
 Once you have `occultist` on your machine, you can simply run:
@@ -25,7 +25,7 @@ If the installed spell is a module then you will see a file named `math.kaos` in
 If the installed spell is a Chaos C extension then according to operating system, you will find either `math.so` or `math.dylib` or `math.dll`
 in that directory. This is file is the entry point for the spell.
 
-### How do I use a spell?
+## How do I use a spell?
 
 The Chaos interpreter programmed to look for a file named `math.kaos` in the current working directory when you type `import math`.
 If it cannot find the `math.kaos` file in the current working directory, it immediately looks for a file on `spells/math/math.kaos` path.
@@ -47,7 +47,7 @@ kaos> print math.pow(2, 3)
 8
 ```
 
-### Anatomy of a spell
+## Anatomy of a spell
 
 In its simplest form, a Chaos spell consists of these files:
 
@@ -101,7 +101,7 @@ Pick an option: 1
 Author role: maintainer
 ```
 
-### Registering a new spell to The Chaos Spell Index
+## Registering a new spell to The Chaos Spell Index
 
 Once you're confident with the state of your spell, you can register it to [**The Chaos Spell Index**](https://occultist.io/spells)
 by simply running:
@@ -129,7 +129,7 @@ $ git remote -v
 `occultist` requires to know the remote origin to fetch and build the source code from the specified Git server on installation time.
 Remote origin can be any Git server, **not** just [**github.com**](https://github.com).
 
-### Spell versioning in detail
+## Spell versioning in detail
 
 Once your spell is registered, you can install a specific version of your spell with:
 
@@ -165,7 +165,7 @@ occultist install example
 
 `occultist` looks for the latest Git tag that matches `vx.x.x` pattern. If it cannot find a version of the spell, it installs the default Git branch.
 
-### Can my spell depend on other spells?
+## Can my spell depend on other spells?
 
 If it's not a Chaos C extension then the answer is yes. You can specifiy dependencies in your `occultist.json` file like this:
 

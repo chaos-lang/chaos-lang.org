@@ -4,6 +4,8 @@ title: Keywords
 sidebar_label: Keywords
 ---
 
+## List of Other Keywords
+
 ### del
 
 `del` keyword deallocates the memory region that previously allocated for the given variable:

@@ -75,7 +75,7 @@ kaos> print d
 {'b': 2, 'c': 3}
 ```
 
-### Typed Dictionaries
+## Typed Dictionaries
 
 It's possible to create typed dictionaries in Chaos language
 by prefixing `json` or `dict` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
@@ -92,7 +92,7 @@ kaos> print dict3
 {'a': 'A', 'b': 'asdasdaqs', 'c': 'asdasd123123', 'd': '.'}
 ```
 
-### Nested Dictionaries
+## Nested Dictionaries
 
 Nested Dictionaries are quite simple and flexible in Chaos language. You can put any data type combination you want
 with almost infinite nested level:

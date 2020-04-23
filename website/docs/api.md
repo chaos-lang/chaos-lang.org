@@ -51,7 +51,7 @@ C extensions**]((16_chaos_c_extensions_development.md)) for the language.
 
 ## Enums
 
-## Phase
+### Phase
 
 `enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM };`
 
@@ -64,7 +64,7 @@ The second parsing phase is named `PROGRAM` and it simply executes the program.
 To switch a phase, you do set `phase` global variable neither to `PREPARSE` nor to `PROGRAM` but rather set to `INIT_PREPARSE`
 or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nature of [lexers](https://en.wikipedia.org/wiki/Lexical_analysis).
 
-## Type
+### Type
 
 `enum Type { K_BOOL, K_NUMBER, K_STRING, K_ANY, K_ARRAY, K_DICT, K_VOID };`
 
@@ -86,7 +86,7 @@ and `K_VOID` means [**Void**](10_functions) data type.
 
 *`K_` prefix can remind you **K**aos.*
 
-## ValueType
+### ValueType
 
 `enum ValueType { V_BOOL, V_INT, V_FLOAT, V_STRING, V_VOID };`
 
@@ -104,7 +104,7 @@ and `V_VOID` has a special meaning. It means an [**Array**](05_arrays) or a [**D
 
 *`V_` prefix can remind you **V**alue.*
 
-## Role
+### Role
 
 `enum Role { DEFAULT, PARAM, CALL_PARAM };`
 
@@ -119,7 +119,7 @@ and `CALL_PARAM` means it's a function call parameter.
 
 ## Functions
 
-## int defineFunction()
+### int defineFunction()
 
 `int defineFunction(char *name, enum Type type, char *params_name[], unsigned params_type[], unsigned short params_length);`
 
@@ -164,7 +164,7 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 
 **unsigned short params_length** : The length of the parameter list. So the length of `char *params_name[]` and `unsigned params_type[]` must be equal and you have to supply the length value with `unsigned short params_length`. So it's `2` in this example.
 
-## bool getVariableBool()
+### bool getVariableBool()
 
 `bool getVariableBool(char *name);`
 
@@ -174,7 +174,7 @@ Get a `V_BOOL` value type variable. Example:
 bool x = kaos.getVariableBool(my_params_name[0]);
 ```
 
-## long long getVariableInt()
+### long long getVariableInt()
 
 `long long getVariableInt(char *name);`
 
@@ -184,7 +184,7 @@ Get a variable with `V_INT` value type. Example:
 long long x = kaos.getVariableInt(my_params_name[0]);
 ```
 
-## long double getVariableFloat()
+### long double getVariableFloat()
 
 `long double getVariableFloat(char *name);`
 
@@ -194,7 +194,7 @@ Get a variable with `V_FLOAT` value type. Example:
 long double x = kaos.getVariableFloat(my_params_name[0]);
 ```
 
-## char* getVariableString()
+### char* getVariableString()
 
 `char* getVariableString(char *name);`
 
@@ -204,7 +204,7 @@ Get a variable with `V_STRING` value type. Example:
 char* x = kaos.getVariableString(my_params_name[0]);
 ```
 
-## bool getArrayElementBool()
+### bool getArrayElementBool()
 
 `bool getArrayElementBool(char *name, long long i);`
 
@@ -216,7 +216,7 @@ Get an array element with `V_BOOL` value type. Example:
 bool x = kaos.getArrayElementBool(my_params_name[0], 0);
 ```
 
-## long long getArrayElementInt()
+### long long getArrayElementInt()
 
 `long long getArrayElementInt(char *name, long long i);`
 
@@ -228,7 +228,7 @@ Get an array element with `V_INT` value type. Example:
 long long x = kaos.getArrayElementInt(my_params_name[0], 0);
 ```
 
-## long double getArrayElementFloat()
+### long double getArrayElementFloat()
 
 `long double getArrayElementFloat(char *name, long long i);`
 
@@ -240,7 +240,7 @@ Get an array element with `V_FLOAT` value type. Example:
 long double x = kaos.getArrayElementFloat(my_params_name[0], 0);
 ```
 
-## char* getArrayElementString()
+### char* getArrayElementString()
 
 `char* getArrayElementBool(char *name, long long i);`
 
@@ -252,7 +252,7 @@ Get an array element with `V_STRING` value type. Example:
 char* x = kaos.getArrayElementString(my_params_name[0], 0);
 ```
 
-## bool getDictElementBool()
+### bool getDictElementBool()
 
 `bool getDictElementBool(char *name, char *key);`
 
@@ -264,7 +264,7 @@ Get a dictionary element with `V_BOOL` value type. Example:
 bool x = kaos.getDictElementBool(my_params_name[0], "a");
 ```
 
-## long long getDictElementInt()
+### long long getDictElementInt()
 
 `long long getDictElementInt(char *name, char *key);`
 
@@ -276,7 +276,7 @@ Get a dictionary element with `V_INT` value type. Example:
 long long x = kaos.getDictElementInt(my_params_name[0], "a");
 ```
 
-## long double getDictElementFloat()
+### long double getDictElementFloat()
 
 `long double getDictElementFloat(char *name, char *key);`
 
@@ -288,7 +288,7 @@ Get a dictionary element with `V_FLOAT` value type. Example:
 long double x = kaos.getDictElementFloat(my_params_name[0], "a");
 ```
 
-## char* getDictElementString()
+### char* getDictElementString()
 
 `char* getDictElementString(char *name, char *key);`
 
@@ -300,7 +300,7 @@ Get a dictionary element with `V_STRING` value type. Example:
 char* x = kaos.getDictElementString(my_params_name[0], "a");
 ```
 
-## void returnVariableBool()
+### void returnVariableBool()
 
 `void returnVariableBool(bool b);`
 
@@ -310,7 +310,7 @@ Return a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 kaos.returnVariableBool(true);
 ```
 
-## void returnVariableInt()
+### void returnVariableInt()
 
 `void returnVariableInt(long long i);`
 
@@ -320,7 +320,7 @@ Return a variable with `K_NUMBER` type and `V_INT` value type. Example:
 kaos.returnVariableInt(365);
 ```
 
-## void returnVariableFloat()
+### void returnVariableFloat()
 
 `void returnVariableFloat(long double f);`
 
@@ -330,7 +330,7 @@ Return a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 kaos.returnVariableFloat(3.14);
 ```
 
-## void returnVariableString()
+### void returnVariableString()
 
 `void returnVariableString(char *s);`
 
@@ -340,7 +340,7 @@ Return a variable with `K_STRING` type and `V_STRING` value type. Example:
 kaos.returnVariableString("foo");
 ```
 
-## void createVariableBool()
+### void createVariableBool()
 
 `void createVariableBool(char *name, bool b);`
 
@@ -354,7 +354,7 @@ Creates a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 kaos.createVariableBool("b", true);
 ```
 
-## void createVariableInt()
+### void createVariableInt()
 
 `void createVariableInt(char *name, long long i);`
 
@@ -368,7 +368,7 @@ Creates a variable with `K_NUMBER` type and `V_INT` value type. Example:
 kaos.createVariableInt("i", 1);
 ```
 
-## void createVariableFloat()
+### void createVariableFloat()
 
 `void createVariableFloat(char *name, long double f);`
 
@@ -382,7 +382,7 @@ Creates a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 kaos.createVariableFloat("f", 3.14);
 ```
 
-## void createVariableString()
+### void createVariableString()
 
 `void createVariableString(char *name, char *s);`
 
@@ -396,7 +396,7 @@ Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
 kaos.createVariableString("s", "bar");
 ```
 
-## void startBuildingArray()
+### void startBuildingArray()
 
 `void startBuildingArray();`
 
@@ -410,7 +410,7 @@ kaos.createVariableInt(NULL, 3);
 kaos.returnArray(K_NUMBER);
 ```
 
-## void returnArray()
+### void returnArray()
 
 `void returnArray(enum Type type);`
 
@@ -424,7 +424,7 @@ kaos.createVariableInt(NULL, 3);
 kaos.returnArray(K_NUMBER);
 ```
 
-## void startBuildingDict()
+### void startBuildingDict()
 
 `void startBuildingDict();`
 
@@ -439,7 +439,7 @@ kaos.createVariableString("s", "bar");
 kaos.returnDict(K_ANY);
 ```
 
-## void returnDict()
+### void returnDict()
 
 `void returnDict(enum Type type);`
 
@@ -454,7 +454,7 @@ kaos.createVariableString("s", "bar");
 kaos.returnDict(K_ANY);
 ```
 
-## void returnComplex()
+### void returnComplex()
 
 `void returnComplex(enum Type type);`
 

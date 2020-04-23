@@ -63,37 +63,37 @@ returns a variable.
 
 Here are the example commands to generate dynamic libraries from the above code:
 
-### Linux
+## Linux
 
-#### gcc
+### gcc
 
 ```text
 gcc -shared -fPIC example.c -o spells/example.so
 ```
 
-#### clang
+### clang
 
 ```text
 clang -shared -fPIC example.c -o spells/example.so
 ```
 
-### macOS
+## macOS
 
-#### gcc
+### gcc
 
 ```text
 gcc -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
-#### clang
+### clang
 
 ```text
 clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
-### Windows
+## Windows
 
-#### gcc
+### gcc
 
 ```text
 gcc -shared -fPIC example.c -o example.o
@@ -101,7 +101,7 @@ gcc -c example.c
 gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
 ```
 
-#### clang
+### clang
 
 ```text
 clang -shared example.c -o example.o
@@ -128,7 +128,7 @@ kaos> print example.add(3, 5)
 
 Details of [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) can be found in the [**API Reference**](api.md).
 
-### Writing a Chaos C Extension as a Chaos Spell
+## Writing a Chaos C Extension as a Chaos Spell
 
 There is a [**template repository**](https://github.com/chaos-lang/template) that you can use or fork to kickstart your extension.
 Your Chaos C Extension needs to be built just by running `make` command in the project root. So that [**Occultist**](https://occultist.io/)
