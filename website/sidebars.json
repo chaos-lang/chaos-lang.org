@@ -7,7 +7,7 @@
     "Language Reference": [
       "03_comments",
       "04_primitive-data-types",
-      "05_arrays",
+      "05_lists",
       "06_dictionaries",
       "07_immutability",
       "08_operators",

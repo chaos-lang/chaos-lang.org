@@ -4,15 +4,15 @@ title: Modules
 sidebar_label: Modules
 ---
 
-Module system in Chaos language is quite similar to modules in Python language. There are three primary keywords for specifying imports: `import`, `use` and `include`
-and two secodary keywords to detail the importing: `from`, `as`
+Module system in Chaos language is quite simple, it justs loads up the functions in the file from the specified path.
+The keyword for specifying imports: `import` and two secondary keywords to detail the importing: `from`, `as`
 
 Let's say you have a module like this:
 
 **modules/hello.kaos**
 
 ```text
-nil def hello()
+void def hello()
     print "hello world"
 end
 ```
@@ -49,8 +49,8 @@ Module imports in Chaos language support both Windows and UNIX-like path separat
 
 ```text
 import modules/module1
-include modules.module2
-use modules\module3
+import modules.module2
+import modules\module3
 ```
 
 ***Note**: Module name delimiters(`.`, `/`, `\`) are completely interchangable and can be used together on the same line.*
@@ -59,9 +59,9 @@ It's also possible to use relative paths in module imports:
 
 ```text
 import ../modules/module1
-include ../../modules/module2
+import ../../modules/module2
 import ..\..\modules/module3
-use ....modules.module4
+import ....modules.module4
 ```
 
 ***Note**: If you chose the dot(`.`) module separator then just typing `..` is enough to specify the parent directory.*

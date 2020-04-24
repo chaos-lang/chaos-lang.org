@@ -66,7 +66,7 @@ or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nat
 
 ### Type
 
-`enum Type { K_BOOL, K_NUMBER, K_STRING, K_ANY, K_ARRAY, K_DICT, K_VOID };`
+`enum Type { K_BOOL, K_NUMBER, K_STRING, K_ANY, K_LIST, K_DICT, K_VOID };`
 
 `Type` enumerator is quite simple. It symbolizes the types of variables that the Chaos Interpreter can understand.
 
@@ -78,7 +78,7 @@ or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nat
 
 `K_ANY` means [**Any**](04_primitive-data-types.md#any),
 
-`K_ARRAY` means [**Array**](05_arrays),
+`K_LIST` means [**List**](05_lists),
 
 `K_DICT` means [**Dictionary**](06_dictionaries),
 
@@ -100,7 +100,7 @@ and `K_VOID` means [**Void**](10_functions) data type.
 
 `V_STRING` means `char*`
 
-and `V_VOID` has a special meaning. It means an [**Array**](05_arrays) or a [**Dictionary**](06_dictionaries) can store any of the other four data types.
+and `V_VOID` has a special meaning. It means a [**List**](05_lists) or a [**Dictionary**](06_dictionaries) can store any of the other four data types.
 
 *`V_` prefix can remind you **V**alue.*
 
@@ -156,7 +156,7 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 
 **char \*name** : The function's name. If your function is `int EXPORT Kaos_add()` then the name is `add`.
 
-**enum Type type** : The function's return data type. If your function will not return anything it's `K_VOID`, otherwise it's one of these `{ K_BOOL, K_NUMBER, K_STRING, K_ANY, K_ARRAY, K_DICT }`
+**enum Type type** : The function's return data type. If your function will not return anything it's `K_VOID`, otherwise it's one of these `{ K_BOOL, K_NUMBER, K_STRING, K_ANY, K_LIST, K_DICT }`
 
 **char \*params_name[]** : The parameter names list. If your param list is `char *add_params_name[] = { "x", "y" };` variables named `x` and `y` will be available to use inside your function.
 
@@ -204,52 +204,52 @@ Get a variable with `V_STRING` value type. Example:
 char* x = kaos.getVariableString(my_params_name[0]);
 ```
 
-### bool getArrayElementBool()
+### bool getListElementBool()
 
-`bool getArrayElementBool(char *name, long long i);`
+`bool getListElementBool(char *name, long long i);`
 
-Get an array element with `V_BOOL` value type. Example:
+Get a list element with `V_BOOL` value type. Example:
 
 **long long i** : is the index of the element.
 
 ```c
-bool x = kaos.getArrayElementBool(my_params_name[0], 0);
+bool x = kaos.getListElementBool(my_params_name[0], 0);
 ```
 
-### long long getArrayElementInt()
+### long long getListElementInt()
 
-`long long getArrayElementInt(char *name, long long i);`
+`long long getListElementInt(char *name, long long i);`
 
-Get an array element with `V_INT` value type. Example:
+Get a list element with `V_INT` value type. Example:
 
 **long long i** : is the index of the element.
 
 ```c
-long long x = kaos.getArrayElementInt(my_params_name[0], 0);
+long long x = kaos.getListElementInt(my_params_name[0], 0);
 ```
 
-### long double getArrayElementFloat()
+### long double getListElementFloat()
 
-`long double getArrayElementFloat(char *name, long long i);`
+`long double getListElementFloat(char *name, long long i);`
 
-Get an array element with `V_FLOAT` value type. Example:
+Get a list element with `V_FLOAT` value type. Example:
 
 **long long i** : is the index of the element.
 
 ```c
-long double x = kaos.getArrayElementFloat(my_params_name[0], 0);
+long double x = kaos.getListElementFloat(my_params_name[0], 0);
 ```
 
-### char* getArrayElementString()
+### char* getListElementString()
 
-`char* getArrayElementBool(char *name, long long i);`
+`char* getListElementBool(char *name, long long i);`
 
-Get an array element with `V_STRING` value type. Example:
+Get a list element with `V_STRING` value type. Example:
 
 **long long i** : is the index of the element.
 
 ```c
-char* x = kaos.getArrayElementString(my_params_name[0], 0);
+char* x = kaos.getListElementString(my_params_name[0], 0);
 ```
 
 ### bool getDictElementBool()
@@ -346,7 +346,7 @@ kaos.returnVariableString("foo");
 
 Creates a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 
-*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -360,7 +360,7 @@ kaos.createVariableBool("b", true);
 
 Creates a variable with `K_NUMBER` type and `V_INT` value type. Example:
 
-*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -374,7 +374,7 @@ kaos.createVariableInt("i", 1);
 
 Creates a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 
-*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -388,7 +388,7 @@ kaos.createVariableFloat("f", 3.14);
 
 Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
 
-*It's meant to be used [**startBuildingArray()**](api.md#void-startbuildingarray) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -396,32 +396,32 @@ Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
 kaos.createVariableString("s", "bar");
 ```
 
-### void startBuildingArray()
+### void startBuildingList()
 
-`void startBuildingArray();`
+`void startBuildingList();`
 
-Starts building an array for the return. Example:
+Starts building a list for the return. Example:
 
 ```c
-kaos.startBuildingArray();
+kaos.startBuildingList();
 kaos.createVariableInt(NULL, 1);
 kaos.createVariableInt(NULL, 2);
 kaos.createVariableInt(NULL, 3);
-kaos.returnArray(K_NUMBER);
+kaos.returnList(K_NUMBER);
 ```
 
-### void returnArray()
+### void returnList()
 
-`void returnArray(enum Type type);`
+`void returnList(enum Type type);`
 
-Returns the array. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed array. Example:
+Returns the list. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed list. Example:
 
 ```c
-kaos.startBuildingArray();
+kaos.startBuildingList();
 kaos.createVariableInt(NULL, 1);
 kaos.createVariableInt(NULL, 2);
 kaos.createVariableInt(NULL, 3);
-kaos.returnArray(K_NUMBER);
+kaos.returnList(K_NUMBER);
 ```
 
 ### void startBuildingDict()
@@ -458,4 +458,4 @@ kaos.returnDict(K_ANY);
 
 `void returnComplex(enum Type type);`
 
-This function can be used instead of [**returnArray()**](api.md#void-returnarray) or [**returnDict()**](api.md#void-returndict).
+This function can be used instead of [**returnList()**](api.md#void-returnlist) or [**returnDict()**](api.md#void-returndict).

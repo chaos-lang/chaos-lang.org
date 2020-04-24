@@ -4,10 +4,10 @@ title: Functions
 sidebar_label: Functions
 ---
 
-There are three keywords for declaring functions: `func`, `function` and `def`:
+The keyword for declaring functions is: `def`:
 
 ```text
-kaos> void func hello_world()
+kaos> void def hello_world()
 ....      print "hello world"
 ....  end
 kaos> hello_world()
@@ -19,7 +19,7 @@ hello world
 There is no need for forward declaration because the Chaos interpreter looks ahead:
 
 ```text
-void func a()
+void def a()
     print "inside function a"
     num val1 = 5
     print val1
@@ -30,7 +30,7 @@ print "first print this"
 a()
 b()
 
-null function b()
+void def b()
     print "inside function b"
     num val2 = 8
     print val2
@@ -50,7 +50,7 @@ inside function b
 ## Type Safety
 
 All of the functions in Chaos Language are forced to have one of these keywords to
-determine the return type: `bool`, `boolean`, `num`, `number`, `str`, `string`, `list`, `array`, `json`, `dict`.
+determine the return type: `bool`, `num`, `str`, `list`, `dict`.
 
 If you try to return an incorrect data type from a function an error will be thrown:
 
@@ -95,7 +95,7 @@ hello world
 ```text
 kaos> dict d = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos>
-kaos> dict func f2(str param1, json param2)
+kaos> dict def f2(str param1, dict param2)
 ....      print param1
 ....      return param2
 ....  end

@@ -55,11 +55,11 @@ kaos> print b
 foo
 ```
 
-Arrays and the elements of arrays are also immutable:
+Lists and the elements of lists are also immutable:
 
 ```text
 kaos> num x = 5
-kaos> array y = [x, 2, 3]
+kaos> list y = [x, 2, 3]
 kaos> print y
 [5, 2, 3]
 kaos> x = 32

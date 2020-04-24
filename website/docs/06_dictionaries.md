@@ -4,7 +4,7 @@ title: Dictionaries
 sidebar_label: Dictionaries
 ---
 
-There are two keywords for **Dictionary** data type: `json` or `dict`
+The keyword for **Dictionary** data type is: `dict`
 
 ```text
 kaos> dict b = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
@@ -14,10 +14,10 @@ kaos> pretty print b
     'b': 'bar',
     'c': 'baz'
 }
-kaos> json c = {"a": {}, "b": {'d': false}}
+kaos> dict c = {"a": {}, "b": {'d': false}}
 kaos> print c
 {'a': {}, 'b': {'d': false}}
-kaos> json d = {"a": [1], "b": [1, 2], "c": [1, 2, 3]}
+kaos> dict d = {"a": [1], "b": [1, 2], "c": [1, 2, 3]}
 kaos> pretty print d
 {
     'a': [
@@ -67,7 +67,7 @@ kaos> print a
 Deleting dictionary keys:
 
 ```text
-kaos> json d = {"a": 1, "b": 2, "c": 3}
+kaos> dict d = {"a": 1, "b": 2, "c": 3}
 kaos> print d
 {'a': 1, 'b': 2, 'c': 3}
 kaos> del d['a']
@@ -78,7 +78,7 @@ kaos> print d
 ## Typed Dictionaries
 
 It's possible to create typed dictionaries in Chaos language
-by prefixing `json` or `dict` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
+by prefixing `dict` keyword with a [**Primitive Data Type**](04_primitive-data-types.md):
 
 ```text
 kaos> bool dict dict1 = {'a': true, 'b': false}
@@ -87,7 +87,7 @@ kaos> print dict1
 kaos> number dict dict2 = {'a': 1, "b": 2, 'c': 63.3, 'd': 12321.1515}
 kaos> print dict2
 {'a': 1, 'b': 2, 'c': 63.3, 'd': 12321.2}
-kaos> string json dict3 = {'a': 'A', 'b': "asdasdaqs", 'c': 'asdasd123123', 'd': "."}
+kaos> str dict dict3 = {'a': 'A', 'b': "asdasdaqs", 'c': 'asdasd123123', 'd': "."}
 kaos> print dict3
 {'a': 'A', 'b': 'asdasdaqs', 'c': 'asdasd123123', 'd': '.'}
 ```

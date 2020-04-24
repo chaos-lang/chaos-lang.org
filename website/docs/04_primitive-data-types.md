@@ -6,11 +6,11 @@ sidebar_label: Primitive Data Types
 
 ## Boolean
 
-There are two keywords for **Boolean** data type: `bool` or `boolean`
+The keyword for **Boolean** data type is: `bool`
 
 ```text
 kaos> bool a = true
-kaos> boolean b = false
+kaos> bool b = false
 kaos> a = false
 kaos> b = true
 kaos> print a
@@ -21,14 +21,14 @@ true
 
 ## Number
 
-There are two keywords for **Number** data type: `num` or `number`
+The keywords for **Number** data type is: `num`
 
 ```text
 kaos> num a = 5
 kaos> a = 7
 kaos> print a
 7
-kaos> number b = 3.2
+kaos> num b = 3.2
 kaos> b = 5.4
 kaos> print b
 5.4
@@ -36,14 +36,14 @@ kaos> print b
 
 ## String
 
-There are two keywords for **String** data type: `str` or `string`
+The keyword for **String** data type is: `str`
 
 ```text
 kaos> str a = "string1"
 kaos> a = 'string2'
 kaos> print a
 string2
-kaos> string b = 'string3'
+kaos> str b = 'string3'
 kaos> b = "string4"
 kaos> print b
 string4
@@ -51,7 +51,7 @@ string4
 
 ## Any
 
-There is a single keyword for **Any** data type: `any`
+The keyword for **Any** data type is: `any`
 
 ```text
 kaos> any a = true

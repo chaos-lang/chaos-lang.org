@@ -48,7 +48,7 @@ hello world
 
 ## foreach as
 
-Syntax for starting a **foreach as** loop on **arrays** is: `foreach <ARRAY> as <VALUE>`
+Syntax for starting a **foreach as** loop on [**lists**](05_lists.md) is: `foreach <LIST> as <VALUE>`
 
 ```text
 kaos> list a = [1, 2, 3]
@@ -67,7 +67,7 @@ kaos> print a
 [5, 5, 5]
 ```
 
-Syntax for starting a **foreach as** loop on **dictionaries** is: `foreach <DICT> as <KEY> : <VAL>`
+Syntax for starting a **foreach as** loop on [**dictionaries**](06_dictionaries.md) is: `foreach <DICT> as <KEY> : <VAL>`
 
 ```text
 kaos> dict n = {'a': 'foo', 'b': 'bar', 'c': 'baz'}

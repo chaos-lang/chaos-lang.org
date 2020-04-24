@@ -1,13 +1,13 @@
 ---
-id: 05_arrays
-title: Arrays
-sidebar_label: Arrays
+id: 05_lists
+title: Lists
+sidebar_label: Lists
 ---
 
-There are two keywords for **Array** data type: `list` or `array`
+The keyword for **List** data type: `list`
 
 ```text
-kaos> array a = [1, 2, 3]
+kaos> list a = [1, 2, 3]
 kaos> print a
 [1, 2, 3]
 kaos> list b = [true, false]
@@ -19,7 +19,7 @@ kaos> print c
 kaos> list d = ['a', 'b', 'c']
 kaos> print d
 ['a', 'b', 'c']
-kaos> array e = ["A", "B", "C"]
+kaos> list e = ["A", "B", "C"]
 kaos> print e
 ['A', 'B', 'C']
 kaos> list f = ['A', "asdasdad12312", 1232, 435.16, true, false]
@@ -34,17 +34,17 @@ kaos> pretty print f
 ]
 ```
 
-Multi-line array definition:
+Multiline list definition:
 
 ```text
-kaos> array a = [
+kaos> list a = [
     'foo',
     'bar',
     'baz'
 ]
 ```
 
-Accessing array elements:
+Accessing list elements:
 
 ```text
 kaos> list d = ['a', 'b', 'c']
@@ -62,7 +62,7 @@ kaos> print d[-3]
 a
 ```
 
-Updating array elements:
+Updating list elements:
 
 ```text
 kaos> list a = [1, 2, 3]
@@ -71,7 +71,7 @@ kaos> print a
 [5, 2, 3]
 ```
 
-Deleting array elements:
+Deleting list elements:
 
 ```text
 kaos> list g = [1, 2, 3, 4, 5]
@@ -82,10 +82,10 @@ kaos> print g
 [1, 3, 4, 5]
 ```
 
-## Typed Arrays
+## Typed Lists
 
-It's possible to create typed arrays in Chaos language
-by prefixing `list` or `array` keywords with a [**Primitive Data Type**](04_primitive-data-types.md):
+It's possible to create typed lists in Chaos language
+by prefixing `list` keyword with a [**Primitive Data Type**](04_primitive-data-types.md):
 
 ```text
 kaos> bool list a = [true, false, true]
@@ -94,14 +94,14 @@ kaos> print a
 kaos> number list b = [1, 2, 63.3, 12321.1515]
 kaos> print b
 [1, 2, 63.3, 12321.2]
-kaos> string array c = ['A', "asdasdaqs", 'asdasd123123', "."]
+kaos> str list c = ['A', "asdasdaqs", 'asdasd123123', "."]
 kaos> print c
 ['A', 'asdasdaqs', 'asdasd123123', '.']
 ```
 
-## Multidimensional Arrays
+## Multidimensional Lists
 
-Multidimensional arrays are quite simple and flexible in Chaos language. You can put any data type combination you want
+Multidimensional lists are quite simple and flexible in Chaos language. You can put any data type combination you want
 with almost infinite nested level:
 
 ```text
@@ -137,7 +137,7 @@ kaos> print baz
 [{'a': [1, 2], 'b': [3, 4]}, {'c': [5, 6], 'd': [7, 8]}, {'e': [9, 10], 'f': [11, 12]}]
 ```
 
-Accessing the elements of multidimensional arrays:
+Accessing the elements of multidimensional lists:
 
 ```text
 kaos> print foo[2][0]
@@ -148,7 +148,7 @@ kaos> print baz[2]['e'][0]
 9
 ```
 
-Updating the elements of multidimensional arrays:
+Updating the elements of multidimensional lists:
 
 ```text
 kaos> foo[1][0] = 7
@@ -162,7 +162,7 @@ kaos> print baz
 [{'a': [1, 2019], 'b': [3, 4]}, {'c': [5, 6], 'd': [7, 8]}, {'e': [9, 10], 'f': [11, 12]}]
 ```
 
-Deleting the elements of multidimensional arrays:
+Deleting the elements of multidimensional lists:
 
 ```text
 kaos> del foo[2][1]

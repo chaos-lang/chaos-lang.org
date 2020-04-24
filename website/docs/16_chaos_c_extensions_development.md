@@ -65,13 +65,13 @@ Here are the example commands to generate dynamic libraries from the above code:
 
 ## Linux
 
-### gcc
+#### gcc
 
 ```text
 gcc -shared -fPIC example.c -o spells/example.so
 ```
 
-### clang
+#### clang
 
 ```text
 clang -shared -fPIC example.c -o spells/example.so
@@ -79,13 +79,13 @@ clang -shared -fPIC example.c -o spells/example.so
 
 ## macOS
 
-### gcc
+#### gcc
 
 ```text
 gcc -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
-### clang
+#### clang
 
 ```text
 clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
@@ -93,7 +93,7 @@ clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 
 ## Windows
 
-### gcc
+#### gcc
 
 ```text
 gcc -shared -fPIC example.c -o example.o
@@ -101,7 +101,7 @@ gcc -c example.c
 gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
 ```
 
-### clang
+#### clang
 
 ```text
 clang -shared example.c -o example.o
