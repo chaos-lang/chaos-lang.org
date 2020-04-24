@@ -9,7 +9,9 @@
     "rename-version": "docusaurus-rename-version"
   },
   "devDependencies": {
-    "docusaurus": "^1.14.4"
+    "docusaurus": "^1.14.4",
+    "katex": "^0.11.1",
+    "remarkable-katex": "^1.1.4"
   },
   "private": true
 }

@@ -110,6 +110,10 @@ const siteConfig = {
 
   // Google Analytics tracking ID
   gaTrackingId: 'UA-164030868-1',
+
+  markdownPlugins: [function (md) {
+    md.use(require('remarkable-katex'));
+  }],
 };
 
 module.exports = siteConfig;
