@@ -21,6 +21,9 @@
       "14_keywords",
       "15_extras"
     ],
+    "Official Spells": [
+      "spells/math"
+    ],
     "Chaos C Extensions": [
       "16_chaos_c_extensions_development",
       "api"
