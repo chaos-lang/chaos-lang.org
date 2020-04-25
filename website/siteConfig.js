@@ -112,6 +112,8 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/chaos-lang/chaos',
 
+  editUrl: 'https://github.com/chaos-lang/chaos-lang.org/tree/master/website/docs/',
+
   // Google Analytics tracking ID
   gaTrackingId: 'UA-164030868-1',
 
