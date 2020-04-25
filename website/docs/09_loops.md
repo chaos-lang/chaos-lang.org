@@ -10,7 +10,7 @@ All loops ends with `end` keyword in Chaos Language.
 
 Syntax for starting an **N times do** loop is: `<NUMBER> times do`
 
-```text
+```chaos
 kaos> str a = 'hello world'
 kaos> 3 times do
 ....      print a
@@ -22,7 +22,7 @@ hello world
 
 You can also use a [**number**](04_primitive-data-types.md#number) type variable to specify the iteration count:
 
-```text
+```chaos
 kaos> num n = 5
 kaos> n times do
 ....      print a
@@ -36,21 +36,22 @@ hello world
 
 If you need an infinite loop you can use `INFINITE` keyword:
 
-```text
+```chaos
 kaos> INFINITE times do
 ....      print a
 ....  end
 hello world
 hello world
 hello world
-    &#129095; Prints out until you press Ctrl+C
+    ||
+    \/  Prints out until you press Ctrl+C
 ```
 
 ## foreach as
 
 Syntax for starting a **foreach as** loop on [**lists**](05_lists.md) is: `foreach <LIST> as <VALUE>`
 
-```text
+```chaos
 kaos> list a = [1, 2, 3]
 kaos> foreach a as el
 ....      print el
@@ -69,7 +70,7 @@ kaos> print a
 
 Syntax for starting a **foreach as** loop on [**dictionaries**](06_dictionaries.md) is: `foreach <DICT> as <KEY> : <VAL>`
 
-```text
+```chaos
 kaos> dict n = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos> foreach n as key : val
 ....      print key
@@ -87,7 +88,7 @@ baz
 
 It's also possible to create nested loops in Chaos Language:
 
-```text
+```chaos
 kaos> list a = [1, 2, 3]
 kaos> num b = 32
 kaos> foreach a as el
@@ -109,7 +110,7 @@ kaos> foreach a as el
 
 a more complex example with nested data structures:
 
-```text
+```chaos
 kaos> dict a = {'C': [{'h': 'a', 'o': 's'}, {' ': 'L', 'a': 'n'}], 'g': [{'u': 'a', 'g': 'e'}]}
 kaos> foreach a as key1 : val1
 ....      print key1

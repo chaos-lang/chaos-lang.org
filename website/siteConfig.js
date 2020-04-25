@@ -8,6 +8,7 @@
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
 const path = require('path');
+const hljsChaos = require('highlightjs-chaos');
 
 // List of projects/orgs using your project for the users page.
 const users = [
@@ -79,7 +80,10 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: 'github',
+    hljs: function(hljs) {
+      hljs.registerLanguage("chaos", hljsChaos);
+    }
   },
 
   // Add custom scripts here that would be placed in <script> tags.

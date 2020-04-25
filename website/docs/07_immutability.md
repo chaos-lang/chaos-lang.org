@@ -11,7 +11,7 @@ live in a completely different memory region than the old(*right-hand*) variable
 
 Here are some examples of immutability on Chaos language:
 
-```text
+```chaos
 kaos> bool a = true
 kaos> bool b = false
 kaos> b = a
@@ -22,7 +22,7 @@ kaos> print b
 true
 ```
 
-```text
+```chaos
 kaos> num a = 3.5
 kaos> num b = 7.1
 kaos> b = a
@@ -35,7 +35,7 @@ kaos> print b
 
 Immutability is also valid on new variable creation:
 
-```text
+```chaos
 kaos> bool a = true
 kaos> bool b = a
 kaos> print b
@@ -45,7 +45,7 @@ kaos> print b
 true
 ```
 
-```text
+```chaos
 kaos> str a = 'foo'
 kaos> str b = a
 kaos> print b
@@ -57,7 +57,7 @@ foo
 
 Lists and the elements of lists are also immutable:
 
-```text
+```chaos
 kaos> num x = 5
 kaos> list y = [x, 2, 3]
 kaos> print y
@@ -69,7 +69,7 @@ kaos> print y
 [5, 2, 3]
 ```
 
-```text
+```chaos
 kaos> list x = [1, 2, 3]
 kaos> list y = x
 kaos> print x
@@ -83,7 +83,7 @@ kaos> print y
 [1, 2, 3]
 ```
 
-```text
+```chaos
 kaos> num x = 5
 kaos> list y = [1, 2, 3]
 kaos> y[0] = x
@@ -100,7 +100,7 @@ kaos> print y
 
 Dictionaries and the values of dictionaries are also immutable:
 
-```text
+```chaos
 kaos> num k = 5
 kaos> dict q = {'a': k, 'b': 2, 'c': 3}
 kaos> print q
@@ -112,7 +112,7 @@ kaos> print q
 {'a': 5, 'b': 2, 'c': 3}
 ```
 
-```text
+```chaos
 kaos> dict k = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos> dict q = k
 kaos> print k
@@ -126,7 +126,7 @@ kaos> print q
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 ```
 
-```text
+```chaos
 kaos> num k = 5
 kaos> dict q = {'a': 1, 'b': 2, 'c': 3}
 kaos> q['a'] = k
@@ -143,12 +143,11 @@ kaos> print q
 
 Function call parameters are also immutable:
 
-```text
+```chaos
 kaos> num def alter_variable(num x)
 ....      x = 5
 ....      return x
 ....  end
-kaos>
 kaos> num a = 3
 kaos> a
 3

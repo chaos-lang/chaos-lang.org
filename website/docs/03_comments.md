@@ -6,7 +6,7 @@ sidebar_label: Comments
 
 Commented out lines starts with either `//` or `#`:
 
-```text
+```chaos
 kaos> // This is a comment
 kaos> # This is a comment too
 kaos> print "But this is not" // End of Line(EOL) comment
@@ -15,7 +15,7 @@ But this is not
 
 You can also write multiline comments with `/*` and `*/`:
 
-```text
+```chaos
 /*
 This is a
 multiline comment

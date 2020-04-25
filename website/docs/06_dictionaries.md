@@ -6,7 +6,7 @@ sidebar_label: Dictionaries
 
 The keyword for **Dictionary** data type is: `dict`
 
-```text
+```chaos
 kaos> dict b = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 kaos> pretty print b
 {
@@ -37,7 +37,7 @@ kaos> pretty print d
 
 Multi-line dictionary definition:
 
-```text
+```chaos
 kaos> dict a = {
     'a': 1,
     'b': 2,
@@ -47,7 +47,7 @@ kaos> dict a = {
 
 Accessing dictonary elements:
 
-```text
+```chaos
 kaos> dict a = {'a': 1, 'b': 2, 'c': 3}
 kaos> print a['a']
 1
@@ -57,7 +57,7 @@ kaos> print a["b"]
 
 Updating dictonary values:
 
-```text
+```chaos
 kaos> dict a = {'a': 1, 'b': 2, 'c': 3}
 kaos> a['a'] = 5
 kaos> print a
@@ -66,7 +66,7 @@ kaos> print a
 
 Deleting dictionary keys:
 
-```text
+```chaos
 kaos> dict d = {"a": 1, "b": 2, "c": 3}
 kaos> print d
 {'a': 1, 'b': 2, 'c': 3}
@@ -80,7 +80,7 @@ kaos> print d
 It's possible to create typed dictionaries in Chaos language
 by prefixing `dict` keyword with a [**Primitive Data Type**](04_primitive-data-types.md):
 
-```text
+```chaos
 kaos> bool dict dict1 = {'a': true, 'b': false}
 kaos> print dict1
 {'a': true, 'b': false}
@@ -97,7 +97,7 @@ kaos> print dict3
 Nested Dictionaries are quite simple and flexible in Chaos language. You can put any data type combination you want
 with almost infinite nested level:
 
-```text
+```chaos
 kaos> dict foo = {
 ....      'a': {'a': 1, 'b': 2},
 ....      'b': {'c': 3, 'd': 4},
@@ -132,7 +132,7 @@ kaos> print baz
 
 Accessing the elements of nested dictionaries:
 
-```text
+```chaos
 kaos> print foo['c']['e']
 5
 kaos> print bar['b'][1]
@@ -143,7 +143,7 @@ kaos> print baz['c'][0]['x']
 
 Updating the elements of nested dictionaries:
 
-```text
+```chaos
 kaos> foo['b']['c'] = 7
 kaos> print foo
 {'a': {'a': 1, 'b': 2}, 'b': {'c': 7, 'd': 4}, 'c': {'e': 5, 'f': 6}}
@@ -157,7 +157,7 @@ kaos> print bar
 
 Deleting the elements of nested dictionaries:
 
-```text
+```chaos
 kaos> del foo['c']['f']
 kaos> print foo
 {'a': {'a': 1, 'b': 2}, 'b': {'c': 7, 'd': 4}, 'c': {'e': 5}}

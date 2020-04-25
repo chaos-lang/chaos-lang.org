@@ -67,13 +67,13 @@ Here are the example commands to generate dynamic libraries from the above code:
 
 #### gcc
 
-```text
+```bash
 gcc -shared -fPIC example.c -o spells/example.so
 ```
 
 #### clang
 
-```text
+```bash
 clang -shared -fPIC example.c -o spells/example.so
 ```
 
@@ -81,13 +81,13 @@ clang -shared -fPIC example.c -o spells/example.so
 
 #### gcc
 
-```text
+```bash
 gcc -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
 #### clang
 
-```text
+```bash
 clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
@@ -95,7 +95,7 @@ clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 
 #### gcc
 
-```text
+```bash
 gcc -shared -fPIC example.c -o example.o
 gcc -c example.c
 gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
@@ -103,7 +103,7 @@ gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
 
 #### clang
 
-```text
+```bash
 clang -shared example.c -o example.o
 clang -c example.c
 clang -shared -o spells/example.dll example.o
@@ -111,15 +111,13 @@ clang -shared -o spells/example.dll example.o
 
 Once you have `spells/example[.so|.dylib|.dll]` built, you can use the extension just like any other Chaos module:
 
-```text
+```chaos
 kaos> import example
-kaos>
 kaos> function_table // to see the loaded functions (optional)
 [start] =>
 	{name: hello, type: 6, parameter_count: 0, decision_length: 0, context: __interactive__.kaos, module_context: spells/example.so, module: example} =>
 	{name: add, type: 1, parameter_count: 2, decision_length: 0, context: __interactive__.kaos, module_context: spells/example.so, module: example} =>
 [end]
-kaos>
 kaos> example.hello()
 Hello from example extension!
 kaos> print example.add(3, 5)

@@ -6,7 +6,7 @@ sidebar_label: Lists
 
 The keyword for **List** data type: `list`
 
-```text
+```chaos
 kaos> list a = [1, 2, 3]
 kaos> print a
 [1, 2, 3]
@@ -36,7 +36,7 @@ kaos> pretty print f
 
 Multiline list definition:
 
-```text
+```chaos
 kaos> list a = [
     'foo',
     'bar',
@@ -46,7 +46,7 @@ kaos> list a = [
 
 Accessing list elements:
 
-```text
+```chaos
 kaos> list d = ['a', 'b', 'c']
 kaos> print d[2]
 c
@@ -64,7 +64,7 @@ a
 
 Updating list elements:
 
-```text
+```chaos
 kaos> list a = [1, 2, 3]
 kaos> a[0] = 5
 kaos> print a
@@ -73,7 +73,7 @@ kaos> print a
 
 Deleting list elements:
 
-```text
+```chaos
 kaos> list g = [1, 2, 3, 4, 5]
 kaos> print g
 [1, 2, 3, 4, 5]
@@ -87,7 +87,7 @@ kaos> print g
 It's possible to create typed lists in Chaos language
 by prefixing `list` keyword with a [**Primitive Data Type**](04_primitive-data-types.md):
 
-```text
+```chaos
 kaos> bool list a = [true, false, true]
 kaos> print a
 [true, false, true]
@@ -104,7 +104,7 @@ kaos> print c
 Multidimensional lists are quite simple and flexible in Chaos language. You can put any data type combination you want
 with almost infinite nested level:
 
-```text
+```chaos
 kaos> list foo = [
 ....      [1, 2],
 ....      [3, 4],
@@ -139,7 +139,7 @@ kaos> print baz
 
 Accessing the elements of multidimensional lists:
 
-```text
+```chaos
 kaos> print foo[2][0]
 5
 kaos> print bar[1]['d']
@@ -150,7 +150,7 @@ kaos> print baz[2]['e'][0]
 
 Updating the elements of multidimensional lists:
 
-```text
+```chaos
 kaos> foo[1][0] = 7
 kaos> print foo
 [[1, 2], [7, 4], [5, 6]]
@@ -164,7 +164,7 @@ kaos> print baz
 
 Deleting the elements of multidimensional lists:
 
-```text
+```chaos
 kaos> del foo[2][1]
 kaos> print foo
 [[1, 2], [7, 4], [5]]

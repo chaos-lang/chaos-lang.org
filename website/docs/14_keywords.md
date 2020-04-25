@@ -10,7 +10,7 @@ sidebar_label: Keywords
 
 `del` keyword deallocates the memory region that previously allocated for the given variable:
 
-```text
+```chaos
 del var2
 ```
 
@@ -18,21 +18,21 @@ del var2
 
 `exit` keyword terminates the program:
 
-```text
+```chaos
 kaos> exit
     You have chosen the order!
 ```
 
 Terminate the program using an exit code other than `0`:
 
-```text
+```chaos
 kaos> exit 1
     You have chosen the order!
 ```
 
 using a number's value:
 
-```text
+```chaos
 kaos> num a = 5
 kaos> exit a
     You have chosen the order!
@@ -42,7 +42,7 @@ kaos> exit a
 
 `quit` alias of `exit`:
 
-```text
+```chaos
 kaos> quit
     You have chosen the order!
 ```

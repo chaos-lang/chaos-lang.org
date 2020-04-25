@@ -8,7 +8,7 @@ sidebar_label: Primitive Data Types
 
 The keyword for **Boolean** data type is: `bool`
 
-```text
+```
 kaos> bool a = true
 kaos> bool b = false
 kaos> a = false
@@ -23,7 +23,7 @@ true
 
 The keywords for **Number** data type is: `num`
 
-```text
+```chaos
 kaos> num a = 5
 kaos> a = 7
 kaos> print a
@@ -38,7 +38,7 @@ kaos> print b
 
 The keyword for **String** data type is: `str`
 
-```text
+```chaos
 kaos> str a = "string1"
 kaos> a = 'string2'
 kaos> print a
@@ -53,7 +53,7 @@ string4
 
 The keyword for **Any** data type is: `any`
 
-```text
+```chaos
 kaos> any a = true
 kaos> a = 7
 kaos> a = 'hello world'

@@ -6,7 +6,7 @@ sidebar_label: Decision Making
 
 Decision making(a.k.a. control structures) in Chaos language is only achievable on function returns for the sake of **zero cyclomatic complexity**. For example, if you run this program:
 
-```text
+```chaos
 num def f1()
     num a = 101
     return a
@@ -35,7 +35,7 @@ print add(3, 5)
 
 the output will be `101` because `z == 8` is a correct statement, it chains the return of `f1()` into the return of `add()`. You can think this block of code:
 
-```text
+```chaos
 end {
     z == 8  : f1(),
     z > 10  : f2(),
@@ -50,7 +50,7 @@ then the function in the right-hand side(`f3()` in this case) will be executed.
 Return chaining only happens if the function body does not have any `return` statement and the function has a non-void return type(`num` in this case). So for example, if you replace
 the `add()` function with:
 
-```text
+```chaos
 num def add(num x, num y)
     num z = x + y
     num result = z + 3

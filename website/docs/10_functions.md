@@ -6,7 +6,7 @@ sidebar_label: Functions
 
 The keyword for declaring functions is: `def`:
 
-```text
+```chaos
 kaos> void def hello_world()
 ....      print "hello world"
 ....  end
@@ -18,7 +18,7 @@ hello world
 
 There is no need for forward declaration because the Chaos interpreter looks ahead:
 
-```text
+```chaos
 void def a()
     print "inside function a"
     num val1 = 5
@@ -54,7 +54,7 @@ determine the return type: `bool`, `num`, `str`, `list`, `dict`.
 
 If you try to return an incorrect data type from a function an error will be thrown:
 
-```text
+```chaos
 kaos> str def errorTest()
 ....      num a = 32
 ....      return a
@@ -65,7 +65,6 @@ kaos> errorTest()
     Line: 4
     Illegal variable type: Number for function: errorTest
     Absorbed by Interactive Shell
-kaos>
 ```
 
 ## Immutability
@@ -73,14 +72,12 @@ kaos>
 The parameters supplied to a function in Chaos will be deep cloned.  Changing a
 parameter's value inside a function never updates the original variable:
 
-```text
+```chaos
 kaos> str hello = 'hello world'
-kaos>
 kaos> str def f1(str param1)
 ....      param1 = 'hello my friend'
 ....      return param1
 ....  end
-kaos>
 kaos> str hello_new = f1(hello)
 kaos> print hello_new
 hello my friend
@@ -92,14 +89,12 @@ hello world
 
 ### Print a Dictionary with a Title
 
-```text
+```chaos
 kaos> dict d = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
-kaos>
 kaos> dict def f2(str param1, dict param2)
 ....      print param1
 ....      return param2
 ....  end
-kaos>
 kaos> print f2('Dictionary:', d)
 Dictionary:
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
@@ -107,12 +102,11 @@ Dictionary:
 
 ### Add Two Numbers Together
 
-```text
+```chaos
 kaos> num def add(num x, num y)
 ....      num result = x + y
 ....      return result
 ....  end
-kaos>
 kaos> num z = 3
 kaos> z = add(z, 5)
 kaos> print z

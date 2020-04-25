@@ -40,9 +40,8 @@ In simple terms, Chaos interpreter:
 
 Here is a working example for the usage of `math` spell:
 
-```text
+```chaos
 kaos> import math
-kaos>
 kaos> print math.pow(2, 3)
 8
 ```
@@ -61,7 +60,7 @@ an entry point for loading up the module. So the spell name and the name of the 
 
 Here is an example **occultist.json** file:
 
-```text
+```json
 {
     "name": "example",
     "version": "1.0.0",
@@ -112,7 +111,7 @@ occultist register
 
 Spell registration requires the remote origin being added before hand, like:
 
-```text
+```bash
 $ git remote add origin https://github.com/user/repo.git
 # Set a new remote
 
@@ -169,11 +168,10 @@ occultist install example
 
 If it's not a Chaos C extension then the answer is yes. You can specifiy dependencies in your `occultist.json` file like this:
 
-```text
+```json
 {
   "name": "example",
   "version": "1.0.0",
-  ...
   "dependencies": {
     "requirement1": "1.x.x",
     "requirement2": "2.3.x",
@@ -185,7 +183,7 @@ If it's not a Chaos C extension then the answer is yes. You can specifiy depende
 So these dependencies will be installed in a nested manner into your spell's `spells/` directory.
 That means anyone who installs your spell `example` will find the spell `requirement1` under:
 
-```text
+```bash
 $ ls -1 spells/example/spells/requirement1/
 requirement1.kaos
 occultist.json

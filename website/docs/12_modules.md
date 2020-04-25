@@ -11,7 +11,7 @@ Let's say you have a module like this:
 
 **modules/hello.kaos**
 
-```text
+```chaos
 void def hello()
     print "hello world"
 end
@@ -19,7 +19,7 @@ end
 
 So you import the module and call the function like this:
 
-```text
+```chaos
 import modules.hello
 
 hello.hello()
@@ -27,7 +27,7 @@ hello.hello()
 
 You might want to rename that module like this:
 
-```text
+```chaos
 import modules.hello as world
 
 world.hello()
@@ -35,19 +35,19 @@ world.hello()
 
 You can load up all of the functions in a module into the same context with the current program/module like this:
 
-```text
+```chaos
 from modules.mymodule import *
 ```
 
 It's also possible to cherry-pick the functions by specifying their names on import:
 
-```text
+```chaos
 from modules.mymodule import function2, function3, function5
 ```
 
 Module imports in Chaos language support both Windows and UNIX-like path separators:
 
-```text
+```chaos
 import modules/module1
 import modules.module2
 import modules\module3
@@ -57,7 +57,7 @@ import modules\module3
 
 It's also possible to use relative paths in module imports:
 
-```text
+```chaos
 import ../modules/module1
 import ../../modules/module2
 import ..\..\modules/module3
@@ -68,9 +68,8 @@ import ....modules.module4
 
 A complete example using the `math` spell:
 
-```text
+```chaos
 kaos> import math
-kaos>
 kaos> num x = 2
 kaos> num y = math.pow(x, 3)
 kaos> print y
