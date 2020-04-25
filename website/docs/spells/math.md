@@ -489,6 +489,17 @@ kaos> math.abs(-10.6)
 10.6
 ```
 
+### num math.factorial(num x)
+
+Returns the factorial of `x`. Returns `-1` if `x` is negative.
+
+```chaos
+kaos> math.factorial(5)
+120
+kaos> math.factorial(-5)
+-1
+```
+
 ## Boolean functions
 
 ### bool math.is_finite(num x)
