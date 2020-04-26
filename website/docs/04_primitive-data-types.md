@@ -34,6 +34,8 @@ kaos> print b
 5.4
 ```
 
+*Related spells: [**math**](spells/math.md)*
+
 ## String
 
 The keyword for **String** data type is: `str`
@@ -48,6 +50,8 @@ kaos> b = "string4"
 kaos> print b
 string4
 ```
+
+*Related spells: [**string**](spells/string.md)*
 
 ## Any
 

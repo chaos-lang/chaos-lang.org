@@ -22,7 +22,8 @@
       "15_extras"
     ],
     "Official Spells": [
-      "spells/math"
+      "spells/math",
+      "spells/string"
     ],
     "Chaos C Extensions": [
       "16_chaos_c_extensions_development",
