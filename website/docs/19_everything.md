@@ -4,7 +4,8 @@ title: Theory of Everything
 sidebar_label: Theory of Everything
 ---
 
-This is an example that almost every feature of the language used in a program thus showing off the whole syntax.
+This is an example that almost every feature of the language used in a program thus
+showing off the beauty of whole syntax.
 
 ```chaos
 import math
@@ -92,3 +93,6 @@ kaos> INFINITE times do
 ....      print message
 ....  end
 ```
+
+You can use [**highlightjs-chaos**](https://www.npmjs.com/package/highlightjs-chaos) `npm` package to
+have syntax highlighting for Chaos language on your webpages.

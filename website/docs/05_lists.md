@@ -175,3 +175,5 @@ kaos> del baz[1]['d'][0]
 kaos> print baz
 [{'a': [1, 2019], 'b': [3, 4]}, {'c': [5, 6], 'd': [8]}, {'e': [9, 10], 'f': [11, 12]}]
 ```
+
+*Related spells: [**string**](spells/string.md)*
