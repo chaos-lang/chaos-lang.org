@@ -16,7 +16,7 @@ occultist install chaos
 or install a specific version:
 
 ```bash
-occultist install chaos 0.0.1-alpha.2
+occultist install chaos 0.0.1-alpha.3
 ```
 
 and check the version with:

@@ -18,7 +18,7 @@ import string
 
 ## String operations
 
-### string.replace(str target, str needle, str replacement)
+### str string.replace(str target, str needle, str replacement)
 
 Replace all occurrences of the `needle` string with the `replacement` string.
 
@@ -27,7 +27,7 @@ kaos> string.replace("hello world", "world", "friend")
 hello friend
 ```
 
-### string.upper(str s)
+### str string.upper(str s)
 
 Make the all characters in string `s` uppercase.
 
@@ -36,7 +36,7 @@ kaos> string.upper("hello world")
 HELLO WORLD
 ```
 
-### string.lower(str s)
+### str string.lower(str s)
 
 Make the all characters in string `s` lowercase.
 
@@ -46,7 +46,7 @@ kaos> string.lower("HeLlO WoRLd")
 hello world
 ```
 
-### string.capitalize(str s)
+### str string.capitalize(str s)
 
 Capitalize the string `s`.
 
@@ -55,7 +55,7 @@ kaos> string.capitalize("hello world")
 Hello world
 ```
 
-### string.concat(str s1, str s2)
+### str string.concat(str s1, str s2)
 
 Concatenate string `s1` and string `s2`.
 
@@ -64,7 +64,7 @@ kaos> string.concat("hello", " world")
 hello world
 ```
 
-### string.split(str s, str delimiter)
+### list string.split(str s, str delimiter)
 
 Split the string `s` into a list according to the string `delimiter`.
 
@@ -73,7 +73,7 @@ kaos> string.split("A quick brown fox jumps over the lazy dog", " ")
 ['A', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 ```
 
-### string.join(list words, str separator)
+### str string.join(list words, str separator)
 
 Concatenate a list of strings `words` into a string by separating them with string `separator`.
 
@@ -87,7 +87,7 @@ foobarbaz
 
 ## Information functions
 
-### string.length(str s)
+### num string.length(str s)
 
 Returns the length of the string `s`.
 
@@ -96,7 +96,7 @@ kaos> string.length("hello world")
 11
 ```
 
-### string.is_empty(str s)
+### bool string.is_empty(str s)
 
 Returns whether the string `s` empty or not.
 
@@ -107,7 +107,7 @@ kaos> string.is_empty("")
 true
 ```
 
-### string.is_numeric(str s)
+### bool string.is_numeric(str s)
 
 Returns `true` if all characters in the string `s` are numeric characters, and there is at least one character, `false` otherwise.
 
@@ -124,7 +124,7 @@ kaos> string.is_numeric("")
 false
 ```
 
-### string.is_alpha(str s)
+### bool string.is_alpha(str s)
 
 Returns `true` if string `s` only contains alphabetic characters or whitespace and not empty, `false` otherwise.
 
@@ -139,7 +139,7 @@ kaos> string.is_alpha("")
 false
 ```
 
-### string.is_alnum(str s)
+### bool string.is_alnum(str s)
 
 Returns `true` if string `s` only contains alphanumeric characters or whitespace and not empty, `false` otherwise.
 
@@ -152,7 +152,7 @@ kaos> string.is_alnum("")
 false
 ```
 
-### string.is_space(str s)
+### bool string.is_space(str s)
 
 Returns `true` if string `s` only contains whitespaces and not empty, `false` otherwise.
 
@@ -171,7 +171,7 @@ kaos> string.is_space("")
 false
 ```
 
-### string.is_lower(str s)
+### bool string.is_lower(str s)
 
 Returns `true` if string `s` only contains lowercase alphabetic characters, numeric characters or whitespace, `false` otherwise.
 
@@ -190,7 +190,7 @@ kaos> string.is_lower("")
 false
 ```
 
-### string.is_upper(str s)
+### bool string.is_upper(str s)
 
 Returns `true` if string `s` only contains uppercase alphabetic characters, numeric characters or whitespace, `false` otherwise.
 
@@ -211,7 +211,7 @@ false
 
 ## String constants
 
-### string.whitespace()
+### str string.whitespace()
 
 Returns the string that contains whitespace characters ` \t\n\r\v\f`.
 
@@ -220,7 +220,7 @@ kaos> string.whitespace()
  \t\n\r\v\f
 ```
 
-### string.ascii_lowercase()
+### str string.ascii_lowercase()
 
 Returns the string that contains [ASCII](https://en.wikipedia.org/wiki/ASCII) lowercase letters `abcdefghijklmnopqrstuvwxyz`.
 
@@ -229,7 +229,7 @@ kaos> string.ascii_lowercase()
 abcdefghijklmnopqrstuvwxyz
 ```
 
-### string.ascii_uppercase()
+### str string.ascii_uppercase()
 
 Returns the string that contains [ASCII](https://en.wikipedia.org/wiki/ASCII) uppercase letters `ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
 
@@ -238,7 +238,7 @@ kaos> string.ascii_uppercase()
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
-### string.ascii_letters()
+### str string.ascii_letters()
 
 Returns the string that contains [ASCII](https://en.wikipedia.org/wiki/ASCII) letters `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.
 
@@ -247,7 +247,7 @@ kaos> string.ascii_letters()
 abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
-### string.digits()
+### str string.digits()
 
 Returns the string that contains decimal digits `0123456789`.
 
@@ -256,7 +256,7 @@ kaos> string.digits()
 0123456789
 ```
 
-### string.hexdigits()
+### str string.hexdigits()
 
 Returns the string that contains hexadecimal digits `0123456789abcdefABCDEF`.
 
@@ -265,7 +265,7 @@ kaos> string.hexdigits()
 0123456789abcdefABCDEF
 ```
 
-### string.octdigits()
+### str string.octdigits()
 
 Returns the string that contains octal digits `0123456789`.
 
@@ -274,7 +274,7 @@ kaos> string.octdigits()
 01234567
 ```
 
-### string.punctuation()
+### str string.punctuation()
 
 Returns the characters considered punctuation according to [ASCII](https://en.wikipedia.org/wiki/ASCII) `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 
@@ -282,4 +282,3 @@ Returns the characters considered punctuation according to [ASCII](https://en.wi
 kaos> string.punctuation()
 !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 ```
-
