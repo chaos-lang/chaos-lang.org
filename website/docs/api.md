@@ -20,7 +20,7 @@ In this page we will describe the accessible macros and functions via
 
 `__KAOS_LANGUAGE_MOTTO__ "Turn chaos into magic!"` : Language's motto
 
-`__KAOS_LANGUAGE_KEYWORD_COUNT__ 34` : Number of reserved keywords
+`__KAOS_LANGUAGE_KEYWORD_COUNT__ 31` : Number of reserved keywords
 
 `__KAOS_INTERACTIVE_MODULE_NAME__ "__interactive__.kaos"` : Interactive shell's module name
 
@@ -204,6 +204,16 @@ Get a variable with `V_STRING` value type. Example:
 char* x = kaos.getVariableString(my_params_name[0]);
 ```
 
+### unsigned long getListLength()
+
+`unsigned long getListLength(char *name);`
+
+Get the length of the list. Example:
+
+```c
+unsigned long length = kaos.getListLength(my_params_name[0]);
+```
+
 ### bool getListElementBool()
 
 `bool getListElementBool(char *name, long long i);`
@@ -250,6 +260,28 @@ Get a list element with `V_STRING` value type. Example:
 
 ```c
 char* x = kaos.getListElementString(my_params_name[0], 0);
+```
+
+### unsigned long getDictLength()
+
+`unsigned long getDictLength(char *name);`
+
+Get the length of the dictionary. Example:
+
+```c
+unsigned long length = kaos.getDictLength(my_params_name[0]);
+```
+
+### char* getDictKeyByIndex()
+
+`char* getDictKeyByIndex(char *name, long long i);`
+
+Get the key of a dictionary on index `i`.
+
+**long long i** : is the index of the element.
+
+```c
+char* x = kaos.getDictKeyByIndex(my_params_name[0], 0);
 ```
 
 ### bool getDictElementBool()
