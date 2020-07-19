@@ -67,6 +67,30 @@ kaos> errorTest()
     Absorbed by Interactive Shell
 ```
 
+You can even return a typed list:
+
+```chaos
+kaos> str list def typedList()
+....      str list a = ['foo', 'bar', 'baz']
+....      return a
+....  end
+kaos> str list b = typedList()
+kaos> b
+['foo', 'bar', 'baz']
+```
+
+or a typed dictionary:
+
+```chaos
+kaos> num dict def typedDict()
+....      num dict a = {'a': 1, 'b': 2, 'c': 3}
+....      return a
+....  end
+kaos> num dict b = typedDict()
+kaos> b
+{'a': 1, 'b': 2, 'c': 3}
+```
+
 ## Immutability
 
 The parameters supplied to a function in Chaos will be deep cloned.  Changing a
