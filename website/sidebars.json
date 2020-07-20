@@ -25,7 +25,8 @@
     "Official Spells": [
       "spells/math",
       "spells/string",
-      "spells/array"
+      "spells/array",
+      "spells/json"
     ],
     "Chaos C Extensions": [
       "16_chaos_c_extensions_development",
