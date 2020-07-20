@@ -53,7 +53,7 @@ In this page we will describe the accessible macros and functions via
 
 ### Phase
 
-`enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM };`
+`enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM, INIT_JSON_PARSE, JSON_PARSE };`
 
 `Phase` enumerator symbolizes the states of the interpreter. A global variable named `phase` holds the state of the interpreter.
 The Chaos Interpreter parses a program file twice.
@@ -63,6 +63,8 @@ The second parsing phase is named `PROGRAM` and it simply executes the program.
 
 To switch a phase, you do set `phase` global variable neither to `PREPARSE` nor to `PROGRAM` but rather set to `INIT_PREPARSE`
 or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nature of [lexers](https://en.wikipedia.org/wiki/Lexical_analysis).
+
+`INIT_JSON_PARSE` and `JSON_PARSE` are only there to harness the JSON parsing capabilities of the Chaos language and provide [**jsonParse()**](api.md#void-jsonParse) function.
 
 ### Type
 
@@ -121,7 +123,7 @@ and `CALL_PARAM` means it's a function call parameter.
 
 ### int defineFunction()
 
-`int defineFunction(char *name, enum Type type, char *params_name[], unsigned params_type[], unsigned short params_length);`
+`int defineFunction(char *name, enum Type type, enum Type secondary_type, char *params_name[], unsigned params_type[], unsigned short params_length);`
 
 This is the function to register a function from your Chaos C extension to the interpreter and it's meant to put inside the `KaosRegister` function.
 It takes 5 parameters. Here is a complete example for the usages of `defineFunction`:
@@ -148,7 +150,7 @@ int EXPORT Kaos_add()
 int EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
-    kaos.defineFunction("add", K_NUMBER, add_params_name, add_params_type, add_params_length);
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length);
 
     return 0;
 }
@@ -157,6 +159,8 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 **char \*name** : The function's name. If your function is `int EXPORT Kaos_add()` then the name is `add`.
 
 **enum Type type** : The function's return data type. If your function will not return anything it's `K_VOID`, otherwise it's one of these `{ K_BOOL, K_NUMBER, K_STRING, K_ANY, K_LIST, K_DICT }`
+
+**enum Type secondary_type** : This parameter is only meaningful if `enum Type type` is `K_LIST` or `K_DICT`. It indicates the type of typed list or typed dictionary. So for example, if you want to return `num list` then set the parameters as `... K_LIST, K_NUM ...` Otherwise set it to `K_ANY`
 
 **char \*params_name[]** : The parameter names list. If your param list is `char *add_params_name[] = { "x", "y" };` variables named `x` and `y` will be available to use inside your function.
 
@@ -202,6 +206,46 @@ Get a variable with `V_STRING` value type. Example:
 
 ```c
 char* x = kaos.getVariableString(my_params_name[0]);
+```
+
+### bool getVariableBoolByTypeCasting()
+
+`bool getVariableBoolByTypeCasting(char *name);`
+
+Get a variable by casting its value type `V_BOOL` no matter what value type it has. Example:
+
+```c
+bool x = kaos.getVariableBoolByTypeCasting(my_params_name[0]);
+```
+
+### long long getVariableIntByTypeCasting()
+
+`long long getVariableIntByTypeCasting(char *name);`
+
+Get a variable by casting its value type `V_INT` no matter what value type it has. Example:
+
+```c
+long long x = kaos.getVariableIntByTypeCasting(my_params_name[0]);
+```
+
+### long double getVariableFloatByTypeCasting()
+
+`long double getVariableFloatByTypeCasting(char *name);`
+
+Get a variable by casting its value type `V_FLOAT` no matter what value type it has. Example:
+
+```c
+long double x = kaos.getVariableFloatByTypeCasting(my_params_name[0]);
+```
+
+### char* getVariableStringByTypeCasting()
+
+`char* getVariableStringByTypeCasting(char *name);`
+
+Get a variable by casting its value type `V_STRING` no matter what value type it has. Example:
+
+```c
+char* x = kaos.getVariableStringByTypeCasting(my_params_name[0]);
 ```
 
 ### unsigned long getListLength()
@@ -260,6 +304,76 @@ Get a list element with `V_STRING` value type. Example:
 
 ```c
 char* x = kaos.getListElementString(my_params_name[0], 0);
+```
+
+### bool getListElementBoolByTypeCasting()
+
+`bool getListElementBoolByTypeCasting(char *name, long long i);`
+
+Get a list element by casting its value type `V_BOOL` no matter what value type it has. Example:
+
+```c
+bool x = kaos.getListElementBoolByTypeCasting(my_params_name[0], 0);
+```
+
+### long long getListElementIntByTypeCasting()
+
+`long long getListElementIntByTypeCasting(char *name, long long i);`
+
+Get a list element by casting its value type `V_INT` no matter what value type it has. Example:
+
+```c
+long long x = kaos.getListElementIntByTypeCasting(my_params_name[0], 0);
+```
+
+### long double getListElementFloatByTypeCasting()
+
+`long double getListElementFloatByTypeCasting(char *name, long long i);`
+
+Get a list element by casting its value type `V_FLOAT` no matter what value type it has. Example:
+
+```c
+long double x = kaos.getListElementFloatByTypeCasting(my_params_name[0], 0);
+```
+
+### char* getListElementStringByTypeCasting()
+
+`char* getListElementStringByTypeCasting(char *name, long long i);`
+
+Get a list element by casting its value type `V_STRING` no matter what value type it has. Example:
+
+```c
+char* x = kaos.getListElementStringByTypeCasting(my_params_name[0], 0);
+```
+
+### void copyListElement()
+
+`void copyListElement(char *name, long long i);`
+
+Copy the list element seamlessly while building a new list with [**startBuildingList()**](api.md#void-startbuildinglist). Example:
+
+```c
+kaos.copyListElement(my_params_name[0], 0);
+```
+
+### enum Type getListElementType()
+
+`enum Type getListElementType(char *name, long long i);`
+
+Learn the type of specific list element. Example:
+
+```c
+enum Type type = kaos.getListElementType(my_params_name[0], 0);
+```
+
+### enum ValueType getListElementValueType()
+
+`enum ValueType getListElementValueType(char *name, long long i);`
+
+Learn the value type of specific list element. Example:
+
+```c
+enum ValueType value_type = kaos.getListElementValueType(my_params_name[0], 0);
 ```
 
 ### unsigned long getDictLength()
@@ -332,6 +446,86 @@ Get a dictionary element with `V_STRING` value type. Example:
 char* x = kaos.getDictElementString(my_params_name[0], "a");
 ```
 
+### bool getDictElementBoolByTypeCasting()
+
+`bool getDictElementBoolByTypeCasting(char *name, char *key);`
+
+Get a dictionary element by casting its value type `V_BOOL` no matter what value type it has. Example:
+
+```c
+bool x = kaos.getDictElementBoolByTypeCasting(my_params_name[0], "a");
+```
+
+### long long getDictElementIntByTypeCasting()
+
+`long long getDictElementIntByTypeCasting(char *name, char *key);`
+
+Get a dictionary element by casting its value type `V_INT` no matter what value type it has. Example:
+
+```c
+long long x = kaos.getDictElementIntByTypeCasting(my_params_name[0], "a");
+```
+
+### long double getDictElementFloatByTypeCasting()
+
+`long double getDictElementFloatByTypeCasting(char *name, char *key);`
+
+Get a dictionary element by casting its value type `V_FLOAT` no matter what value type it has. Example:
+
+```c
+long double x = kaos.getDictElementFloatByTypeCasting(my_params_name[0], "a");
+```
+
+### char* getDictElementStringByTypeCasting()
+
+`char* getDictElementStringByTypeCasting(char *name, char *key);`
+
+Get a dictionary element by casting its value type `V_STRING` no matter what value type it has. Example:
+
+```c
+char* x = kaos.getDictElementStringByTypeCasting(my_params_name[0], "a");
+```
+
+### void copyDictElement()
+
+`void copyDictElement(char *name, char *key);`
+
+Copy the dictionary element seamlessly while building a new dictionary with [**startBuildingDict()**](api.md#void-startbuildingdict). Example:
+
+```c
+kaos.copyDictElement(my_params_name[0], "a");
+```
+
+### enum Type getDictElementType()
+
+`enum Type getDictElementType(char *name, char *key);`
+
+Learn the type of specific dictionary element. Example:
+
+```c
+enum Type type = kaos.getDictElementType(my_params_name[0], "a");
+```
+
+### enum ValueType getDictElementValueType()
+
+`enum ValueType getDictElementValueType(char *name, char *key);`
+
+Learn the value type of specific dictionary element. Example:
+
+```c
+enum ValueType value_type = kaos.getDictElementValueType(my_params_name[0], "a");
+```
+
+### char* dumpVariableToString()
+
+`char* dumpVariableToString(char *name, bool pretty, bool escaped, bool double_quotes);`
+
+Dumps a variable into a string as if you're printing that variable. Example:
+
+```c
+char* dump = kaos.dumpVariableToString(my_params_name[0], false, true, true);
+```
+
 ### void returnVariableBool()
 
 `void returnVariableBool(bool b);`
@@ -376,9 +570,9 @@ kaos.returnVariableString("foo");
 
 `void createVariableBool(char *name, bool b);`
 
-Creates a variable with `K_BOOL` type and `V_BOOL` value type. Example:
+Create a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 
-*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used after [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -390,9 +584,9 @@ kaos.createVariableBool("b", true);
 
 `void createVariableInt(char *name, long long i);`
 
-Creates a variable with `K_NUMBER` type and `V_INT` value type. Example:
+Create a variable with `K_NUMBER` type and `V_INT` value type. Example:
 
-*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used after [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -404,9 +598,9 @@ kaos.createVariableInt("i", 1);
 
 `void createVariableFloat(char *name, long double f);`
 
-Creates a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
+Create a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 
-*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used after [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -418,9 +612,9 @@ kaos.createVariableFloat("f", 3.14);
 
 `void createVariableString(char *name, char *s);`
 
-Creates a variable with `K_STRING` type and `V_STRING` value type. Example:
+Create a variable with `K_STRING` type and `V_STRING` value type. Example:
 
-*It's meant to be used [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
+*It's meant to be used after [**startBuildingList()**](api.md#void-startbuildinglist) or [**startBuildingDict()**](api.md#void-startbuildingdict)*
 
 **char \*name** : is the key if it's a dictionary element.
 
@@ -432,7 +626,7 @@ kaos.createVariableString("s", "bar");
 
 `void startBuildingList();`
 
-Starts building a list for the return. Example:
+Start building a list for the return. Example:
 
 ```c
 kaos.startBuildingList();
@@ -446,7 +640,7 @@ kaos.returnList(K_NUMBER);
 
 `void returnList(enum Type type);`
 
-Returns the list. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed list. Example:
+Return the list. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed list. Example:
 
 ```c
 kaos.startBuildingList();
@@ -460,7 +654,7 @@ kaos.returnList(K_NUMBER);
 
 `void startBuildingDict();`
 
-Starts building a dictionary for the return. Example:
+Start building a dictionary for the return. Example:
 
 ```c
 kaos.startBuildingDict();
@@ -475,7 +669,7 @@ kaos.returnDict(K_ANY);
 
 `void returnDict(enum Type type);`
 
-Returns the dictionary. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed dictionary. Example:
+Return the dictionary. If `enum Type type` is one of these `{ K_BOOL, K_NUMBER, K_STRING }` then that means it will be a typed dictionary. Example:
 
 ```c
 kaos.startBuildingDict();
@@ -491,3 +685,77 @@ kaos.returnDict(K_ANY);
 `void returnComplex(enum Type type);`
 
 This function can be used instead of [**returnList()**](api.md#void-returnlist) or [**returnDict()**](api.md#void-returndict).
+
+### void finishList()
+
+`void finishList(enum Type type);`
+
+Finish building a list that you started with [**startBuildingList()**](api.md#void-startbuildinglist). You can think this function as [**returnList()**](api.md#void-returnlist) minus `return`
+
+### void finishDict()
+
+`void finishDict(enum Type type);`
+
+Finish building a dictionary that you started with [**startBuildingDict()**](api.md#void-startbuildingdict). You can think this function as [**returnDict()**](api.md#void-returndict) minus `return`
+
+### void finishComplex()
+
+`void finishComplex(enum Type type);`
+
+This function can be used instead of [**finishList()**](api.md#void-finishlist) or [**finishDict()**](api.md#void-finishdict).
+
+### enum Type getListType()
+
+`enum Type getListType(char *name);`
+
+Learn the type of a typed list. Example:
+
+```c
+enum Type type = kaos.getListType(my_params_name[0]);
+```
+
+### enum Type getDictType()
+
+`enum Type getDictType(char *name);`
+
+Learn the type of a typed dictionary. Example:
+
+```c
+enum Type type = kaos.getDictType(my_params_name[0]);
+```
+
+### enum ValueType getValueType()
+
+`enum ValueType getValueType(char *name);`
+
+Learn the value type of a specific variable. Example:
+
+```c
+enum ValueType value_type = kaos.getValueType(my_params_name[0]);
+```
+
+### enum Role getRole()
+
+`enum Role getRole(char *name);`
+
+Learn the role of a specific variable. Example:
+
+```c
+enum Role role = kaos.getRole(my_params_name[0]);
+```
+
+### void raiseError()
+
+`void raiseError(char *msg);`
+
+Throw an error. Example:
+
+```c
+kaos.raiseError("Something bad happened!")
+```
+
+### void parseJson()
+
+`void parseJson(char *json);`
+
+Parse a JSON string and return it as a dictionary.

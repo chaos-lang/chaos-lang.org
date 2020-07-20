@@ -48,8 +48,8 @@ int KAOS_EXPORT Kaos_add()
 int EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
-    kaos.defineFunction("hello", K_VOID, hello_params_name, hello_params_type, hello_params_length);
-    kaos.defineFunction("add", K_NUMBER, add_params_name, add_params_type, add_params_length);
+    kaos.defineFunction("hello", K_VOID, K_ANY, hello_params_name, hello_params_type, hello_params_length);
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length);
 
     return 0;
 }
