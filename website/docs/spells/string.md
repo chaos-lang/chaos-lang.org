@@ -55,7 +55,7 @@ kaos> string.concat("hello", " world")
 hello world
 ```
 
-### list string.split(str s, str delimiter)
+### list string.split(str s, str delimiter = ' ')
 
 Splits the string `s` into a list according to the string `delimiter`.
 
@@ -64,7 +64,7 @@ kaos> string.split("A quick brown fox jumps over the lazy dog", " ")
 ['A', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 ```
 
-### str string.join(list words, str separator)
+### str string.join(list words, str separator = ' ')
 
 Concatenates a list of strings `words` into a string by separating them with string `separator`.
 

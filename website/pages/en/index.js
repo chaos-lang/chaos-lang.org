@@ -115,7 +115,7 @@ class Index extends React.Component {
           <li>Ruby's loops and blocks</li>
           <li>PHP's dedication to server-side</li>
           <li>Haskell's immutability</li>
-          <li>C's speed</li>
+          <li>C's speed and interoperability</li>
           <li>NumPy's matrix arithmetics</li>
           <li>Perl's regex engine</li>
         </ul>

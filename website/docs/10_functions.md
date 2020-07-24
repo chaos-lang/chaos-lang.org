@@ -109,17 +109,34 @@ kaos> print hello
 hello world
 ```
 
+## Optional Parameters
+
+Chaos language also supports optional function parameters:
+
+```chaos
+kaos> void def f2(str param1, str param2 = 'bar')
+....      print param1
+....      print param2
+....  end
+kaos> f2('foo')
+foo
+bar
+kaos> f2('foo', 'baz')
+foo
+baz
+```
+
 ## Example Functions
 
 ### Print a Dictionary with a Title
 
 ```chaos
 kaos> dict d = {'a': 'foo', 'b': 'bar', 'c': 'baz'}
-kaos> dict def f2(str param1, dict param2)
+kaos> dict def f3(str param1, dict param2)
 ....      print param1
 ....      return param2
 ....  end
-kaos> print f2('Dictionary:', d)
+kaos> print f3('Dictionary:', d)
 Dictionary:
 {'a': 'foo', 'b': 'bar', 'c': 'baz'}
 ```

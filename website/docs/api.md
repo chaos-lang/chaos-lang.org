@@ -106,6 +106,20 @@ and `V_VOID` has a special meaning. It means a [**List**](05_lists) or a [**Dict
 
 *`V_` prefix can remind you **V**alue.*
 
+### KaosValue
+
+```c
+typedef struct KaosValue {
+    bool b;
+    long long i;
+    char *s;
+    long double f;
+} KaosValue;
+```
+
+`KaosValue` is the representation of how the Chaos variables hold their value. It's tightly related to `ValueType`. You use the `KaosValue` to store the value if the value
+needs to be hard-coded into the extension and assign to correct C data type according to `ValueType` of variable and its equivalent shown above.
+
 ### Role
 
 `enum Role { DEFAULT, PARAM, CALL_PARAM };`
@@ -123,10 +137,21 @@ and `CALL_PARAM` means it's a function call parameter.
 
 ### int defineFunction()
 
-`int defineFunction(char *name, enum Type type, enum Type secondary_type, char *params_name[], unsigned params_type[], unsigned short params_length);`
+```c
+int defineFunction(
+    char *name,
+    enum Type type,
+    enum Type secondary_type,
+    char *params_name[],
+    unsigned params_type[],
+    unsigned short params_length,
+    KaosValue optional_params[],
+    unsigned short optional_params_length
+);
+```
 
 This is the function to register a function from your Chaos C extension to the interpreter and it's meant to put inside the `KaosRegister` function.
-It takes 5 parameters. Here is a complete example for the usages of `defineFunction`:
+It takes 8 parameters. Here is a complete example for the usages of `defineFunction`:
 
 ```c
 char *add_params_name[] = {
@@ -150,7 +175,7 @@ int EXPORT Kaos_add()
 int EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
-    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length);
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length, NULL, 0);
 
     return 0;
 }
@@ -167,6 +192,32 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 **unsigned params_type[]** : The variable types of the parameters. If your param type list is `unsigned add_params_type[] = { K_NUMBER, K_NUMBER };` there will be two variables with data type [**Number**](04_primitive-data-types.md#number) available to use inside your function.
 
 **unsigned short params_length** : The length of the parameter list. So the length of `char *params_name[]` and `unsigned params_type[]` must be equal and you have to supply the length value with `unsigned short params_length`. So it's `2` in this example.
+
+**KaosValue optional_params[]** : Optional parameters list which is an array `KaosValue` that holds the default values of optional parameters. Assign `NULL` if the function does not have any optional parameters.
+
+**unsigned short optional_params_length** : Number of optional parameters. Indicates that how many of the last N parameters are optional function parameters. Assign `0` if the function does not have any optional parameters.
+
+#### Optional Function Parameter Example:
+
+You can turn the implementation of `num add(num x, num y)` function to `num add(num x, num y = 5)` like this:
+
+```c
+int EXPORT KaosRegister(struct Kaos _kaos)
+{
+    kaos = _kaos;
+
+    struct KaosValue add_optional_y;
+    add_optional_y.i = 5;
+    add_optional_y.f = 5.0;
+    struct KaosValue add_optional_params[] = {
+        add_optional_y
+    };
+
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length, add_optional_params, 1);
+
+    return 0;
+}
+```
 
 ### bool getVariableBool()
 

@@ -29,7 +29,7 @@ kaos> array.merge(a, b)
 [1, 2, 3, 4, 5, 6]
 ```
 
-### list array.insert(list l, any x, num i)
+### list array.insert(list l, any x, num i = -1)
 
 Inserts a new item `x` into list `l` before index `i`.
 
