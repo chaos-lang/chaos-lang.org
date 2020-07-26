@@ -35,8 +35,10 @@ Inserts a new item `x` into list `l` before index `i`.
 
 ```chaos
 kaos> list a = [1, 2, 3]
-kaos> array.reverse(a)
-[3, 2, 1]
+kaos> array.insert(a, 5, 1)
+[1, 5, 2, 3]
+kaos> array.insert(a, 4)
+[1, 2, 3, 4]
 ```
 
 ### list array.reverse(list l)
