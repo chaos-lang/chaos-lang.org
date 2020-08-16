@@ -18,7 +18,7 @@ multiline comment
 for the function below
 @description Adds two numbers together
 */
-num def add(num x, str y)
+num def add(num x, num y)
     num z = x + y
 
     bool a = true

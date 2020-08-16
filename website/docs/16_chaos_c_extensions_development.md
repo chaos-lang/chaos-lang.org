@@ -19,6 +19,7 @@ functions to be used as functions in Chaos Language. Here is an example Chaos C 
 
 char *hello_params_name[] = {};
 unsigned hello_params_type[] = {};
+unsigned hello_params_secondary_type[] = {};
 unsigned short hello_params_length = 0;
 int KAOS_EXPORT Kaos_hello()
 {
@@ -34,6 +35,10 @@ unsigned add_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned add_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short add_params_length = (unsigned short) sizeof(add_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_add()
 {
@@ -48,8 +53,8 @@ int KAOS_EXPORT Kaos_add()
 int EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
-    kaos.defineFunction("hello", K_VOID, K_ANY, hello_params_name, hello_params_type, hello_params_length, NULL, 0);
-    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length, NULL, 0);
+    kaos.defineFunction("hello", K_VOID, K_ANY, hello_params_name, hello_params_type, hello_params_secondary_type, hello_params_length, NULL, 0);
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_secondary_type, add_params_length, NULL, 0);
 
     return 0;
 }

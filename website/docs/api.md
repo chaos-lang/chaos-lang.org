@@ -56,13 +56,15 @@ In this page we will describe the accessible macros and functions via
 `enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM, INIT_JSON_PARSE, JSON_PARSE };`
 
 `Phase` enumerator symbolizes the states of the interpreter. A global variable named `phase` holds the state of the interpreter.
-The Chaos Interpreter parses a program file twice.
+The Chaos Interpreter parses a program file, builds an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
+and traverses that AST in the phases.
 
-The first parsing phase is named `PREPARSE` and it parses the functions and does some look ahead checks.
-The second parsing phase is named `PROGRAM` and it simply executes the program.
+The first phase is named `PREPARSE` and it registers the functions and does some look ahead checks.
+The second phase is named `PROGRAM` and it simply executes the program.
 
 To switch a phase, you do set `phase` global variable neither to `PREPARSE` nor to `PROGRAM` but rather set to `INIT_PREPARSE`
-or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's the nature of [lexers](https://en.wikipedia.org/wiki/Lexical_analysis).
+or `INIT_PROGRAM` to initiate the switch. It might seem weird but that's how the phase transition
+is implemented in our [lexer](https://en.wikipedia.org/wiki/Lexical_analysis).
 
 `INIT_JSON_PARSE` and `JSON_PARSE` are only there to harness the JSON parsing capabilities of the Chaos language and provide [**jsonParse()**](api.md#void-jsonParse) function.
 
@@ -144,6 +146,7 @@ int defineFunction(
     enum Type secondary_type,
     char *params_name[],
     unsigned params_type[],
+    unsigned params_secondary_type[],
     unsigned short params_length,
     KaosValue optional_params[],
     unsigned short optional_params_length
@@ -162,6 +165,10 @@ unsigned add_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned add_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short add_params_length = (unsigned short) sizeof(add_params_type) / sizeof(unsigned);
 int EXPORT Kaos_add()
 {
@@ -175,7 +182,7 @@ int EXPORT Kaos_add()
 int EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
-    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_length, NULL, 0);
+    kaos.defineFunction("add", K_NUMBER, K_ANY, add_params_name, add_params_type, add_params_secondary_type, add_params_length, NULL, 0);
 
     return 0;
 }
@@ -190,6 +197,8 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 **char \*params_name[]** : The parameter names list. If your param list is `char *add_params_name[] = { "x", "y" };` variables named `x` and `y` will be available to use inside your function.
 
 **unsigned params_type[]** : The variable types of the parameters. If your param type list is `unsigned add_params_type[] = { K_NUMBER, K_NUMBER };` there will be two variables with data type [**Number**](04_primitive-data-types.md#number) available to use inside your function.
+
+**unsigned params_secondary_type[]** : The variable types of the elements of list or dictionary parameters. If your params are, for example; `num list` and `bool dict` then secondary type list is `unsigned blabla_params_secondary_type[] = { K_NUMBER, K_BOOL };`. If the parameter is not a typed list or dictionary or a primitive data type then it's a good practice to use `K_ANY` type.
 
 **unsigned short params_length** : The length of the parameter list. So the length of `char *params_name[]` and `unsigned params_type[]` must be equal and you have to supply the length value with `unsigned short params_length`. So it's `2` in this example.
 
