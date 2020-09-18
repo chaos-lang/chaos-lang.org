@@ -136,3 +136,66 @@ a
 g
 e
 ```
+
+## break and continue statements
+
+`break` and `continue` statements can only be used in function returns. Therefore it's recommended
+to have some understanding about how [**decision making**](11_decision_making.md) works in Chaos language.
+
+You can stop any kind of loop by using the `break` statement from a called function:
+
+```chaos
+num def f4(num x, num y)
+    num z = x + y
+    bool a = true
+end {
+    z > 5   : break,
+    z == 8  : f1(),
+    z > 10  : f2(),
+    default : f3()
+}
+
+foreach a as el
+    print el
+    print f4(el, 1)
+end
+```
+
+You can skip the current iteration of any kind of loop by using the `continue` statement from a called function:
+
+```chaos
+num def f4(num x, num y)
+    num z = x + y
+    bool a = true
+end {
+    z == 5  : continue,
+    z == 8  : f1(),
+    z > 10  : f2(),
+    default : f3()
+}
+
+foreach a as el
+    print f4(el, 1)
+    print el
+end
+```
+
+It's also possible to use these statements with the `default` keyword like the examples below:
+
+```chaos
+end {
+    z > 5   : f3(),
+    z == 8  : f1(),
+    z > 10  : f2(),
+    default : break
+}
+```
+
+```chaos
+end {
+    z == 5  : f3(),
+    z == 8  : f1(),
+    z > 10  : f2(),
+    default : continue
+}
+```

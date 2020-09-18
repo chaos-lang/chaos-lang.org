@@ -23,13 +23,13 @@ the files under `spells/math/` directory.
 If the installed spell is a module then you will see a file named `math.kaos` in that directory. This file is the entry point for the spell.
 
 If the installed spell is a Chaos C extension then according to operating system, you will find either `math.so` or `math.dylib` or `math.dll`
-in that directory. This is file is the entry point for the spell.
+in that directory. This file is the spell's itself as a dynamic library which is loaded on runtime.
 
 ## How do I use a spell?
 
-The Chaos interpreter programmed to look for a file named `math.kaos` in the current working directory when you type `import math`.
+The Chaos interpreter programmed to look for a file named `math.kaos` in the current working directory when you type, for example `import math`.
 If it cannot find the `math.kaos` file in the current working directory, it immediately looks for a file on `spells/math/math.kaos` path.
-If no such file found, in the last resort it looks for a file named either `math.so` or `math.dylib` or `math.dll` *(according to your operating system)*
+If no such file found, as the last resort; it looks for a file named either `math.so` or `math.dylib` or `math.dll` *(according to your operating system)*
 under `spells/math/` directory.
 
 In simple terms, Chaos interpreter:

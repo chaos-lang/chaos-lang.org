@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "docusaurus": "^1.14.4",
-    "highlightjs-chaos": "0.0.9",
+    "highlightjs-chaos": "0.0.10",
     "katex": "^0.11.1",
     "remarkable-katex": "^1.1.4"
   },
