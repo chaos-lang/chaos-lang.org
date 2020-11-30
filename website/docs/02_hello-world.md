@@ -51,4 +51,5 @@ $ build/hello
 hello world
 ```
 
-Run `chaos --help` to see more options.
+Run `chaos --help` to see more options or check out **[this detailed blog post](/blog/2020/11/30/blog-post)**
+about the Chaos compiler.

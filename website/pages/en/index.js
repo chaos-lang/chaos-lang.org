@@ -113,6 +113,7 @@ class Index extends React.Component {
           <li>Python's syntax, modules and extensibility</li>
           <li>JavaScript's availability</li>
           <li>Ruby's loops and blocks</li>
+          <li>Rexx's <code>DO FOREVER</code> keyword</li>
           <li>PHP's dedication to server-side</li>
           <li>Haskell's immutability</li>
           <li>C's speed and interoperability</li>
