@@ -61,8 +61,8 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 ```
 
 A Chaos C Extension minimally should have a function called `KaosRegister`
-and at least one exported function prefixed with `Kaos_`. The Chaos Interpreter calls `KaosRegister` function to register
-the exported functions into interpreter's function table and also shares some of its function pointers with the
+and at least one exported function prefixed with `Kaos_`. The Chaos language calls `KaosRegister` function to register
+the exported functions into runtime's function table and also shares some of its function pointers with the
 extension with the purpose of being called by the extension on the registration or on some point where a function
 returns a variable.
 

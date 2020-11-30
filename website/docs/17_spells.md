@@ -27,12 +27,12 @@ in that directory. This file is the spell's itself as a dynamic library which is
 
 ## How do I use a spell?
 
-The Chaos interpreter programmed to look for a file named `math.kaos` in the current working directory when you type, for example `import math`.
+The Chaos runtime programmed to look for a file named `math.kaos` in the current working directory when you type, for example `import math`.
 If it cannot find the `math.kaos` file in the current working directory, it immediately looks for a file on `spells/math/math.kaos` path.
 If no such file found, as the last resort; it looks for a file named either `math.so` or `math.dylib` or `math.dll` *(according to your operating system)*
 under `spells/math/` directory.
 
-In simple terms, Chaos interpreter:
+In simple terms, Chaos language:
 
  1. Looks for the module in the same directory.
  2. Looks for the module under `spells/<MODULE-NAME>/`
@@ -55,7 +55,7 @@ example.kaos
 occultist.json
 ```
 
-The Chaos interpreter expects to find a file named `example.kaos` if your spell name is `example`, as
+The Chaos runtime expects to find a file named `example.kaos` if your spell name is `example`, as
 an entry point for loading up the module. So the spell name and the name of the file with `.kaos` extension have to match.
 
 Here is an example **occultist.json** file:

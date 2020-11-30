@@ -12,9 +12,9 @@ In this page we will describe the accessible macros and functions via
 
 ## Macros
 
-`__KAOS_LANGUAGE_NAME__ "Chaos"` : Interpreter's name
+`__KAOS_LANGUAGE_NAME__ "Chaos"` : Language's name
 
-`__KAOS_LANGUAGE_VERSION__ "0.0.1-alpha"` : Interpreter's version
+`__KAOS_LANGUAGE_VERSION__ "0.1.0"` : Language's version
 
 `__KAOS_LANGUAGE_FILE_EXTENSION__ "kaos"` : Default program file extension
 
@@ -55,8 +55,8 @@ In this page we will describe the accessible macros and functions via
 
 `enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM, INIT_JSON_PARSE, JSON_PARSE };`
 
-`Phase` enumerator symbolizes the states of the interpreter. A global variable named `phase` holds the state of the interpreter.
-The Chaos Interpreter parses a program file, builds an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
+`Phase` enumerator symbolizes the states of the runtime. A global variable named `phase` holds the state of the runtime.
+The Chaos language parses a program file, builds an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
 and traverses that AST in the phases.
 
 The first phase is named `PREPARSE` and it registers the functions and does some look ahead checks.
@@ -72,7 +72,7 @@ is implemented in our [lexer](https://en.wikipedia.org/wiki/Lexical_analysis).
 
 `enum Type { K_BOOL, K_NUMBER, K_STRING, K_ANY, K_LIST, K_DICT, K_VOID };`
 
-`Type` enumerator is quite simple. It symbolizes the types of variables that the Chaos Interpreter can understand.
+`Type` enumerator is quite simple. It symbolizes the types of variables that the Chaos language can understand.
 
 `K_BOOL` means [**Boolean**](04_primitive-data-types.md#boolean),
 
@@ -94,7 +94,7 @@ and `K_VOID` means [**Void**](10_functions) data type.
 
 `enum ValueType { V_BOOL, V_INT, V_FLOAT, V_STRING, V_VOID };`
 
-`ValueType` enumerator is also quite simple. It symbolizes the types of variables in terms of C language that the Chaos Interpreter can store.
+`ValueType` enumerator is also quite simple. It symbolizes the types of variables in terms of C language that the Chaos language can store.
 
 `V_BOOL` means `bool`
 
@@ -126,7 +126,7 @@ needs to be hard-coded into the extension and assign to correct C data type acco
 
 `enum Role { DEFAULT, PARAM, CALL_PARAM };`
 
-`Role` enumerator symbolizes the role of a variable that used by the interpreter.
+`Role` enumerator symbolizes the role of a variable that used by the runtime.
 
 `DEFAULT` means it's an ordinary variable
 
@@ -153,7 +153,7 @@ int defineFunction(
 );
 ```
 
-This is the function to register a function from your Chaos C extension to the interpreter and it's meant to put inside the `KaosRegister` function.
+This is the function to register a function from your Chaos C extension to the runtime and it's meant to put inside the `KaosRegister` function.
 It takes 8 parameters. Here is a complete example for the usages of `defineFunction`:
 
 ```c

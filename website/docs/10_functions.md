@@ -16,7 +16,7 @@ hello world
 
 ## Declaration Order
 
-There is no need for forward declaration because the Chaos interpreter looks ahead:
+There is no need for forward declaration because the Chaos language looks ahead:
 
 ```chaos
 void def a()

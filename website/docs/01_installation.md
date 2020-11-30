@@ -16,19 +16,20 @@ occultist install chaos
 or install a specific version:
 
 ```bash
-occultist install chaos 0.0.1-alpha.8
+occultist install chaos 0.1.0
 ```
 
 and check the version with:
 
 ```bash
 $ chaos --version
-0.0.1-alpha
+0.1.0
 ```
 
 otherwise;
 
 Clone the repository:
+
 ```bash
 git clone https://github.com/chaos-lang/chaos.git
 cd chaos/
@@ -40,7 +41,7 @@ Install the requirements:
 make requirements
 ```
 
-Compile the interpreter:
+Compile the language:
 
 ```bash
 make
