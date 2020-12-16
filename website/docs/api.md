@@ -14,7 +14,11 @@ In this page we will describe the accessible macros and functions via
 
 `__KAOS_LANGUAGE_NAME__ "Chaos"` : Language's name
 
-`__KAOS_LANGUAGE_VERSION__ "0.1.0"` : Language's version
+`__KAOS_VERSION_MAJOR__ 0` : Language's major version
+
+`__KAOS_VERSION_MINOR__ 1` : Language's minor version
+
+`__KAOS_VERSION_PATCHLEVEL__ 1` : Language's patch version
 
 `__KAOS_LANGUAGE_FILE_EXTENSION__ "kaos"` : Default program file extension
 

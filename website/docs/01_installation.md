@@ -16,14 +16,14 @@ occultist install chaos
 or install a specific version:
 
 ```bash
-occultist install chaos 0.1.0
+occultist install chaos 0.1.1
 ```
 
 and check the version with:
 
 ```bash
 $ chaos --version
-0.1.0
+0.1.1
 ```
 
 otherwise;

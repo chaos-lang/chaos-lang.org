@@ -4,7 +4,7 @@ title: Modules
 sidebar_label: Modules
 ---
 
-Module system in Chaos language is quite simple, it justs loads up the functions in the file from the specified path.
+Module system in Chaos language is quite simple, it just loads up the functions in the file from the specified path.
 The keyword for specifying imports: `import` and two secondary keywords to detail the importing: `from`, `as`
 
 Let's say you have a module like this:
