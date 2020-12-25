@@ -10,7 +10,7 @@ sidebar_label: Hello, World!
 
 ```chaos
 $ chaos
-    Chaos Language 0.1.1 (Dec 16 2020 00:59:03)
+    Chaos Language 0.1.2 (Dec 25 2020 16:48:40)
     GCC version: 9.3.0 on linux
     Turn chaos into magic!
 
