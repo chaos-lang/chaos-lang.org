@@ -18,7 +18,7 @@ In this page we will describe the accessible macros and functions via
 
 `__KAOS_VERSION_MINOR__ 1` : Language's minor version
 
-`__KAOS_VERSION_PATCHLEVEL__ 1` : Language's patch version
+`__KAOS_VERSION_PATCHLEVEL__ 2` : Language's patch version
 
 `__KAOS_LANGUAGE_FILE_EXTENSION__ "kaos"` : Default program file extension
 
