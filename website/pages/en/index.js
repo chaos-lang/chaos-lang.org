@@ -171,10 +171,10 @@ class Index extends React.Component {
       <Block layout="threeColumn">
         {[
           {
-            content: 'There are no control structures. (no `if..else`, no `switch..case`) Decision making only possible on function returns.',
+            content: 'There are no arbitrary control structures, like `if`, or `switch`. Decision making ensures disiplined code.',
             image: `${baseUrl}img/process.svg`,
             imageAlign: 'top',
-            title: 'Zero Cyclomatic Complexity',
+            title: 'Flat Cyclomatic Complexity',
           },
           {
             content: 'A single unit test is enough to have **100% coverage** on functions, **always**.',

@@ -46,7 +46,7 @@ Chaos language also supports unary operators like parentheses: `()`, pre-/post-i
 
 #### Notes:
 
- - *There are intentionally no ternary or conditional operators to facilitate the **zero cyclomatic complexity** requirement.*
+ - *There are intentionally no ternary or conditional operators to facilitate the **flat cyclomatic complexity** requirement.*
 
  - *There are no arithmetic assignment operators because we believe having those operators, resulting more error-prone code.*
 

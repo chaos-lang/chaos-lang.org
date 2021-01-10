@@ -4,7 +4,7 @@ title: Decision Making
 sidebar_label: Decision Making
 ---
 
-Decision making(a.k.a. control structures) in Chaos language is only achievable on function returns for the sake of **zero cyclomatic complexity**. For example, if you run this program:
+Decision making(a.k.a. control structures) in Chaos language is only achievable on function returns for the sake of **flat cyclomatic complexity**. For example, if you run this program:
 
 ```chaos
 num def f1()
