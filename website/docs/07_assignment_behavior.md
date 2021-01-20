@@ -1,15 +1,16 @@
 ---
-id: 07_immutability
-title: Immutability
-sidebar_label: Immutability
+id: 07_assignment_behavior
+title: Assignment Behavior
+sidebar_label: Assignment Behavior
 ---
 
-Every variable in Chaos language is **immutable by default**.
+Assignment behavior in Chaos language resembles the common sense.
 When you assign a variable to another variable, the language's itself
 creates a **deep copy** of that variable. That means; the new(*left-hand*) variable will
-live in a completely different memory region than the old(*right-hand*) variable.
+live in a completely different memory region than the old(*right-hand*) variable which we
+call that **isolation**. Besides that, function call parameters are always **immutable**.
 
-Here are some examples of immutability on Chaos language:
+Here are some examples to demonstrate the **isolation** in Chaos language:
 
 ```chaos
 kaos> bool a = true
@@ -33,7 +34,7 @@ kaos> print b
 3.5
 ```
 
-Immutability is also valid on new variable creation:
+**Isolation** is also valid on new variable creation:
 
 ```chaos
 kaos> bool a = true
@@ -55,7 +56,7 @@ kaos> print b
 foo
 ```
 
-Lists and the elements of lists are also immutable:
+Lists and the elements of lists are also **isolated**:
 
 ```chaos
 kaos> num x = 5
@@ -98,7 +99,7 @@ kaos> print y
 [5, 2, 3]
 ```
 
-Dictionaries and the values of dictionaries are also immutable:
+Dictionaries and the values of dictionaries are also **isolated**:
 
 ```chaos
 kaos> num k = 5
@@ -141,7 +142,7 @@ kaos> print q
 {'b': 2, 'c': 3, 'a': 5}
 ```
 
-Function call parameters are also immutable:
+Here is an example to demonstrate how function call parameters are **immutable**:
 
 ```chaos
 kaos> num def alter_variable(num x)

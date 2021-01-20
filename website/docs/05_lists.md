@@ -22,11 +22,11 @@ kaos> print d
 kaos> list e = ["A", "B", "C"]
 kaos> print e
 ['A', 'B', 'C']
-kaos> list f = ['A', "asdasdad12312", 1232, 435.16, true, false]
+kaos> list f = ['A', "some text", 1232, 435.16, true, false]
 kaos> pretty print f
 [
     'A',
-    'asdasdad12312',
+    'some text',
     1232,
     435.16,
     true,
@@ -94,9 +94,9 @@ kaos> print a
 kaos> number list b = [1, 2, 63.3, 12321.1515]
 kaos> print b
 [1, 2, 63.3, 12321.2]
-kaos> str list c = ['A', "asdasdaqs", 'asdasd123123', "."]
+kaos> str list c = ['A', "some text", 'with numbers 123456', "."]
 kaos> print c
-['A', 'asdasdaqs', 'asdasd123123', '.']
+['A', 'some text', 'with numbers 123456', '.']
 ```
 
 ## Multidimensional Lists

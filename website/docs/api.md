@@ -16,9 +16,9 @@ In this page we will describe the accessible macros and functions via
 
 `__KAOS_VERSION_MAJOR__ 0` : Language's major version
 
-`__KAOS_VERSION_MINOR__ 1` : Language's minor version
+`__KAOS_VERSION_MINOR__ 2` : Language's minor version
 
-`__KAOS_VERSION_PATCHLEVEL__ 2` : Language's patch version
+`__KAOS_VERSION_PATCHLEVEL__ 0` : Language's patch version
 
 `__KAOS_LANGUAGE_FILE_EXTENSION__ "kaos"` : Default program file extension
 
@@ -28,11 +28,13 @@ In this page we will describe the accessible macros and functions via
 
 `__KAOS_INTERACTIVE_MODULE_NAME__ "__interactive__.kaos"` : Interactive shell's module name
 
-`__KAOS_MAX_RECURSION_DEPTH__ 1000` : Maximum recursion depth
-
 `__KAOS_MSG_LINE_LENGTH__ 1000` : A buffer constant being used while printing error messages
 
-`__KAOS_BYE_BYE__ "You have chosen the order! "` : Farewell message appears on exit from interactive shell
+`__KAOS_BYE_BYE__ "Bye bye!"` : Farewell message appears on exit from interactive shell
+
+`__KAOS_SYNTAX_ERROR__ "Syntax error"` : Syntax error message title.
+
+`__KAOS_INDENT_LENGTH__ 4` : Indentation length.
 
 `__KAOS_SPELLS__ "spells"` : Default package directory name
 
@@ -45,6 +47,9 @@ In this page we will describe the accessible macros and functions via
 `__KAOS_SHELL_INDICATOR__` : Interactive shell indicator/prompt. `"kaos> "` on Windows, `"\001\033[0;90m\002kaos>\001\033[0m\002 "` on other platforms. (colored)
 
 `__KAOS_SHELL_INDICATOR_BLOCK__` : Interactive shell indicator/prompt in code block mode. `"....  "` on Windows, `"\001\033[0;90m\002....\001\033[0m\002  "` on other platforms. (colored)
+
+`__KAOS_BUILD_DIRECTORY__ "build"` : Compiler's output directory name.
+`__KAOS_WINDOWS_EXE_EXT__ ".exe"` : Compiled binaries' file extension on Windows.
 
 `__KAOS_PLATFORM_NAME__` : Gives you the current platform's name. See [**platform.h**](https://github.com/chaos-lang/chaos/blob/master/utilities/platform.h) for more details.
 

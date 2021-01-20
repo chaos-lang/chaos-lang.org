@@ -12,7 +12,7 @@ In its essence, a Chaos C Extension is a dynamic C library that includes
 [**Chaos.h**](https://github.com/chaos-lang/chaos/blob/master/Chaos.h) header and exports some of its
 functions to be used as functions in Chaos Language. Here is an example Chaos C Extension:
 
-**example.c:**
+**`example.c`**
 
 ```c
 #include "Chaos.h"
@@ -70,13 +70,13 @@ Here are the example commands to generate dynamic libraries from the above code:
 
 ## Linux
 
-#### gcc
+#### `gcc`
 
 ```bash
 gcc -shared -fPIC example.c -o spells/example.so
 ```
 
-#### clang
+#### `clang`
 
 ```bash
 clang -shared -fPIC example.c -o spells/example.so
@@ -84,13 +84,13 @@ clang -shared -fPIC example.c -o spells/example.so
 
 ## macOS
 
-#### gcc
+#### `gcc`
 
 ```bash
 gcc -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 ```
 
-#### clang
+#### `clang`
 
 ```bash
 clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
@@ -98,7 +98,7 @@ clang -shared -fPIC -undefined dynamic_lookup example.c -o spells/example.dylib
 
 ## Windows
 
-#### gcc
+#### `gcc`
 
 ```bash
 gcc -shared -fPIC example.c -o example.o
@@ -106,7 +106,7 @@ gcc -c example.c
 gcc -shared -o spells/example.dll example.o -Wl,--out-implib,libexample.a
 ```
 
-#### clang
+#### `clang`
 
 ```bash
 clang -shared example.c -o example.o

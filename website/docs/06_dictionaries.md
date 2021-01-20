@@ -87,9 +87,9 @@ kaos> print dict1
 kaos> number dict dict2 = {'a': 1, "b": 2, 'c': 63.3, 'd': 12321.1515}
 kaos> print dict2
 {'a': 1, 'b': 2, 'c': 63.3, 'd': 12321.2}
-kaos> str dict dict3 = {'a': 'A', 'b': "asdasdaqs", 'c': 'asdasd123123', 'd': "."}
+kaos> str dict dict3 = {'a': 'A', 'b': "some text", 'c': 'with numbers 123456', 'd': "."}
 kaos> print dict3
-{'a': 'A', 'b': 'asdasdaqs', 'c': 'asdasd123123', 'd': '.'}
+{'a': 'A', 'b': 'some text', 'c': 'with numbers 123456', 'd': '.'}
 ```
 
 ## Nested Dictionaries

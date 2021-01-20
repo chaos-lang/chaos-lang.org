@@ -86,6 +86,14 @@ class HomeSplash extends React.Component {
 }
 
 class Index extends React.Component {
+  docUrl(doc, language) {
+    const baseUrl = this.props.config.baseUrl;
+    const docsUrl = this.props.config.docsUrl;
+    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
+    const langPart = `${language ? `${language}/` : ''}`;
+    return `${baseUrl}${docsPart}${langPart}${doc}`;
+  }
+
   render() {
     const {config: siteConfig, language = ''} = this.props;
     const {baseUrl} = siteConfig;
@@ -111,14 +119,12 @@ class Index extends React.Component {
         <ul style={{textAlign: 'left', width: '45%', margin: 'auto'}}>
           <li>TypeScript's type safety</li>
           <li>Python's syntax, modules and extensibility</li>
-          <li>JavaScript's availability</li>
-          <li>Ruby's loops and blocks</li>
-          <li>Rexx's <code>DO FOREVER</code> keyword</li>
+          <li>JavaScript's cross-platform support</li>
+          <li>Ruby's loops and blocks, Rexx's <code>FOREVER</code> keyword</li>
           <li>PHP's dedication to server-side</li>
-          <li>Haskell's immutability</li>
+          <li>Haskell's pure functions</li>
           <li>C's speed and interoperability</li>
-          <li>NumPy's matrix arithmetics</li>
-          <li>Perl's regex engine</li>
+          <li>Go's standalone executables</li>
         </ul>
       </div>
     );
@@ -183,10 +189,10 @@ class Index extends React.Component {
             title: 'Always 100% Coverage',
           },
           {
-            content: 'Chaos language is **not object-oriented**. So everything is done by functions and data types.',
-            image: `${baseUrl}img/function.svg`,
+            content: '**Dynamic yet compilable**, procedural programming paradigm combined with **pure functions**.',
+            image: `${baseUrl}img/keyboard.svg`,
             imageAlign: 'top',
-            title: 'Functional',
+            title: 'Strongly Typed',
           },
         ]}
       </Block>
@@ -196,19 +202,19 @@ class Index extends React.Component {
       <Block layout="threeColumn">
         {[
           {
-            content: 'Every variable in Chaos language is **immutable by default**.',
+            content: '**Immutable** function call parameters, no **segmentation faults**, no **stack smashing**.',
             image: `${baseUrl}img/padlock.svg`,
             imageAlign: 'top',
-            title: 'Immutability Everywhere',
+            title: 'Safe & Sound',
           },
           {
-            content: 'Language\'s itself forces you to write **less error-prone code**.',
+            content: 'Language\'s itself forces you to write **less error-prone code** with its [**decision blocks**](' + this.docUrl('11_decision_making', this.props.language) + ').',
             image: `${baseUrl}img/warrior.svg`,
             imageAlign: 'top',
             title: 'Discipline',
           },
           {
-            content: 'Chaos language is highly extensible via Chaos C extensions.',
+            content: 'Highly extensible with easy to develop [**Chaos C extensions**](' + this.docUrl('16_chaos_c_extensions_development', this.props.language) + '). Incredibly [**modular**](' + this.docUrl('12_modules', this.props.language) + ') with smart dependency checks.',
             image: `${baseUrl}img/socket.svg`,
             imageAlign: 'top',
             title: 'Modularity & Extensibility',

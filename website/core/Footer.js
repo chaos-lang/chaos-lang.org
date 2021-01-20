@@ -40,7 +40,7 @@ class Footer extends React.Component {
             <a href={this.docUrl('01_installation', this.props.language)}>
               Getting Started
             </a>
-            <a href={this.docUrl('04_primitive-data-types', this.props.language)}>
+            <a href={this.docUrl('03_comments', this.props.language)}>
               Language Reference
             </a>
             <a href={this.docUrl('01_installation', this.props.language)}>
@@ -49,8 +49,11 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Community</h5>
-            <a href="#">
-              Showcase
+            <a
+              href="ircs://freenode/chaoslang"
+              target="_blank"
+              rel="noreferrer noopener">
+              Freenode
             </a>
             <a
               href="https://stackoverflow.com/questions/tagged/chaos"
@@ -60,7 +63,7 @@ class Footer extends React.Component {
             </a>
             <a href="https://discordapp.com/">Project Chat</a>
             <a
-              href="https://twitter.com/"
+              href="https://twitter.com/ChaosLanguage"
               target="_blank"
               rel="noreferrer noopener">
               Twitter

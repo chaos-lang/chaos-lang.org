@@ -50,9 +50,9 @@ inside function b
 ## Type Safety
 
 All of the functions in Chaos Language are forced to have one of these keywords to
-determine the return type: `bool`, `num`, `str`, `list`, `dict`.
+determine the return type: `void`, `bool`, `num`, `str`, `list`, `dict`.
 
-If you try to return an incorrect data type from a function an error will be thrown:
+If you try to return an incorrect data type from a function a [**preemptive error**](20_preemptive_checks.md) will be thrown:
 
 ```chaos
 kaos> str def errorTest()
@@ -60,14 +60,14 @@ kaos> str def errorTest()
 ....      return a
 ....  end
 kaos> errorTest()
-  Chaos Error:
-    Module: /home/mertyildiran/Documents/chaos/__interactive__.kaos
-    Line: 4
-    Illegal variable type: Number for function: errorTest
-    Absorbed by Interactive Shell
+  Preemptive Error:
+    File: "/home/myuser/__interactive__.kaos", line 3, in errorTest
+      return a
+  Illegal variable type: Number for function: errorTest
+  Absorbed by Interactive Shell
 ```
 
-You can even return a typed list:
+It's also possible return a typed list:
 
 ```chaos
 kaos> str list def typedList()
@@ -93,7 +93,7 @@ kaos> b
 
 ## Immutability
 
-The parameters supplied to a function in Chaos will be deep cloned.  Changing a
+The parameters supplied to a function in Chaos will be deep cloned. Changing a
 parameter's value inside a function never updates the original variable:
 
 ```chaos
@@ -108,6 +108,8 @@ hello my friend
 kaos> print hello
 hello world
 ```
+
+*Immutability is there to guarantee **pure function calls** in Chaos language.*
 
 ## Optional Parameters
 
@@ -124,6 +126,38 @@ bar
 kaos> f2('foo', 'baz')
 foo
 baz
+```
+
+## Tail Call Optimization
+
+Tail calls in Chaos language are more than 100 times faster than the generic recursion. Therefore
+it's recommended to use tail calls whenever it's possible.
+
+#### Non-tail call recursion:
+
+```chaos
+void def f1(num x)
+    x++
+    print x
+    f1(x)
+end
+
+
+f1(1)
+```
+
+#### Tail call recursion:
+
+```chaos
+void def f1(num x)
+    x++
+    print x
+end {
+    default : f1(x)
+}
+
+
+f1(1)
 ```
 
 ## Example Functions

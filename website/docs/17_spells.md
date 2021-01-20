@@ -123,7 +123,7 @@ $ git remote -v
 
 ***Note**: Spell names must be universally unique.*
 
-***Caution**: [**Name squatting**](https://en.wikipedia.org/wiki/Cybersquatting) is **forbidden** and the spell will be **deleted** by maintainers if any viciousness or malware detected.*
+***Caution**: [**Name squatting**](https://en.wikipedia.org/wiki/Cybersquatting) is **forbidden** and the spell will be **deleted** by maintainers if any illegality or malware detected.*
 
 `occultist` requires to know the remote origin to fetch and build the source code from the specified Git server on installation time.
 Remote origin can be any Git server, **not** just [**github.com**](https://github.com).
