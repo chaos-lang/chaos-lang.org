@@ -4,14 +4,14 @@ author: M. Mert Yildiran
 authorURL: https://mertyildiran.com/
 ---
 
-Yestarday we have published Chaos version [**v0.2.0**](https://github.com/chaos-lang/chaos/releases/tag/v0.2.0) and
+Yesterday we have published Chaos version [**v0.2.0**](https://github.com/chaos-lang/chaos/releases/tag/v0.2.0) and
 today I would like to summarize the overall fixes and changes in the Chaos Language.
 
 ## Bug Fixes
 
 ### A bug in the operator precendence
 
-There was an operator precedence issue in mathematical expressions when they a variable name.
+There was an operator precedence issue in the mathematical expressions when they include a variable name.
 
 For example `2 * n - 2` was being evalated to `2`:
 
@@ -35,7 +35,7 @@ kaos> print a
 ### Errors will be written to `stderr` instead of `stdout`
 
 Before [**v0.2.0**](https://github.com/chaos-lang/chaos/releases/tag/v0.2.0), all the errors (including the syntax errors)
-were being written to `stdout` instead `stderr`. Now error and program outputs are separated such that while this is the whole output:
+were being written to `stdout` instead `stderr`. Now error and program outputs are separated such that; while this is the whole output:
 
 ```shell
 $ chaos tests/shell/absorber.kaos
@@ -46,7 +46,7 @@ hey
   Undefined variable: a
 ```
 
-Now it's possible to separete `stdout` and `stderr` for the same Chaos program:
+Now it's possible to separate `stdout` and `stderr` for the same Chaos program:
 
 ```shell
 $ chaos tests/shell/absorber.kaos 2>&1 > stdout.dump
@@ -87,9 +87,9 @@ end {
 }
 ```
 
-Now this is forbidden by the grammar definition and throws a syntax error:
+Now this is forbidden by the grammar definition and it throws a syntax error:
 
-```
+```text
   Syntax error:
     File: "dev.kaos", line 4, cause: *
       z == 8  : f1(x * 100),
@@ -243,9 +243,9 @@ As it's planned with [**this RFC**](https://github.com/chaos-lang/chaos/issues/8
 
 ## Added Command-Line Options
 
-With [**v0.2.0**](https://github.com/chaos-lang/chaos/releases/tag/v0.2.0), we have two new command line options:
+With [**v0.2.0**](https://github.com/chaos-lang/chaos/releases/tag/v0.2.0), we have two new command-line options:
 
-- `-l, --license` that prints the license of Chaos Language.
+- `-l, --license` that prints the license of Chaos language.
 - `-u, --unsafe` disables the [**preemptive checks**](https://chaos-lang.org/docs/20_preemptive_checks).
 
 ## Changes in the Interactive Shell (REPL)
@@ -268,3 +268,14 @@ and the REPL exit message is changed to `Bye bye!`:
 kaos> exit
     Bye bye!
 ```
+
+## What's next?
+
+We're planning to reach `v0.3.0` after implementing these three RFCs and fixing any issues that we encounter
+along the way:
+
+- [**Code Coverage**](https://github.com/chaos-lang/chaos/issues/98)
+- [**Multiline Preemptive Error Report**](https://github.com/chaos-lang/chaos/issues/99)
+- [**Error Handling**](https://github.com/chaos-lang/chaos/issues/82)
+
+It's also possible for us to publish a few patch releases `v0.2.x` if any bugs are reported and fixed in the mean time.

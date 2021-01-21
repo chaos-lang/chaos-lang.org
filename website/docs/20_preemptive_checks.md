@@ -5,7 +5,7 @@ sidebar_label: Preemptive Checks
 ---
 
 Chaos does some preemptive checks in both interpreter and compiler mode to report possible runtime errors
-in compile-time inside the all imported or defined functions.
+in compile-time inside the all imported and/or defined functions.
 These checks can be disabled with `--unsafe` option which also decreases the warm up time.
 
 ## Undefined variable checks
