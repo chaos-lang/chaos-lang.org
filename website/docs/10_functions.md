@@ -142,7 +142,6 @@ void def f1(num x)
     f1(x)
 end
 
-
 f1(1)
 ```
 
@@ -155,7 +154,6 @@ void def f1(num x)
 end {
     default : f1(x)
 }
-
 
 f1(1)
 ```
