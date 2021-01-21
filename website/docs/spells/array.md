@@ -18,7 +18,7 @@ import array
 
 ## Array Operations
 
-### list array.merge(list l1, list l2)
+### `list array.merge(list l1, list l2)`
 
 Merges list `l1` and list `l2` into a new list, in that order.
 
@@ -29,7 +29,7 @@ kaos> array.merge(a, b)
 [1, 2, 3, 4, 5, 6]
 ```
 
-### list array.insert(list l, any x, num i = -1)
+### `list array.insert(list l, any x, num i = -1)`
 
 Inserts a new item `x` into list `l` before index `i`.
 
@@ -41,7 +41,7 @@ kaos> array.insert(a, 4)
 [1, 2, 3, 4]
 ```
 
-### list array.reverse(list l)
+### `list array.reverse(list l)`
 
 Reverse the order of items in the list `l`.
 
@@ -52,7 +52,7 @@ kaos> array.reverse(a)
 [3, 2, 1]
 ```
 
-### list array.chunk(list l, num x)
+### `list array.chunk(list l, num x)`
 
 Chunk a list into `x` length sublists.
 
@@ -65,7 +65,7 @@ kaos> array.chunk(c, 3)
 
 ## Searching & Replacing
 
-### num list array.search(list haystack, any needle)
+### `num list array.search(list haystack, any needle)`
 
 Searches the list `haystack` for a given value `needle` and returns the corresponding indexes if successful. Returns an empty list `[]` if unsuccessful.
 
@@ -78,7 +78,7 @@ kaos> array.search(e, 'foo')
 [0, 2, 5]
 ```
 
-### list array.replace(list haystack, any needle, any replacement)
+### `list array.replace(list haystack, any needle, any replacement)`
 
 Replaces all occurrences of the `needle` with the `replacement` in list `haystack`.
 
@@ -93,7 +93,7 @@ kaos> array.replace(e, 'foo', 'goo')
 
 ## Information Functions
 
-### num array.length(list l)
+### `num array.length(list l)`
 
 Returns the length of list `l`.
 

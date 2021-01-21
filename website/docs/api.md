@@ -60,7 +60,7 @@ In this page we will describe the accessible macros and functions via
 
 ## Enums
 
-### Phase
+### `Phase`
 
 `enum Phase { INIT_PREPARSE, PREPARSE, INIT_PROGRAM, PROGRAM, INIT_JSON_PARSE, JSON_PARSE };`
 
@@ -77,7 +77,7 @@ is implemented in our [lexer](https://en.wikipedia.org/wiki/Lexical_analysis).
 
 `INIT_JSON_PARSE` and `JSON_PARSE` are only there to harness the JSON parsing capabilities of the Chaos language and provide [**jsonParse()**](api.md#void-jsonParse) function.
 
-### Type
+### `Type`
 
 `enum Type { K_BOOL, K_NUMBER, K_STRING, K_ANY, K_LIST, K_DICT, K_VOID };`
 
@@ -99,7 +99,7 @@ and `K_VOID` means [**Void**](10_functions) data type.
 
 *`K_` prefix can remind you **K**aos.*
 
-### ValueType
+### `ValueType`
 
 `enum ValueType { V_BOOL, V_INT, V_FLOAT, V_STRING, V_VOID };`
 
@@ -117,7 +117,7 @@ and `V_VOID` has a special meaning. It means a [**List**](05_lists) or a [**Dict
 
 *`V_` prefix can remind you **V**alue.*
 
-### KaosValue
+### `KaosValue`
 
 ```c
 typedef struct KaosValue {
@@ -131,7 +131,7 @@ typedef struct KaosValue {
 `KaosValue` is the representation of how the Chaos variables hold their value. It's tightly related to `ValueType`. You use the `KaosValue` to store the value if the value
 needs to be hard-coded into the extension and assign to correct C data type according to `ValueType` of variable and its equivalent shown above.
 
-### Role
+### `Role`
 
 `enum Role { DEFAULT, PARAM, CALL_PARAM };`
 
@@ -146,7 +146,7 @@ and `CALL_PARAM` means it's a function call parameter.
 
 ## Functions
 
-### int defineFunction()
+### `int defineFunction()`
 
 ```c
 int defineFunction(
@@ -237,7 +237,7 @@ int EXPORT KaosRegister(struct Kaos _kaos)
 }
 ```
 
-### bool getVariableBool()
+### `bool getVariableBool()`
 
 `bool getVariableBool(char *name);`
 
@@ -247,7 +247,7 @@ Get a `V_BOOL` value type variable. Example:
 bool x = kaos.getVariableBool(my_params_name[0]);
 ```
 
-### long long getVariableInt()
+### `long long getVariableInt()`
 
 `long long getVariableInt(char *name);`
 
@@ -257,7 +257,7 @@ Get a variable with `V_INT` value type. Example:
 long long x = kaos.getVariableInt(my_params_name[0]);
 ```
 
-### long double getVariableFloat()
+### `long double getVariableFloat()`
 
 `long double getVariableFloat(char *name);`
 
@@ -267,7 +267,7 @@ Get a variable with `V_FLOAT` value type. Example:
 long double x = kaos.getVariableFloat(my_params_name[0]);
 ```
 
-### char* getVariableString()
+### `char* getVariableString()`
 
 `char* getVariableString(char *name);`
 
@@ -277,7 +277,7 @@ Get a variable with `V_STRING` value type. Example:
 char* x = kaos.getVariableString(my_params_name[0]);
 ```
 
-### bool getVariableBoolByTypeCasting()
+### `bool getVariableBoolByTypeCasting()`
 
 `bool getVariableBoolByTypeCasting(char *name);`
 
@@ -287,7 +287,7 @@ Get a variable by casting its value type `V_BOOL` no matter what value type it h
 bool x = kaos.getVariableBoolByTypeCasting(my_params_name[0]);
 ```
 
-### long long getVariableIntByTypeCasting()
+### `long long getVariableIntByTypeCasting()`
 
 `long long getVariableIntByTypeCasting(char *name);`
 
@@ -297,7 +297,7 @@ Get a variable by casting its value type `V_INT` no matter what value type it ha
 long long x = kaos.getVariableIntByTypeCasting(my_params_name[0]);
 ```
 
-### long double getVariableFloatByTypeCasting()
+### `long double getVariableFloatByTypeCasting()`
 
 `long double getVariableFloatByTypeCasting(char *name);`
 
@@ -307,7 +307,7 @@ Get a variable by casting its value type `V_FLOAT` no matter what value type it 
 long double x = kaos.getVariableFloatByTypeCasting(my_params_name[0]);
 ```
 
-### char* getVariableStringByTypeCasting()
+### `char* getVariableStringByTypeCasting()`
 
 `char* getVariableStringByTypeCasting(char *name);`
 
@@ -317,7 +317,7 @@ Get a variable by casting its value type `V_STRING` no matter what value type it
 char* x = kaos.getVariableStringByTypeCasting(my_params_name[0]);
 ```
 
-### unsigned long getListLength()
+### `unsigned long getListLength()`
 
 `unsigned long getListLength(char *name);`
 
@@ -327,7 +327,7 @@ Get the length of the list. Example:
 unsigned long length = kaos.getListLength(my_params_name[0]);
 ```
 
-### bool getListElementBool()
+### `bool getListElementBool()`
 
 `bool getListElementBool(char *name, long long i);`
 
@@ -339,7 +339,7 @@ Get a list element with `V_BOOL` value type. Example:
 bool x = kaos.getListElementBool(my_params_name[0], 0);
 ```
 
-### long long getListElementInt()
+### `long long getListElementInt()`
 
 `long long getListElementInt(char *name, long long i);`
 
@@ -351,7 +351,7 @@ Get a list element with `V_INT` value type. Example:
 long long x = kaos.getListElementInt(my_params_name[0], 0);
 ```
 
-### long double getListElementFloat()
+### `long double getListElementFloat()`
 
 `long double getListElementFloat(char *name, long long i);`
 
@@ -363,7 +363,7 @@ Get a list element with `V_FLOAT` value type. Example:
 long double x = kaos.getListElementFloat(my_params_name[0], 0);
 ```
 
-### char* getListElementString()
+### `char* getListElementString()`
 
 `char* getListElementBool(char *name, long long i);`
 
@@ -375,7 +375,7 @@ Get a list element with `V_STRING` value type. Example:
 char* x = kaos.getListElementString(my_params_name[0], 0);
 ```
 
-### bool getListElementBoolByTypeCasting()
+### `bool getListElementBoolByTypeCasting()`
 
 `bool getListElementBoolByTypeCasting(char *name, long long i);`
 
@@ -385,7 +385,7 @@ Get a list element by casting its value type `V_BOOL` no matter what value type 
 bool x = kaos.getListElementBoolByTypeCasting(my_params_name[0], 0);
 ```
 
-### long long getListElementIntByTypeCasting()
+### `long long getListElementIntByTypeCasting()`
 
 `long long getListElementIntByTypeCasting(char *name, long long i);`
 
@@ -395,7 +395,7 @@ Get a list element by casting its value type `V_INT` no matter what value type i
 long long x = kaos.getListElementIntByTypeCasting(my_params_name[0], 0);
 ```
 
-### long double getListElementFloatByTypeCasting()
+### `long double getListElementFloatByTypeCasting()`
 
 `long double getListElementFloatByTypeCasting(char *name, long long i);`
 
@@ -405,7 +405,7 @@ Get a list element by casting its value type `V_FLOAT` no matter what value type
 long double x = kaos.getListElementFloatByTypeCasting(my_params_name[0], 0);
 ```
 
-### char* getListElementStringByTypeCasting()
+### `char* getListElementStringByTypeCasting()`
 
 `char* getListElementStringByTypeCasting(char *name, long long i);`
 
@@ -415,7 +415,7 @@ Get a list element by casting its value type `V_STRING` no matter what value typ
 char* x = kaos.getListElementStringByTypeCasting(my_params_name[0], 0);
 ```
 
-### void copyListElement()
+### `void copyListElement()`
 
 `void copyListElement(char *name, long long i);`
 
@@ -425,7 +425,7 @@ Copy the list element seamlessly while building a new list with [**startBuilding
 kaos.copyListElement(my_params_name[0], 0);
 ```
 
-### enum Type getListElementType()
+### `enum Type getListElementType()`
 
 `enum Type getListElementType(char *name, long long i);`
 
@@ -435,7 +435,7 @@ Learn the type of specific list element. Example:
 enum Type type = kaos.getListElementType(my_params_name[0], 0);
 ```
 
-### enum ValueType getListElementValueType()
+### `enum ValueType getListElementValueType()`
 
 `enum ValueType getListElementValueType(char *name, long long i);`
 
@@ -445,7 +445,7 @@ Learn the value type of specific list element. Example:
 enum ValueType value_type = kaos.getListElementValueType(my_params_name[0], 0);
 ```
 
-### unsigned long getDictLength()
+### `unsigned long getDictLength()`
 
 `unsigned long getDictLength(char *name);`
 
@@ -455,7 +455,7 @@ Get the length of the dictionary. Example:
 unsigned long length = kaos.getDictLength(my_params_name[0]);
 ```
 
-### char* getDictKeyByIndex()
+### `char* getDictKeyByIndex()`
 
 `char* getDictKeyByIndex(char *name, long long i);`
 
@@ -467,7 +467,7 @@ Get the key of a dictionary on index `i`.
 char* x = kaos.getDictKeyByIndex(my_params_name[0], 0);
 ```
 
-### bool getDictElementBool()
+### `bool getDictElementBool()`
 
 `bool getDictElementBool(char *name, char *key);`
 
@@ -479,7 +479,7 @@ Get a dictionary element with `V_BOOL` value type. Example:
 bool x = kaos.getDictElementBool(my_params_name[0], "a");
 ```
 
-### long long getDictElementInt()
+### `long long getDictElementInt()`
 
 `long long getDictElementInt(char *name, char *key);`
 
@@ -491,7 +491,7 @@ Get a dictionary element with `V_INT` value type. Example:
 long long x = kaos.getDictElementInt(my_params_name[0], "a");
 ```
 
-### long double getDictElementFloat()
+### `long double getDictElementFloat()`
 
 `long double getDictElementFloat(char *name, char *key);`
 
@@ -503,7 +503,7 @@ Get a dictionary element with `V_FLOAT` value type. Example:
 long double x = kaos.getDictElementFloat(my_params_name[0], "a");
 ```
 
-### char* getDictElementString()
+### `char* getDictElementString()`
 
 `char* getDictElementString(char *name, char *key);`
 
@@ -515,7 +515,7 @@ Get a dictionary element with `V_STRING` value type. Example:
 char* x = kaos.getDictElementString(my_params_name[0], "a");
 ```
 
-### bool getDictElementBoolByTypeCasting()
+### `bool getDictElementBoolByTypeCasting()`
 
 `bool getDictElementBoolByTypeCasting(char *name, char *key);`
 
@@ -525,7 +525,7 @@ Get a dictionary element by casting its value type `V_BOOL` no matter what value
 bool x = kaos.getDictElementBoolByTypeCasting(my_params_name[0], "a");
 ```
 
-### long long getDictElementIntByTypeCasting()
+### `long long getDictElementIntByTypeCasting()`
 
 `long long getDictElementIntByTypeCasting(char *name, char *key);`
 
@@ -535,7 +535,7 @@ Get a dictionary element by casting its value type `V_INT` no matter what value 
 long long x = kaos.getDictElementIntByTypeCasting(my_params_name[0], "a");
 ```
 
-### long double getDictElementFloatByTypeCasting()
+### `long double getDictElementFloatByTypeCasting()`
 
 `long double getDictElementFloatByTypeCasting(char *name, char *key);`
 
@@ -545,7 +545,7 @@ Get a dictionary element by casting its value type `V_FLOAT` no matter what valu
 long double x = kaos.getDictElementFloatByTypeCasting(my_params_name[0], "a");
 ```
 
-### char* getDictElementStringByTypeCasting()
+### `char* getDictElementStringByTypeCasting()`
 
 `char* getDictElementStringByTypeCasting(char *name, char *key);`
 
@@ -555,7 +555,7 @@ Get a dictionary element by casting its value type `V_STRING` no matter what val
 char* x = kaos.getDictElementStringByTypeCasting(my_params_name[0], "a");
 ```
 
-### void copyDictElement()
+### `void copyDictElement()`
 
 `void copyDictElement(char *name, char *key);`
 
@@ -565,7 +565,7 @@ Copy the dictionary element seamlessly while building a new dictionary with [**s
 kaos.copyDictElement(my_params_name[0], "a");
 ```
 
-### enum Type getDictElementType()
+### `enum Type getDictElementType()`
 
 `enum Type getDictElementType(char *name, char *key);`
 
@@ -575,7 +575,7 @@ Learn the type of specific dictionary element. Example:
 enum Type type = kaos.getDictElementType(my_params_name[0], "a");
 ```
 
-### enum ValueType getDictElementValueType()
+### `enum ValueType getDictElementValueType()`
 
 `enum ValueType getDictElementValueType(char *name, char *key);`
 
@@ -585,7 +585,7 @@ Learn the value type of specific dictionary element. Example:
 enum ValueType value_type = kaos.getDictElementValueType(my_params_name[0], "a");
 ```
 
-### char* dumpVariableToString()
+### `char* dumpVariableToString()`
 
 `char* dumpVariableToString(char *name, bool pretty, bool escaped, bool double_quotes);`
 
@@ -595,7 +595,7 @@ Dumps a variable into a string as if you're printing that variable. Example:
 char* dump = kaos.dumpVariableToString(my_params_name[0], false, true, true);
 ```
 
-### void returnVariableBool()
+### `void returnVariableBool()`
 
 `void returnVariableBool(bool b);`
 
@@ -605,7 +605,7 @@ Return a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 kaos.returnVariableBool(true);
 ```
 
-### void returnVariableInt()
+### `void returnVariableInt()`
 
 `void returnVariableInt(long long i);`
 
@@ -615,7 +615,7 @@ Return a variable with `K_NUMBER` type and `V_INT` value type. Example:
 kaos.returnVariableInt(365);
 ```
 
-### void returnVariableFloat()
+### `void returnVariableFloat()`
 
 `void returnVariableFloat(long double f);`
 
@@ -625,7 +625,7 @@ Return a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 kaos.returnVariableFloat(3.14);
 ```
 
-### void returnVariableString()
+### `void returnVariableString()`
 
 `void returnVariableString(char *s);`
 
@@ -635,7 +635,7 @@ Return a variable with `K_STRING` type and `V_STRING` value type. Example:
 kaos.returnVariableString("foo");
 ```
 
-### void createVariableBool()
+### `void createVariableBool()`
 
 `void createVariableBool(char *name, bool b);`
 
@@ -649,7 +649,7 @@ Create a variable with `K_BOOL` type and `V_BOOL` value type. Example:
 kaos.createVariableBool("b", true);
 ```
 
-### void createVariableInt()
+### `void createVariableInt()`
 
 `void createVariableInt(char *name, long long i);`
 
@@ -663,7 +663,7 @@ Create a variable with `K_NUMBER` type and `V_INT` value type. Example:
 kaos.createVariableInt("i", 1);
 ```
 
-### void createVariableFloat()
+### `void createVariableFloat()`
 
 `void createVariableFloat(char *name, long double f);`
 
@@ -677,7 +677,7 @@ Create a variable with `K_NUMBER` type and `V_FLOAT` value type. Example:
 kaos.createVariableFloat("f", 3.14);
 ```
 
-### void createVariableString()
+### `void createVariableString()`
 
 `void createVariableString(char *name, char *s);`
 
@@ -691,7 +691,7 @@ Create a variable with `K_STRING` type and `V_STRING` value type. Example:
 kaos.createVariableString("s", "bar");
 ```
 
-### void startBuildingList()
+### `void startBuildingList()`
 
 `void startBuildingList();`
 
@@ -705,7 +705,7 @@ kaos.createVariableInt(NULL, 3);
 kaos.returnList(K_NUMBER);
 ```
 
-### void returnList()
+### `void returnList()`
 
 `void returnList(enum Type type);`
 
@@ -719,7 +719,7 @@ kaos.createVariableInt(NULL, 3);
 kaos.returnList(K_NUMBER);
 ```
 
-### void startBuildingDict()
+### `void startBuildingDict()`
 
 `void startBuildingDict();`
 
@@ -734,7 +734,7 @@ kaos.createVariableString("s", "bar");
 kaos.returnDict(K_ANY);
 ```
 
-### void returnDict()
+### `void returnDict()`
 
 `void returnDict(enum Type type);`
 
@@ -749,31 +749,31 @@ kaos.createVariableString("s", "bar");
 kaos.returnDict(K_ANY);
 ```
 
-### void returnComplex()
+### `void returnComplex()`
 
 `void returnComplex(enum Type type);`
 
 This function can be used instead of [**returnList()**](api.md#void-returnlist) or [**returnDict()**](api.md#void-returndict).
 
-### void finishList()
+### `void finishList()`
 
 `void finishList(enum Type type);`
 
 Finish building a list that you started with [**startBuildingList()**](api.md#void-startbuildinglist). You can think this function as [**returnList()**](api.md#void-returnlist) minus `return`
 
-### void finishDict()
+### `void finishDict()`
 
 `void finishDict(enum Type type);`
 
 Finish building a dictionary that you started with [**startBuildingDict()**](api.md#void-startbuildingdict). You can think this function as [**returnDict()**](api.md#void-returndict) minus `return`
 
-### void finishComplex()
+### `void finishComplex()`
 
 `void finishComplex(enum Type type);`
 
 This function can be used instead of [**finishList()**](api.md#void-finishlist) or [**finishDict()**](api.md#void-finishdict).
 
-### enum Type getListType()
+### `enum Type getListType()`
 
 `enum Type getListType(char *name);`
 
@@ -783,7 +783,7 @@ Learn the type of a typed list. Example:
 enum Type type = kaos.getListType(my_params_name[0]);
 ```
 
-### enum Type getDictType()
+### `enum Type getDictType()`
 
 `enum Type getDictType(char *name);`
 
@@ -793,7 +793,7 @@ Learn the type of a typed dictionary. Example:
 enum Type type = kaos.getDictType(my_params_name[0]);
 ```
 
-### enum ValueType getValueType()
+### `enum ValueType getValueType()`
 
 `enum ValueType getValueType(char *name);`
 
@@ -803,7 +803,7 @@ Learn the value type of a specific variable. Example:
 enum ValueType value_type = kaos.getValueType(my_params_name[0]);
 ```
 
-### enum Role getRole()
+### `enum Role getRole()`
 
 `enum Role getRole(char *name);`
 
@@ -813,7 +813,7 @@ Learn the role of a specific variable. Example:
 enum Role role = kaos.getRole(my_params_name[0]);
 ```
 
-### void raiseError()
+### `void raiseError()`
 
 `void raiseError(char *msg);`
 
@@ -823,7 +823,7 @@ Throw an error. Example:
 kaos.raiseError("Something bad happened!")
 ```
 
-### void parseJson()
+### `void parseJson()`
 
 `void parseJson(char *json);`
 

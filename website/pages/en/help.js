@@ -27,8 +27,8 @@ function Help(props) {
       title: 'Browse Docs',
     },
     {
-      content: 'Ask questions or report bugs using the [**issue tracker**](https://github.com/chaos-lang/chaos/issues).',
-      title: 'Join the community',
+      content: 'Use the [**issue tracker**](https://github.com/chaos-lang/chaos/issues) or the **community links** in the footer.',
+      title: 'Ask Questions or Report Bugs',
     },
     {
       content: "Find out what's new with this project, read our [**blog**](/blog).",

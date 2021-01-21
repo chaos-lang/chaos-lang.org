@@ -43,7 +43,7 @@ class Footer extends React.Component {
             <a href={this.docUrl('03_comments', this.props.language)}>
               Language Reference
             </a>
-            <a href={this.docUrl('01_installation', this.props.language)}>
+            <a href={this.docUrl('api', this.props.language)}>
               API Reference
             </a>
           </div>
@@ -61,18 +61,29 @@ class Footer extends React.Component {
               rel="noreferrer noopener">
               Stack Overflow
             </a>
-            <a href="https://discordapp.com/">Project Chat</a>
+            <a
+              href="https://discord.gg/PVadDtSP"
+              target="_blank"
+              rel="noreferrer noopener">
+              Discord
+            </a>
             <a
               href="https://twitter.com/ChaosLanguage"
               target="_blank"
               rel="noreferrer noopener">
               Twitter
             </a>
+            <a
+              href="https://gitter.im/chaos-lang/community"
+              target="_blank"
+              rel="noreferrer noopener">
+              Gitter
+            </a>
           </div>
           <div>
             <h5>More</h5>
             <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
-            <a href="https://github.com/chaos-lang/">GitHub</a>
+            <a href="https://github.com/chaos-lang">GitHub</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
