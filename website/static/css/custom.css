@@ -14,6 +14,9 @@
 }
 
 @media only screen and (max-width: 1023px) {
+    .homeSplashFade {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (min-width: 1400px) {

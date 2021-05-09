@@ -39,6 +39,7 @@ end {
     n < 0   : fibo_error(),
     n == 0  : return zero,
     n == 1  : return one,
+    n == 2  : return one,
     default : sum(c)
 }
 

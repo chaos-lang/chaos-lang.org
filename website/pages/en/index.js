@@ -6,6 +6,7 @@
  */
 
 const React = require('react');
+const fs = require('fs');
 
 const CompLibrary = require('../../core/CompLibrary.js');
 
@@ -21,10 +22,17 @@ class HomeSplash extends React.Component {
     const langPart = `${language ? `${language}/` : ''}`;
     const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
+    const snippet = fs.readFileSync('pages/en/snippet.md', 'utf8');
+
     const SplashContainer = props => (
       <div className="homeContainer">
-        <div className="homeSplashFade">
+        <div className="homeSplashFade" style={{display: 'flex'}}>
           <div className="wrapper homeWrapper">{props.children}</div>
+          <div className="wrapper" style={{textAlign: 'left'}}>
+            <MarkdownBlock>
+              {snippet}
+            </MarkdownBlock>
+          </div>
         </div>
       </div>
     );
